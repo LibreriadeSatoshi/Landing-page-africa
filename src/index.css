@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #111111;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#F7931A] hover:bg-[#E07B0A] text-white font-semibold px-8 py-3 rounded-full transition-all duration-200 inline-flex items-center gap-2 text-sm md:text-base;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-white text-white hover:bg-white hover:text-black font-semibold px-8 py-3 rounded-full transition-all duration-200 inline-flex items-center gap-2 text-sm md:text-base;
+  }
+
+  .btn-outline-orange {
+    @apply border-2 border-[#F7931A] text-[#F7931A] hover:bg-[#F7931A] hover:text-white font-semibold px-8 py-3 rounded-full transition-all duration-200 inline-flex items-center gap-2 text-sm md:text-base;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+  }
+
+  .section-subheading {
+    @apply text-lg md:text-xl text-gray-600 leading-relaxed;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl p-6 shadow-sm border border-gray-100;
+  }
+}
