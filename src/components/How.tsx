@@ -1,60 +1,56 @@
 import { Users, Wrench, MessageCircle, Share2, CheckCircle } from 'lucide-react'
-
-const steps = [
-  {
-    number: '01',
-    icon: Users,
-    title: 'Cohort-Based Learning',
-    description:
-      'Join a cohort of peers from across Africa. Learn together, support each other, and progress through structured modules with expert guidance.',
-  },
-  {
-    number: '02',
-    icon: Wrench,
-    title: 'Hands-On Technical Training',
-    description:
-      'Practice with real Bitcoin tools and open-source software. Build actual skills—not just theory—through guided labs and projects.',
-  },
-  {
-    number: '03',
-    icon: MessageCircle,
-    title: 'Leadership & Localization',
-    description:
-      'Develop communication and facilitation skills. Learn to adapt Bitcoin concepts to your culture, language, and community context.',
-  },
-  {
-    number: '04',
-    icon: Share2,
-    title: 'Knowledge Sharing',
-    description:
-      'Organize local workshops, online sessions, and community meetups. Multiply your learning by teaching others in your network.',
-  },
-  {
-    number: '05',
-    icon: CheckCircle,
-    title: 'Proof of Work Funnel',
-    description:
-      'Document your impact. Complete milestones, earn recognition, and build a track record that proves your leadership and expertise.',
-  },
-]
+import { useTranslation } from 'react-i18next'
 
 export default function How() {
+  const { t } = useTranslation()
+  const steps = [
+    {
+      number: '01',
+      icon: Users,
+      title: t('how.steps.one.title'),
+      description: t('how.steps.one.description'),
+    },
+    {
+      number: '02',
+      icon: Wrench,
+      title: t('how.steps.two.title'),
+      description: t('how.steps.two.description'),
+    },
+    {
+      number: '03',
+      icon: MessageCircle,
+      title: t('how.steps.three.title'),
+      description: t('how.steps.three.description'),
+    },
+    {
+      number: '04',
+      icon: Share2,
+      title: t('how.steps.four.title'),
+      description: t('how.steps.four.description'),
+    },
+    {
+      number: '05',
+      icon: CheckCircle,
+      title: t('how.steps.five.title'),
+      description: t('how.steps.five.description'),
+    },
+  ]
+
   return (
     <section className="py-20 md:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-4">
           <span className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
-            How It Works
+            {t('how.label')}
           </span>
         </div>
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading text-black mb-6">
-            Your Path from{' '}
-            <span className="text-[#F7931A]">Learner to Leader</span>
+            {t('how.titlePrefix')}{' '}
+            <span className="text-[#F7931A]">{t('how.titleHighlight')}</span>
           </h2>
           <p className="section-subheading">
-            A structured, step-by-step program designed to take you from Bitcoin beginner
-            to community educator in a matter of months.
+            {t('how.description')}
           </p>
         </div>
 
@@ -80,7 +76,9 @@ export default function How() {
                           <Icon size={22} className="text-white" />
                         </div>
                         <div>
-                          <div className="text-xs text-gray-400 font-semibold mb-1">Step {step.number}</div>
+                          <div className="text-xs text-gray-400 font-semibold mb-1">
+                            {t('how.stepLabel')} {step.number}
+                          </div>
                           <h3 className="text-lg font-bold text-black mb-2">{step.title}</h3>
                           <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
                         </div>

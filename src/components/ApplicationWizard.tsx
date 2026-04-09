@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import {
   ArrowLeft,
   ArrowRight,
@@ -9,7 +10,6 @@ import {
 import {
   ADDITIONAL_LANGUAGES_OPTIONS,
   AFRICAN_COUNTRIES,
-  BITCOIN_KNOWLEDGE_OPTIONS,
   HEAR_ABOUT_OPTIONS,
   HOURS_PER_WEEK_OPTIONS,
   PRIMARY_LANGUAGE_OPTIONS,
@@ -126,7 +126,8 @@ type ApplicationWizardProps = {
   onClose: () => void
 }
 
-export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
+export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizardProps>) {
+  const { t } = useTranslation()
   const [step, setStep] = useState(0)
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -184,7 +185,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
     const ok = await trigger(STEP1_FIELDS)
     if (!ok) return false
     const v = getValues()
-    const n = parseInt(v.age, 10)
+    const n = Number.parseInt(v.age, 10)
     if (Number.isNaN(n) || n < 16 || n > 35) {
       await trigger('age')
       return false
@@ -272,7 +273,12 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
     }
   }
 
-  const progress = useMemo(() => ((step + 1) / 4) * 100, [step])
+  const bitcoinKnowledgeOptions = [
+    { value: 'beginner', label: t('application.bitcoinOptions.beginner') },
+    { value: 'intermediate', label: t('application.bitcoinOptions.intermediate') },
+    { value: 'advanced', label: t('application.bitcoinOptions.advanced') },
+    { value: 'expert', label: t('application.bitcoinOptions.expert') },
+  ]
 
   if (submitted) {
     return (
@@ -282,14 +288,12 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
       >
         <div className="max-w-lg w-full bg-white/5 border border-[#F7931A]/30 rounded-3xl p-10 text-center">
           <CheckCircle size={56} className="text-[#F7931A] mx-auto mb-4" />
-          <h1 className="text-white text-2xl font-bold mb-3">Application received</h1>
+          <h1 className="text-white text-2xl font-bold mb-3">{t('application.success.title')}</h1>
           <p className="text-gray-400 text-lg mb-8">
-            Thank you for applying to become an Africa Bitcoin Education Ambassador. We will
-            review your submission and contact you within 5–7 business days. Please check your
-            email (including spam).
+            {t('application.success.description')}
           </p>
           <button type="button" onClick={onClose} className="btn-outline-orange w-full justify-center">
-            Back to home
+            {t('application.backHome')}
           </button>
         </div>
       </div>
@@ -309,30 +313,26 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
             className="text-sm font-medium text-gray-600 hover:text-[#F7931A] inline-flex items-center gap-2 mb-4"
           >
             <ArrowLeft size={18} />
-            Back to home
+            {t('application.backHome')}
           </button>
           <p className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
-            Ambassador application
+            {t('application.label')}
           </p>
           <h1 className="section-heading text-black mt-2 mb-2">
-            Africa Bitcoin Education
+            {t('application.title')}
           </h1>
           <p className="text-gray-600 text-sm leading-relaxed">
-            Complete all required fields. This takes about 5–15 minutes. Do not use AI tools to
-            answer — we want your authentic voice.
+            {t('application.description')}
           </p>
           <div className="mt-4 h-2 bg-gray-200 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-[#F7931A] transition-all duration-300"
-              style={{ width: `${progress}%` }}
-              role="progressbar"
-              aria-valuenow={step + 1}
-              aria-valuemin={1}
-              aria-valuemax={4}
+            <progress
+              className="h-full w-full [appearance:none] [&::-webkit-progress-bar]:bg-transparent [&::-webkit-progress-value]:bg-[#F7931A] [&::-moz-progress-bar]:bg-[#F7931A]"
+              value={step + 1}
+              max={4}
             />
           </div>
           <p className="text-xs text-gray-500 mt-2">
-            Step {step + 1} of 4
+            {t('application.stepOf', { current: step + 1, total: 4 })}
           </p>
         </div>
 
@@ -344,12 +344,12 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
           {step === 0 && (
             <div className="space-y-5" data-testid="wizard-step-1">
               <h2 className="text-lg font-bold text-black border-b border-gray-100 pb-2">
-                Section 1 — Eligibility & personal information
+                {t('application.sections.one')}
               </h2>
 
               <div>
                 <label className={labelClass}>
-                  Full name <span className="text-red-500">*</span>
+                  {t('application.fields.fullName')} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -363,7 +363,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <label className={labelClass}>
-                  Email address <span className="text-red-500">*</span>
+                  {t('application.fields.email')} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
@@ -380,7 +380,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <span className={labelClass}>
-                  Are you between the ages of 16 and 35? <span className="text-red-500">*</span>
+                  {t('application.fields.between16and35')} <span className="text-red-500">*</span>
                 </span>
                 <div className="flex gap-6">
                   <label className="inline-flex items-center gap-2 cursor-pointer">
@@ -389,7 +389,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                       value="yes"
                       {...register('between16and35', { required: 'Please select' })}
                     />
-                    <span className="text-sm text-gray-800">Yes</span>
+                    <span className="text-sm text-gray-800">{t('common.yes')}</span>
                   </label>
                   <label className="inline-flex items-center gap-2 cursor-pointer">
                     <input
@@ -397,12 +397,12 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                       value="no"
                       {...register('between16and35', { required: 'Please select' })}
                     />
-                    <span className="text-sm text-gray-800">No</span>
+                    <span className="text-sm text-gray-800">{t('common.no')}</span>
                   </label>
                 </div>
                 {watch('between16and35') === 'no' && (
                   <p className="text-amber-700 text-xs mt-2">
-                    You must be between 16 and 35 to apply.
+                    {t('application.validation.ageRangeWarning')}
                   </p>
                 )}
                 {errors.between16and35 && (
@@ -412,7 +412,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <label className={labelClass}>
-                  Age <span className="text-red-500">*</span>
+                  {t('application.fields.age')} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="number"
@@ -422,7 +422,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                   {...register('age', {
                     required: 'Required',
                     validate: (v) => {
-                      const n = parseInt(v, 10)
+                      const n = Number.parseInt(v, 10)
                       if (Number.isNaN(n) || n < 16 || n > 35) return 'Age must be between 16 and 35'
                       return true
                     },
@@ -435,11 +435,11 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <label className={labelClass}>
-                  Gender <span className="text-red-500">*</span>
+                  {t('application.fields.gender')} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
-                  placeholder="How you identify"
+                  placeholder={t('application.placeholders.gender')}
                   className={inputClass(!!errors.gender)}
                   {...register('gender', { required: 'Required' })}
                 />
@@ -451,13 +451,13 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className={labelClass}>
-                    Country <span className="text-red-500">*</span>
+                    {t('application.fields.country')} <span className="text-red-500">*</span>
                   </label>
                   <select
                     className={inputClass(!!errors.country)}
                     {...register('country', { required: 'Required' })}
                   >
-                    <option value="">Select country</option>
+                    <option value="">{t('application.select.country')}</option>
                     {AFRICAN_COUNTRIES.map((c) => (
                       <option key={c} value={c}>
                         {c}
@@ -470,7 +470,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                 </div>
                 <div>
                   <label className={labelClass}>
-                    City of residence <span className="text-red-500">*</span>
+                    {t('application.fields.city')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -485,13 +485,13 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <label className={labelClass}>
-                  Time zone <span className="text-red-500">*</span>
+                  {t('application.fields.timezone')} <span className="text-red-500">*</span>
                 </label>
                 <select
                   className={inputClass(!!errors.timezone)}
                   {...register('timezone', { required: 'Required' })}
                 >
-                  <option value="">Select time zone</option>
+                  <option value="">{t('application.select.timezone')}</option>
                   {TIMEZONES.map((tz) => (
                     <option key={tz.value} value={tz.value}>
                       {tz.label}
@@ -505,13 +505,13 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <label className={labelClass}>
-                  Primary language <span className="text-red-500">*</span>
+                  {t('application.fields.primaryLanguage')} <span className="text-red-500">*</span>
                 </label>
                 <select
                   className={inputClass(!!errors.primaryLanguage)}
                   {...register('primaryLanguage', { required: 'Required' })}
                 >
-                  <option value="">Select language</option>
+                  <option value="">{t('application.select.language')}</option>
                   {PRIMARY_LANGUAGE_OPTIONS.map((l) => (
                     <option key={l} value={l}>
                       {l}
@@ -525,13 +525,13 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <label className={labelClass}>
-                  Do you speak any additional languages? <span className="text-red-500">*</span>
+                  {t('application.fields.additionalLanguages')} <span className="text-red-500">*</span>
                 </label>
                 <select
                   className={inputClass(!!errors.additionalLanguages)}
                   {...register('additionalLanguages', { required: 'Required' })}
                 >
-                  <option value="">Select</option>
+                  <option value="">{t('application.select.generic')}</option>
                   {ADDITIONAL_LANGUAGES_OPTIONS.map((l) => (
                     <option key={l} value={l}>
                       {l}
@@ -545,7 +545,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <span className={labelClass}>
-                  Can you read and write in the languages specified above?{' '}
+                  {t('application.fields.readWriteLanguages')}{' '}
                   <span className="text-red-500">*</span>
                 </span>
                 <div className="flex gap-6">
@@ -555,7 +555,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                       value="yes"
                       {...register('readWriteLanguages', { required: 'Please select' })}
                     />
-                    <span className="text-sm">Yes</span>
+                    <span className="text-sm">{t('common.yes')}</span>
                   </label>
                   <label className="inline-flex items-center gap-2 cursor-pointer">
                     <input
@@ -563,7 +563,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                       value="no"
                       {...register('readWriteLanguages', { required: 'Please select' })}
                     />
-                    <span className="text-sm">No</span>
+                    <span className="text-sm">{t('common.no')}</span>
                   </label>
                 </div>
                 {errors.readWriteLanguages && (
@@ -573,14 +573,14 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <label className={labelClass}>
-                  How did you hear about the Africa Bitcoin Education Ambassador Program?{' '}
+                  {t('application.fields.hearAbout')}{' '}
                   <span className="text-red-500">*</span>
                 </label>
                 <select
                   className={inputClass(!!errors.hearAbout)}
                   {...register('hearAbout', { required: 'Required' })}
                 >
-                  <option value="">Select</option>
+                  <option value="">{t('application.select.generic')}</option>
                   {HEAR_ABOUT_OPTIONS.map((h) => (
                     <option key={h} value={h}>
                       {h}
@@ -598,16 +598,15 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
           {step === 1 && (
             <div className="space-y-5" data-testid="wizard-step-2">
               <h2 className="text-lg font-bold text-black border-b border-gray-100 pb-2">
-                Section 2 — Guardian / parent (under 18)
+                {t('application.sections.two')}
               </h2>
               <p className="text-sm text-gray-600">
-                If you are under 18, a parent or guardian must provide consent. If you are 18 or
-                older, select that option and continue.
+                {t('application.sections.twoDescription')}
               </p>
 
               <div>
                 <span className={labelClass}>
-                  Are you 18 years or older? <span className="text-red-500">*</span>
+                  {t('application.fields.isAdult')} <span className="text-red-500">*</span>
                 </span>
                 <div className="flex flex-col gap-3">
                   <label className="inline-flex items-center gap-2 cursor-pointer">
@@ -616,7 +615,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                       value="yes"
                       {...register('isAdult', { required: 'Please select' })}
                     />
-                    <span className="text-sm">Yes, I am 18 or older</span>
+                    <span className="text-sm">{t('application.options.adultYes')}</span>
                   </label>
                   <label className="inline-flex items-center gap-2 cursor-pointer">
                     <input
@@ -624,7 +623,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                       value="no"
                       {...register('isAdult', { required: 'Please select' })}
                     />
-                    <span className="text-sm">No, I am under 18</span>
+                    <span className="text-sm">{t('application.options.adultNo')}</span>
                   </label>
                 </div>
                 {errors.isAdult && (
@@ -636,7 +635,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                 <>
                   <div>
                     <span className={labelClass}>
-                      Parental / guardian consent <span className="text-red-500">*</span>
+                      {t('application.fields.guardianConsent')} <span className="text-red-500">*</span>
                     </span>
                     <label className="flex items-start gap-3 cursor-pointer mt-2">
                       <input
@@ -650,9 +649,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                         })}
                       />
                       <span className="text-sm text-gray-700 leading-relaxed">
-                        I am the parent/guardian, and I give consent for the applicant to
-                        participate. I understand they will promote Bitcoin education, create
-                        content, engage on social media, and represent the organization.
+                        {t('application.fields.guardianConsentText')}
                       </span>
                     </label>
                     {errors.guardianConsentAccepted && (
@@ -665,28 +662,32 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className={labelClass}>
-                        Guardian / parent full name <span className="text-red-500">*</span>
+                        {t('application.fields.guardianName')} <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
                         className={inputClass(!!errors.guardianName)}
                         {...register('guardianName', {
-                          validate: (v) =>
-                            isAdult === 'no' ? (v?.trim() ? true : 'Required') : true,
+                          validate: (v) => {
+                            if (isAdult !== 'no') return true
+                            return v?.trim() ? true : 'Required'
+                          },
                         })}
                       />
                     </div>
                     <div>
                       <label className={labelClass}>
-                        Relationship <span className="text-red-500">*</span>
+                        {t('application.fields.guardianRelationship')} <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
-                        placeholder="e.g. Mother, Father"
+                        placeholder={t('application.placeholders.guardianRelationship')}
                         className={inputClass(!!errors.guardianRelationship)}
                         {...register('guardianRelationship', {
-                          validate: (v) =>
-                            isAdult === 'no' ? (v?.trim() ? true : 'Required') : true,
+                          validate: (v) => {
+                            if (isAdult !== 'no') return true
+                            return v?.trim() ? true : 'Required'
+                          },
                         })}
                       />
                     </div>
@@ -695,7 +696,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className={labelClass}>
-                        Guardian email <span className="text-red-500">*</span>
+                        {t('application.fields.guardianEmail')} <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="email"
@@ -711,14 +712,16 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                     </div>
                     <div>
                       <label className={labelClass}>
-                        Guardian phone <span className="text-red-500">*</span>
+                        {t('application.fields.guardianPhone')} <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="tel"
                         className={inputClass(!!errors.guardianPhone)}
                         {...register('guardianPhone', {
-                          validate: (v) =>
-                            isAdult === 'no' ? (v?.trim() ? true : 'Required') : true,
+                          validate: (v) => {
+                            if (isAdult !== 'no') return true
+                            return v?.trim() ? true : 'Required'
+                          },
                         })}
                       />
                     </div>
@@ -732,18 +735,18 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
           {step === 2 && (
             <div className="space-y-5" data-testid="wizard-step-3">
               <h2 className="text-lg font-bold text-black border-b border-gray-100 pb-2">
-                Section 3 — Availability & commitment
+                {t('application.sections.three')}
               </h2>
 
               <div>
                 <label className={labelClass}>
-                  How many hours per week can you commit? <span className="text-red-500">*</span>
+                  {t('application.fields.hoursPerWeek')} <span className="text-red-500">*</span>
                 </label>
                 <select
                   className={inputClass(!!errors.hoursPerWeek)}
                   {...register('hoursPerWeek', { required: 'Required' })}
                 >
-                  <option value="">Select</option>
+                  <option value="">{t('application.select.generic')}</option>
                   {HOURS_PER_WEEK_OPTIONS.map((h) => (
                     <option key={h} value={h}>
                       {h}
@@ -757,7 +760,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <span className={labelClass}>
-                  Can you commit to a minimum of 3 months? <span className="text-red-500">*</span>
+                  {t('application.fields.commitThreeMonths')} <span className="text-red-500">*</span>
                 </span>
                 <div className="flex gap-6">
                   <label className="inline-flex items-center gap-2 cursor-pointer">
@@ -766,7 +769,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                       value="yes"
                       {...register('commitThreeMonths', { required: 'Please select' })}
                     />
-                    <span className="text-sm">Yes</span>
+                    <span className="text-sm">{t('common.yes')}</span>
                   </label>
                   <label className="inline-flex items-center gap-2 cursor-pointer">
                     <input
@@ -774,7 +777,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                       value="no"
                       {...register('commitThreeMonths', { required: 'Please select' })}
                     />
-                    <span className="text-sm">No</span>
+                    <span className="text-sm">{t('common.no')}</span>
                   </label>
                 </div>
                 {errors.commitThreeMonths && (
@@ -784,9 +787,9 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <label className={labelClass}>
-                  What do you hope to learn and achieve as an Africa Bitcoin Education Ambassador?{' '}
+                  {t('application.fields.hopeToLearn')}{' '}
                   <span className="text-red-500">*</span>
-                  <span className="font-normal text-gray-500"> (max 200 words)</span>
+                  <span className="font-normal text-gray-500"> {t('application.maxWords')}</span>
                 </label>
                 <textarea
                   rows={6}
@@ -798,7 +801,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                   })}
                 />
                 <p className="text-xs text-gray-500 mt-1">
-                  {wordCount(watch('hopeToLearn'))} / 200 words
+                  {t('application.wordsCount', { current: wordCount(watch('hopeToLearn')), max: 200 })}
                 </p>
                 {errors.hopeToLearn && (
                   <p className="text-red-500 text-xs mt-1">{errors.hopeToLearn.message}</p>
@@ -807,7 +810,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <label className={labelClass}>
-                  How can you help your community as an Ambassador through this program?{' '}
+                  {t('application.fields.helpCommunity')}{' '}
                   <span className="text-red-500">*</span>
                 </label>
                 <textarea
@@ -822,7 +825,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <span className={labelClass}>
-                  Do you have a reliable computer or laptop? <span className="text-red-500">*</span>
+                  {t('application.fields.hasLaptop')} <span className="text-red-500">*</span>
                 </span>
                 <div className="flex gap-6">
                   <label className="inline-flex items-center gap-2 cursor-pointer">
@@ -831,7 +834,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                       value="yes"
                       {...register('hasLaptop', { required: 'Please select' })}
                     />
-                    <span className="text-sm">Yes</span>
+                    <span className="text-sm">{t('common.yes')}</span>
                   </label>
                   <label className="inline-flex items-center gap-2 cursor-pointer">
                     <input
@@ -839,7 +842,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                       value="no"
                       {...register('hasLaptop', { required: 'Please select' })}
                     />
-                    <span className="text-sm">No</span>
+                    <span className="text-sm">{t('common.no')}</span>
                   </label>
                 </div>
                 {errors.hasLaptop && (
@@ -849,7 +852,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <label className={labelClass}>
-                  Average internet speed (run a test at{' '}
+                  {t('application.fields.internetSpeedPrefix')}{' '}
                   <a
                     href="https://fast.com"
                     target="_blank"
@@ -858,11 +861,11 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                   >
                     fast.com
                   </a>
-                  ) <span className="text-red-500">*</span>
+                  {t('application.fields.internetSpeedSuffix')} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. 25 Mbps download"
+                  placeholder={t('application.placeholders.internetSpeed')}
                   className={inputClass(!!errors.internetSpeed)}
                   {...register('internetSpeed', { required: 'Required' })}
                 />
@@ -873,7 +876,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <span className={labelClass}>
-                  Familiar with video conferencing tools? <span className="text-red-500">*</span>
+                  {t('application.fields.videoConferencing')} <span className="text-red-500">*</span>
                 </span>
                 <div className="flex gap-6">
                   <label className="inline-flex items-center gap-2 cursor-pointer">
@@ -882,7 +885,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                       value="yes"
                       {...register('videoConferencing', { required: 'Please select' })}
                     />
-                    <span className="text-sm">Yes</span>
+                    <span className="text-sm">{t('common.yes')}</span>
                   </label>
                   <label className="inline-flex items-center gap-2 cursor-pointer">
                     <input
@@ -890,7 +893,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                       value="no"
                       {...register('videoConferencing', { required: 'Please select' })}
                     />
-                    <span className="text-sm">No</span>
+                    <span className="text-sm">{t('common.no')}</span>
                   </label>
                 </div>
                 {errors.videoConferencing && (
@@ -904,15 +907,15 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
           {step === 3 && (
             <div className="space-y-5" data-testid="wizard-step-4">
               <h2 className="text-lg font-bold text-black border-b border-gray-100 pb-2">
-                Section 4 — Bitcoin knowledge & experience
+                {t('application.sections.four')}
               </h2>
 
               <div>
                 <label className={labelClass}>
-                  How would you rate your Bitcoin knowledge? <span className="text-red-500">*</span>
+                  {t('application.fields.bitcoinKnowledge')} <span className="text-red-500">*</span>
                 </label>
                 <div className="space-y-2">
-                  {BITCOIN_KNOWLEDGE_OPTIONS.map((opt) => (
+                  {bitcoinKnowledgeOptions.map((opt) => (
                     <label
                       key={opt.value}
                       className="flex items-start gap-3 cursor-pointer rounded-xl border border-gray-200 p-3 has-[:checked]:border-[#F7931A] has-[:checked]:bg-[#F7931A]/5"
@@ -934,7 +937,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <span className={labelClass}>
-                  Have you ever used Bitcoin? <span className="text-red-500">*</span>
+                  {t('application.fields.usedBitcoin')} <span className="text-red-500">*</span>
                 </span>
                 <div className="flex gap-6">
                   <label className="inline-flex items-center gap-2 cursor-pointer">
@@ -943,7 +946,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                       value="yes"
                       {...register('usedBitcoin', { required: 'Please select' })}
                     />
-                    <span className="text-sm">Yes</span>
+                    <span className="text-sm">{t('common.yes')}</span>
                   </label>
                   <label className="inline-flex items-center gap-2 cursor-pointer">
                     <input
@@ -951,7 +954,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                       value="no"
                       {...register('usedBitcoin', { required: 'Please select' })}
                     />
-                    <span className="text-sm">No</span>
+                    <span className="text-sm">{t('common.no')}</span>
                   </label>
                 </div>
                 {errors.usedBitcoin && (
@@ -960,7 +963,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
               </div>
 
               <div>
-                <label className={labelClass}>What makes you unique? (optional)</label>
+                <label className={labelClass}>{t('application.fields.uniqueOptional')}</label>
                 <textarea
                   rows={3}
                   className={`${inputClass(false)} resize-y`}
@@ -969,7 +972,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
               </div>
 
               <div>
-                <label className={labelClass}>Do you have any questions for us? (optional)</label>
+                <label className={labelClass}>{t('application.fields.questionsForUs')}</label>
                 <textarea
                   rows={3}
                   className={`${inputClass(false)} resize-y`}
@@ -979,11 +982,11 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <label className={labelClass}>
-                  Experience in teaching <span className="text-red-500">*</span>
+                  {t('application.fields.teachingExperience')} <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   rows={3}
-                  placeholder="Describe any teaching, tutoring, or facilitation experience"
+                  placeholder={t('application.placeholders.teaching')}
                   className={`${inputClass(!!errors.teachingExperience)} resize-y`}
                   {...register('teachingExperience', { required: 'Required' })}
                 />
@@ -994,11 +997,11 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
 
               <div>
                 <label className={labelClass}>
-                  Programming experience <span className="text-red-500">*</span>
+                  {t('application.fields.programmingExperience')} <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   rows={3}
-                  placeholder="Describe any coding or technical experience (none is OK)"
+                  placeholder={t('application.placeholders.programming')}
                   className={`${inputClass(!!errors.programmingExperience)} resize-y`}
                   {...register('programmingExperience', { required: 'Required' })}
                 />
@@ -1008,7 +1011,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
               </div>
 
               <div>
-                <label className={labelClass}>Anything else you would like to tell us? (optional)</label>
+                <label className={labelClass}>{t('application.fields.anythingElse')}</label>
                 <textarea
                   rows={3}
                   className={`${inputClass(false)} resize-y`}
@@ -1026,10 +1029,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                     })}
                   />
                   <span className="text-sm text-gray-700 leading-relaxed">
-                    By submitting this application, I confirm that the information I have provided is
-                    true and accurate. I consent to the collection and use of my information only for
-                    program administration and communication purposes, and I agree to receive updates
-                    related to the ambassador program.
+                    {t('application.fields.submitConsent')}
                   </span>
                 </label>
                 {errors.consentAccepted && (
@@ -1048,7 +1048,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                 className="btn-outline-orange justify-center flex-1 sm:flex-none"
               >
                 <ArrowLeft size={18} />
-                Back
+                {t('application.back')}
               </button>
             )}
             {step < 3 && (
@@ -1057,7 +1057,7 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                 onClick={goNext}
                 className="btn-primary justify-center flex-1"
               >
-                Continue
+                {t('application.continue')}
                 <ArrowRight size={18} />
               </button>
             )}
@@ -1070,12 +1070,12 @@ export default function ApplicationWizard({ onClose }: ApplicationWizardProps) {
                 {submitting ? (
                   <>
                     <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    Submitting…
+                    {t('application.submitting')}
                   </>
                 ) : (
                   <>
                     <Send size={18} />
-                    Submit application
+                    {t('application.submit')}
                   </>
                 )}
               </button>

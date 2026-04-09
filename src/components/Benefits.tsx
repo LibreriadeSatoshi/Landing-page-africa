@@ -1,63 +1,40 @@
 import { Star, BookOpen, Users, Award, Network, Zap } from 'lucide-react'
-
-const benefits = [
-  {
-    icon: BookOpen,
-    title: 'Free Structured Training',
-    description: 'Access premium Bitcoin education at zero cost—structured curriculum from industry experts.',
-  },
-  {
-    icon: Zap,
-    title: 'Real-World Skills',
-    description: 'Bitcoin philosophy, cryptography, coding, and blockchain fundamentals that you can apply immediately.',
-  },
-  {
-    icon: Users,
-    title: 'Mentorship Access',
-    description: 'Learn from experienced ambassadors and technical leaders in the Bitcoin ecosystem.',
-  },
-  {
-    icon: Award,
-    title: 'Certified Educator Path',
-    description: 'Clear pathway to becoming a certified Bitcoin educator recognized in your community.',
-  },
-  {
-    icon: Network,
-    title: 'Pan-African Network',
-    description: 'Connect with African Bitcoin leaders, builders, and educators across 54 countries.',
-  },
-  {
-    icon: Star,
-    title: 'Exclusive Opportunities',
-    description: 'Access to the growing Bitcoin ecosystem—jobs, projects, and collaborations across Africa.',
-  },
-]
-
-const subjects = [
-  'Philosophy of Bitcoin and Blockchain',
-  'Computer Science basics',
-  'Economics and Mathematics',
-  'Cryptography',
-  'Coding fundamentals',
-  'Introduction to AI',
-]
+import { useTranslation } from 'react-i18next'
 
 export default function Benefits() {
+  const { t } = useTranslation()
+  const benefits = [
+    { icon: BookOpen, title: t('benefits.cards.training.title'), description: t('benefits.cards.training.description') },
+    { icon: Zap, title: t('benefits.cards.skills.title'), description: t('benefits.cards.skills.description') },
+    { icon: Users, title: t('benefits.cards.mentorship.title'), description: t('benefits.cards.mentorship.description') },
+    { icon: Award, title: t('benefits.cards.certified.title'), description: t('benefits.cards.certified.description') },
+    { icon: Network, title: t('benefits.cards.network.title'), description: t('benefits.cards.network.description') },
+    { icon: Star, title: t('benefits.cards.opportunities.title'), description: t('benefits.cards.opportunities.description') },
+  ]
+  const subjects = [
+    t('benefits.subjects.one'),
+    t('benefits.subjects.two'),
+    t('benefits.subjects.three'),
+    t('benefits.subjects.four'),
+    t('benefits.subjects.five'),
+    t('benefits.subjects.six'),
+  ]
+
   return (
     <section id="benefits" className="py-20 md:py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-4">
           <span className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
-            What You Get
+            {t('benefits.label')}
           </span>
         </div>
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading text-black mb-6">
-            Benefits of Joining{' '}
-            <span className="text-[#F7931A]">the Program</span>
+            {t('benefits.titlePrefix')}{' '}
+            <span className="text-[#F7931A]">{t('benefits.titleHighlight')}</span>
           </h2>
           <p className="section-subheading">
-            Everything you need to become a confident Bitcoin educator—at no cost to you.
+            {t('benefits.description')}
           </p>
         </div>
 
@@ -82,14 +59,13 @@ export default function Benefits() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <span className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
-                Curriculum
+                {t('benefits.curriculumLabel')}
               </span>
               <h3 className="text-2xl md:text-3xl font-bold text-white mt-3 mb-4">
-                What You'll Learn
+                {t('benefits.curriculumTitle')}
               </h3>
               <p className="text-gray-400 leading-relaxed">
-                Our curriculum covers everything a modern Bitcoin ambassador needs—from first
-                principles to hands-on technical skills. All taught in your language, at your pace.
+                {t('benefits.curriculumDescription')}
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

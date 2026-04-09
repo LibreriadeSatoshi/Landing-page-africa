@@ -1,45 +1,42 @@
 import { Globe, BookOpen, Users } from 'lucide-react'
-
-const cards = [
-  {
-    icon: Globe,
-    title: 'Continent-Wide Reach',
-    description:
-      'A pan-African program designed to reach every corner of the continent, crossing language barriers and borders to multiply knowledge.',
-  },
-  {
-    icon: BookOpen,
-    title: 'Deep Technical Knowledge',
-    description:
-      'Bitcoin fundamentals, Computer Science, open-source tools, cryptography, coding, economics, and AI—all in one structured curriculum.',
-  },
-  {
-    icon: Users,
-    title: 'Community Growth',
-    description:
-      'Transform from learner to educator. Build a lasting legacy in your community by becoming the local Bitcoin knowledge hub.',
-  },
-]
+import { useTranslation } from 'react-i18next'
 
 export default function What() {
+  const { t } = useTranslation()
+  const cards = [
+    {
+      icon: Globe,
+      title: t('what.cards.reach.title'),
+      description: t('what.cards.reach.description'),
+    },
+    {
+      icon: BookOpen,
+      title: t('what.cards.knowledge.title'),
+      description: t('what.cards.knowledge.description'),
+    },
+    {
+      icon: Users,
+      title: t('what.cards.community.title'),
+      description: t('what.cards.community.description'),
+    },
+  ]
+
   return (
     <section id="about" className="py-20 md:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section label */}
         <div className="text-center mb-4">
           <span className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
-            What We're Building
+            {t('what.label')}
           </span>
         </div>
 
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h2 className="section-heading text-black mb-6">
-            Africa's Language-First Bitcoin Education Network
+            {t('what.title')}
           </h2>
           <p className="section-subheading">
-            Libreria de Satoshi is Africa's premier Bitcoin education and ambassador program.
-            We're building a self-sustaining network of young African leaders who master
-            Bitcoin and blockchain technology—and multiply that knowledge across their communities.
+            {t('what.description')}
           </p>
         </div>
 
@@ -62,8 +59,7 @@ export default function What() {
         {/* Secondary text */}
         <div className="mt-16 bg-black rounded-3xl p-8 md:p-12 text-center">
           <p className="text-white text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-            "Through cohort-based learning, hands-on training, and mentorship, we transform
-            ambitious learners into confident educators and community leaders."
+            {t('what.quote')}
           </p>
           <div className="mt-6 w-16 h-1 bg-[#F7931A] mx-auto rounded-full" />
         </div>
