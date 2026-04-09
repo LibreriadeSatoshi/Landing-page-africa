@@ -16,7 +16,7 @@ export default function Footer() {
                 <span className="text-white font-bold text-sm">₿</span>
               </div>
               <span className="text-white font-bold text-lg">
-                Libreria <span className="text-[#F7931A]">de Satoshi</span>
+                Africa <span className="text-[#F7931A]">Bitcoin Education</span>
               </span>
             </div>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
@@ -85,7 +85,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-600 text-xs text-center sm:text-left">
-            © {new Date().getFullYear()} Libreria de Satoshi. All rights reserved.
+            © {new Date().getFullYear()} Africa Bitcoin Education. All rights reserved.
           </p>
           <div className="flex gap-4">
             <a href="#" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">Privacy Policy</a>
