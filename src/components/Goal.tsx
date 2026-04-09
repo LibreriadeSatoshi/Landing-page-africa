@@ -1,15 +1,17 @@
 import { Target, TrendingUp, Shield, Code2, Brain, Calculator } from 'lucide-react'
-
-const subjects = [
-  { icon: Target, label: 'Blockchain & Bitcoin' },
-  { icon: Code2, label: 'Computer Science' },
-  { icon: Calculator, label: 'Economics & Math' },
-  { icon: Shield, label: 'Cryptography' },
-  { icon: TrendingUp, label: 'Coding Skills' },
-  { icon: Brain, label: 'Artificial Intelligence' },
-]
+import { useTranslation } from 'react-i18next'
 
 export default function Goal() {
+  const { t } = useTranslation()
+  const subjects = [
+    { icon: Target, label: t('goal.subjects.blockchain') },
+    { icon: Code2, label: t('goal.subjects.cs') },
+    { icon: Calculator, label: t('goal.subjects.econMath') },
+    { icon: Shield, label: t('goal.subjects.crypto') },
+    { icon: TrendingUp, label: t('goal.subjects.coding') },
+    { icon: Brain, label: t('goal.subjects.ai') },
+  ]
+
   return (
     <section id="program" className="py-20 md:py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,19 +19,17 @@ export default function Goal() {
           {/* Left: text */}
           <div>
             <span className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
-              Our Goal
+              {t('goal.label')}
             </span>
             <h2 className="section-heading text-black mt-4 mb-6">
-              A Self-Sustaining<br />
-              <span className="text-[#F7931A]">Ambassador Network</span>
+              {t('goal.titlePrefix')}<br />
+              <span className="text-[#F7931A]">{t('goal.titleHighlight')}</span>
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              Empower a generation of African Bitcoin ambassadors who understand blockchain
-              technology deeply, lead their communities with confidence, and shape the future
-              of finance on the continent.
+              {t('goal.description')}
             </p>
             <p className="text-gray-700 font-medium mb-6">
-              Our ambassadors learn and teach across six core pillars:
+              {t('goal.pillars')}
             </p>
 
             {/* Subject grid */}
@@ -53,17 +53,17 @@ export default function Goal() {
             <div className="bg-black rounded-3xl p-8 md:p-10">
               <div className="text-center mb-8">
                 <div className="text-6xl font-black text-[#F7931A]">₿</div>
-                <div className="text-white text-xl font-bold mt-2">Ambassador Network</div>
-                <div className="text-gray-400 text-sm mt-1">Pan-African · Multilingual · Open Source</div>
+                <div className="text-white text-xl font-bold mt-2">{t('goal.cardTitle')}</div>
+                <div className="text-gray-400 text-sm mt-1">{t('goal.cardSubtitle')}</div>
               </div>
 
               {/* Network visual */}
               <div className="space-y-3">
                 {[
-                  { level: 'Learner', count: '∞', color: 'bg-gray-700' },
-                  { level: 'Ambassador', count: '100+', color: 'bg-[#F7931A]/30' },
-                  { level: 'Educator', count: '50+', color: 'bg-[#F7931A]/60' },
-                  { level: 'Leader', count: '10+', color: 'bg-[#F7931A]' },
+                  { level: t('goal.tiers.learner'), count: '∞', color: 'bg-gray-700' },
+                  { level: t('goal.tiers.ambassador'), count: '100+', color: 'bg-[#F7931A]/30' },
+                  { level: t('goal.tiers.educator'), count: '50+', color: 'bg-[#F7931A]/60' },
+                  { level: t('goal.tiers.leader'), count: '10+', color: 'bg-[#F7931A]' },
                 ].map((tier) => (
                   <div key={tier.level} className="flex items-center justify-between bg-white/5 rounded-xl px-4 py-3">
                     <span className="text-gray-300 text-sm font-medium">{tier.level}</span>
@@ -77,7 +77,7 @@ export default function Goal() {
 
               <div className="mt-8 text-center">
                 <p className="text-gray-500 text-xs">
-                  Knowledge multiplies across borders and languages
+                  {t('goal.footer')}
                 </p>
               </div>
             </div>

@@ -1,0 +1,294 @@
+{
+  "common": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "brand": {
+    "prefix": "Africa",
+    "highlight": "Bitcoin Education"
+  },
+  "header": {
+    "backToSite": "Back to site",
+    "about": "About",
+    "program": "Program",
+    "benefits": "Benefits",
+    "applyNow": "Apply Now",
+    "toggleMenu": "Toggle menu"
+  },
+  "hero": {
+    "badge": "Applications Open — Africa Ambassador Program 2026",
+    "titlePrefix": "Learn Bitcoin.",
+    "titleHighlight": "Teach",
+    "titleMiddle": "Your Community.",
+    "titleSuffix": "Shape Africa's Future.",
+    "description": "Join a movement of young African leaders building technical fluency in Bitcoin, blockchain, and open-source technology - in your language, at your pace.",
+    "stats": {
+      "countries": "African Countries",
+      "free": "Free Program",
+      "ageRange": "Age Range"
+    },
+    "ctaApply": "Apply Now — It's Free",
+    "ctaLearnMore": "Learn More",
+    "scrollAria": "Scroll down",
+    "scrollLabel": "Scroll"
+  },
+  "what": {
+    "label": "What We're Building",
+    "title": "Africa's Language-First Bitcoin Education Network",
+    "description": "Libreria de Satoshi is Africa's premier Bitcoin education and ambassador program. We're building a self-sustaining network of young African leaders who master Bitcoin and blockchain technology - and multiply that knowledge across their communities.",
+    "quote": "\"Through cohort-based learning, hands-on training, and mentorship, we transform ambitious learners into confident educators and community leaders.\"",
+    "cards": {
+      "reach": {
+        "title": "Continent-Wide Reach",
+        "description": "A pan-African program designed to reach every corner of the continent, crossing language barriers and borders to multiply knowledge."
+      },
+      "knowledge": {
+        "title": "Deep Technical Knowledge",
+        "description": "Bitcoin fundamentals, Computer Science, open-source tools, cryptography, coding, economics, and AI - all in one structured curriculum."
+      },
+      "community": {
+        "title": "Community Growth",
+        "description": "Transform from learner to educator. Build a lasting legacy in your community by becoming the local Bitcoin knowledge hub."
+      }
+    }
+  },
+  "goal": {
+    "label": "Our Goal",
+    "titlePrefix": "A Self-Sustaining",
+    "titleHighlight": "Ambassador Network",
+    "description": "Empower a generation of African Bitcoin ambassadors who understand blockchain technology deeply, lead their communities with confidence, and shape the future of finance on the continent.",
+    "pillars": "Our ambassadors learn and teach across six core pillars:",
+    "cardTitle": "Ambassador Network",
+    "cardSubtitle": "Pan-African · Multilingual · Open Source",
+    "footer": "Knowledge multiplies across borders and languages",
+    "subjects": {
+      "blockchain": "Blockchain & Bitcoin",
+      "cs": "Computer Science",
+      "econMath": "Economics & Math",
+      "crypto": "Cryptography",
+      "coding": "Coding Skills",
+      "ai": "Artificial Intelligence"
+    },
+    "tiers": {
+      "learner": "Learner",
+      "ambassador": "Ambassador",
+      "educator": "Educator",
+      "leader": "Leader"
+    }
+  },
+  "why": {
+    "label": "Why This Matters",
+    "titlePrefix": "Africa Needs You to",
+    "titleHighlight": "Become a Teacher",
+    "description": "Bitcoin education in Africa is growing - but it's not enough. Your communities need leaders who understand blockchain deeply. Build the future on the continent.",
+    "quotePrefix": "\"Knowledge that stays in one language stays in one place.",
+    "quoteHighlight": "We're changing that.\"",
+    "quoteAuthor": "- Libreria de Satoshi",
+    "reasons": {
+      "gap": {
+        "title": "The Gap Is Real",
+        "description": "Bitcoin adoption in Africa is growing fast, but deep technical education lags behind. Most content is in English and inaccessible to millions of young Africans."
+      },
+      "languages": {
+        "title": "Local Languages Matter",
+        "description": "Education should live within communities, in the languages people think in. Knowledge taught in your mother tongue sticks, grows, and spreads."
+      },
+      "teachers": {
+        "title": "Africa Needs Teachers",
+        "description": "Your communities need leaders who understand blockchain deeply. The most powerful thing you can do is become a teacher - and Africa needs you now."
+      }
+    }
+  },
+  "how": {
+    "label": "How It Works",
+    "titlePrefix": "Your Path from",
+    "titleHighlight": "Learner to Leader",
+    "description": "A structured, step-by-step program designed to take you from Bitcoin beginner to community educator in a matter of months.",
+    "stepLabel": "Step",
+    "steps": {
+      "one": {
+        "title": "Cohort-Based Learning",
+        "description": "Join a cohort of peers from across Africa. Learn together, support each other, and progress through structured modules with expert guidance."
+      },
+      "two": {
+        "title": "Hands-On Technical Training",
+        "description": "Practice with real Bitcoin tools and open-source software. Build actual skills - not just theory - through guided labs and projects."
+      },
+      "three": {
+        "title": "Leadership & Localization",
+        "description": "Develop communication and facilitation skills. Learn to adapt Bitcoin concepts to your culture, language, and community context."
+      },
+      "four": {
+        "title": "Knowledge Sharing",
+        "description": "Organize local workshops, online sessions, and community meetups. Multiply your learning by teaching others in your network."
+      },
+      "five": {
+        "title": "Proof of Work Funnel",
+        "description": "Document your impact. Complete milestones, earn recognition, and build a track record that proves your leadership and expertise."
+      }
+    }
+  },
+  "benefits": {
+    "label": "What You Get",
+    "titlePrefix": "Benefits of Joining",
+    "titleHighlight": "the Program",
+    "description": "Everything you need to become a confident Bitcoin educator - at no cost to you.",
+    "curriculumLabel": "Curriculum",
+    "curriculumTitle": "What You'll Learn",
+    "curriculumDescription": "Our curriculum covers everything a modern Bitcoin ambassador needs - from first principles to hands-on technical skills. All taught in your language, at your pace.",
+    "subjects": {
+      "one": "Philosophy of Bitcoin and Blockchain",
+      "two": "Computer Science basics",
+      "three": "Economics and Mathematics",
+      "four": "Cryptography",
+      "five": "Coding fundamentals",
+      "six": "Introduction to AI"
+    },
+    "cards": {
+      "training": {
+        "title": "Free Structured Training",
+        "description": "Access premium Bitcoin education at zero cost - structured curriculum from industry experts."
+      },
+      "skills": {
+        "title": "Real-World Skills",
+        "description": "Bitcoin philosophy, cryptography, coding, and blockchain fundamentals that you can apply immediately."
+      },
+      "mentorship": {
+        "title": "Mentorship Access",
+        "description": "Learn from experienced ambassadors and technical leaders in the Bitcoin ecosystem."
+      },
+      "certified": {
+        "title": "Certified Educator Path",
+        "description": "Clear pathway to becoming a certified Bitcoin educator recognized in your community."
+      },
+      "network": {
+        "title": "Pan-African Network",
+        "description": "Connect with African Bitcoin leaders, builders, and educators across 54 countries."
+      },
+      "opportunities": {
+        "title": "Exclusive Opportunities",
+        "description": "Access to the growing Bitcoin ecosystem - jobs, projects, and collaborations across Africa."
+      }
+    }
+  },
+  "enrollment": {
+    "label": "Apply Today",
+    "title": "Ready to Join?",
+    "description": "Start the ambassador application - it takes about 5-15 minutes. Your progress is saved automatically on this device.",
+    "cardTitle": "Full application in four short steps",
+    "cardDescription": "Personal details, guardian consent if you are under 18, your availability and commitment, and your Bitcoin experience. Answer in your own words - authenticity matters.",
+    "start": "Start application",
+    "questionsPrefix": "Questions? Email",
+    "questionsSuffix": "with \"Ambassador Question\" in the subject line."
+  },
+  "footer": {
+    "description": "Building Africa's language-first, learner-to-educator Bitcoin network. Knowledge that multiplies across borders.",
+    "navigation": "Navigation",
+    "connect": "Connect",
+    "poweredBy": "Powered by",
+    "social": {
+      "twitter": "Twitter",
+      "telegram": "Telegram",
+      "github": "GitHub"
+    },
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "program": "Program",
+      "benefits": "Benefits",
+      "apply": "Apply Now"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "contact": "Contact"
+    },
+    "copyright": "© {{year}} Africa Bitcoin Education. All rights reserved."
+  },
+  "application": {
+    "backHome": "Back to home",
+    "label": "Ambassador application",
+    "title": "Africa Bitcoin Education",
+    "description": "Complete all required fields. This takes about 5-15 minutes. Do not use AI tools to answer - we want your authentic voice.",
+    "stepOf": "Step {{current}} of {{total}}",
+    "back": "Back",
+    "continue": "Continue",
+    "submit": "Submit application",
+    "submitting": "Submitting...",
+    "success": {
+      "title": "Application received",
+      "description": "Thank you for applying to become an Africa Bitcoin Education Ambassador. We will review your submission and contact you within 5-7 business days. Please check your email (including spam)."
+    },
+    "sections": {
+      "one": "Section 1 - Eligibility & personal information",
+      "two": "Section 2 - Guardian / parent (under 18)",
+      "twoDescription": "If you are under 18, a parent or guardian must provide consent. If you are 18 or older, select that option and continue.",
+      "three": "Section 3 - Availability & commitment",
+      "four": "Section 4 - Bitcoin knowledge & experience"
+    },
+    "fields": {
+      "fullName": "Full name",
+      "email": "Email address",
+      "between16and35": "Are you between the ages of 16 and 35?",
+      "age": "Age",
+      "gender": "Gender",
+      "country": "Country",
+      "city": "City of residence",
+      "timezone": "Time zone",
+      "primaryLanguage": "Primary language",
+      "additionalLanguages": "Do you speak any additional languages?",
+      "readWriteLanguages": "Can you read and write in the languages specified above?",
+      "hearAbout": "How did you hear about the Africa Bitcoin Education Ambassador Program?",
+      "isAdult": "Are you 18 years or older?",
+      "guardianConsent": "Parental / guardian consent",
+      "guardianConsentText": "I am the parent/guardian, and I give consent for the applicant to participate. I understand they will promote Bitcoin education, create content, engage on social media, and represent the organization.",
+      "guardianName": "Guardian / parent full name",
+      "guardianRelationship": "Relationship",
+      "guardianEmail": "Guardian email",
+      "guardianPhone": "Guardian phone",
+      "hoursPerWeek": "How many hours per week can you commit?",
+      "commitThreeMonths": "Can you commit to a minimum of 3 months?",
+      "hopeToLearn": "What do you hope to learn and achieve as an Africa Bitcoin Education Ambassador?",
+      "helpCommunity": "How can you help your community as an Ambassador through this program?",
+      "hasLaptop": "Do you have a reliable computer or laptop?",
+      "internetSpeedPrefix": "Average internet speed (run a test at",
+      "internetSpeedSuffix": ")",
+      "videoConferencing": "Familiar with video conferencing tools?",
+      "bitcoinKnowledge": "How would you rate your Bitcoin knowledge?",
+      "usedBitcoin": "Have you ever used Bitcoin?",
+      "uniqueOptional": "What makes you unique? (optional)",
+      "questionsForUs": "Do you have any questions for us? (optional)",
+      "teachingExperience": "Experience in teaching",
+      "programmingExperience": "Programming experience",
+      "anythingElse": "Anything else you would like to tell us? (optional)"
+    },
+    "placeholders": {
+      "gender": "How you identify",
+      "guardianRelationship": "e.g. Mother, Father",
+      "internetSpeed": "e.g. 25 Mbps download",
+      "teaching": "Describe any teaching, tutoring, or facilitation experience",
+      "programming": "Describe any coding or technical experience (none is OK)"
+    },
+    "options": {
+      "adultYes": "Yes, I am 18 or older",
+      "adultNo": "No, I am under 18"
+    },
+    "bitcoinOptions": {
+      "beginner": "Beginner - I'm still learning",
+      "intermediate": "Intermediate - I understand Bitcoin well",
+      "advanced": "Advanced - I have deep knowledge",
+      "expert": "Expert - Highly knowledgeable"
+    },
+    "select": {
+      "country": "Select country",
+      "timezone": "Select time zone",
+      "language": "Select language",
+      "generic": "Select"
+    },
+    "validation": {
+      "ageRangeWarning": "You must be between 16 and 35 to apply."
+    },
+    "maxWords": "(max 200 words)",
+    "wordsCount": "{{current}} / {{max}} words"
+  }
+}

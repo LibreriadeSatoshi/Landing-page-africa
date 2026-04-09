@@ -1,6 +1,8 @@
 import { Twitter, Github, MessageCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 export default function Footer() {
+  const { t } = useTranslation()
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -16,25 +18,24 @@ export default function Footer() {
                 <span className="text-white font-bold text-sm">₿</span>
               </div>
               <span className="text-white font-bold text-lg">
-                Africa <span className="text-[#F7931A]">Bitcoin Education</span>
+                {t('brand.prefix')} <span className="text-[#F7931A]">{t('brand.highlight')}</span>
               </span>
             </div>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              Building Africa's language-first, learner-to-educator Bitcoin network.
-              Knowledge that multiplies across borders.
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-widest">Navigation</h4>
+            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-widest">{t('footer.navigation')}</h4>
             <ul className="space-y-2">
               {[
-                { label: 'Home', id: 'hero' },
-                { label: 'About', id: 'about' },
-                { label: 'Program', id: 'program' },
-                { label: 'Benefits', id: 'benefits' },
-                { label: 'Apply Now', id: 'enroll' },
+                { label: t('footer.links.home'), id: 'hero' },
+                { label: t('footer.links.about'), id: 'about' },
+                { label: t('footer.links.program'), id: 'program' },
+                { label: t('footer.links.benefits'), id: 'benefits' },
+                { label: t('footer.links.apply'), id: 'enroll' },
               ].map((item) => (
                 <li key={item.label}>
                   <button
@@ -50,9 +51,9 @@ export default function Footer() {
 
           {/* Contact + Social */}
           <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-widest">Connect</h4>
+            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-widest">{t('footer.connect')}</h4>
             <p className="text-gray-400 text-sm mb-4">
-              Powered by{' '}
+              {t('footer.poweredBy')}{' '}
               <span className="text-[#F7931A] font-semibold">Bitcoin Without Borders</span>
               {' '}/ Ubuntu
             </p>
@@ -60,21 +61,21 @@ export default function Footer() {
               <a
                 href="#"
                 className="w-9 h-9 bg-white/5 hover:bg-[#F7931A] rounded-lg flex items-center justify-center transition-colors group"
-                aria-label="Twitter"
+                aria-label={t('footer.social.twitter')}
               >
                 <Twitter size={16} className="text-gray-400 group-hover:text-white" />
               </a>
               <a
                 href="#"
                 className="w-9 h-9 bg-white/5 hover:bg-[#F7931A] rounded-lg flex items-center justify-center transition-colors group"
-                aria-label="Telegram"
+                aria-label={t('footer.social.telegram')}
               >
                 <MessageCircle size={16} className="text-gray-400 group-hover:text-white" />
               </a>
               <a
                 href="#"
                 className="w-9 h-9 bg-white/5 hover:bg-[#F7931A] rounded-lg flex items-center justify-center transition-colors group"
-                aria-label="GitHub"
+                aria-label={t('footer.social.github')}
               >
                 <Github size={16} className="text-gray-400 group-hover:text-white" />
               </a>
@@ -85,12 +86,12 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-600 text-xs text-center sm:text-left">
-            © {new Date().getFullYear()} Africa Bitcoin Education. All rights reserved.
+            {t('footer.copyright', { year: new Date().getFullYear() })}
           </p>
           <div className="flex gap-4">
-            <a href="#" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">Terms of Use</a>
-            <a href="mailto:contact@libreriadesatoshi.com" className="text-gray-600 hover:text-[#F7931A] text-xs transition-colors">Contact</a>
+            <a href="#" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">{t('footer.legal.privacy')}</a>
+            <a href="#" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">{t('footer.legal.terms')}</a>
+            <a href="mailto:contact@libreriadesatoshi.com" className="text-gray-600 hover:text-[#F7931A] text-xs transition-colors">{t('footer.legal.contact')}</a>
           </div>
         </div>
       </div>

@@ -1,23 +1,25 @@
 import { ArrowRight, ClipboardList } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 type EnrollmentFormProps = {
   onOpenApplication: () => void
 }
 
 export default function EnrollmentForm({ onOpenApplication }: EnrollmentFormProps) {
+  const { t } = useTranslation()
+
   return (
     <section id="enroll" className="py-20 md:py-28 bg-black">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <span className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
-            Apply Today
+            {t('enrollment.label')}
           </span>
           <h2 className="section-heading text-white mt-4 mb-4">
-            Ready to Join?
+            {t('enrollment.title')}
           </h2>
           <p className="text-gray-400 text-lg">
-            Start the ambassador application — it takes about 5–15 minutes. Your progress is saved
-            automatically on this device.
+            {t('enrollment.description')}
           </p>
         </div>
 
@@ -26,11 +28,10 @@ export default function EnrollmentForm({ onOpenApplication }: EnrollmentFormProp
             <ClipboardList className="text-[#F7931A]" size={28} />
           </div>
           <h3 className="text-xl font-bold text-black mb-3">
-            Full application in four short steps
+            {t('enrollment.cardTitle')}
           </h3>
           <p className="text-gray-600 text-sm leading-relaxed mb-8 max-w-md mx-auto">
-            Personal details, guardian consent if you are under 18, your availability and commitment,
-            and your Bitcoin experience. Answer in your own words — authenticity matters.
+            {t('enrollment.cardDescription')}
           </p>
           <button
             type="button"
@@ -38,11 +39,11 @@ export default function EnrollmentForm({ onOpenApplication }: EnrollmentFormProp
             className="btn-primary text-base px-10 py-4 w-full sm:w-auto justify-center"
             data-testid="open-application-wizard"
           >
-            Start application
+            {t('enrollment.start')}
             <ArrowRight size={18} />
           </button>
           <p className="text-xs text-gray-400 mt-6">
-            Questions? Email{' '}
+            {t('enrollment.questionsPrefix')}{' '}
             <a
               href="mailto:ambassadors@africabitcoineducation.org?subject=Ambassador%20Question"
               className="text-[#F7931A] hover:underline"
@@ -50,7 +51,7 @@ export default function EnrollmentForm({ onOpenApplication }: EnrollmentFormProp
               ambassadors@africabitcoineducation.org
             </a>
             {' '}
-            with &quot;Ambassador Question&quot; in the subject line.
+            {t('enrollment.questionsSuffix')}
           </p>
         </div>
       </div>
