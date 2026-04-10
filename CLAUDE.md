@@ -9,6 +9,17 @@ Trilingual: English (default), French, Swahili — translations in `src/locales/
 - **One branch per feature** (`feature/...` or `fix/...`). Never commit on `main`/`master`.
 - Full rules: `.cursor/rules/project-guardrails.mdc`.
 
+### MANDATORY: start every session from main
+
+Before making any change, **always** run:
+
+```bash
+git checkout main && git pull origin main
+git checkout -b fix/short-description   # or feature/...
+```
+
+Never start work on whatever branch happens to be checked out — it may be a merged or stale branch. Always branch from an up-to-date `main`. If the current branch is already a fresh unmerged feature branch (i.e. `git log main..HEAD` shows commits not yet in main), continue on it; otherwise create a new one.
+
 ## Verification before "done"
 
 | Command             | What it checks                                | Speed   |
