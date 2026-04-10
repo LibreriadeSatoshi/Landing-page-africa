@@ -36,11 +36,11 @@ export default function EnrollmentForm({ onOpenApplication }: EnrollmentFormProp
             {t('enrollment.start')}
             <ArrowRight size={18} />
           </button>
-          <p className="text-xs text-gray-400 mt-6">
+          <p className="text-xs text-gray-600 mt-6">
             {t('enrollment.questionsPrefix')}{' '}
             <a
               href="mailto:ambassadors@africabitcoineducation.org?subject=Ambassador%20Question"
-              className="text-orange-700 hover:underline"
+              className="text-orange-700 underline"
             >
               ambassadors@africabitcoineducation.org
             </a>{' '}

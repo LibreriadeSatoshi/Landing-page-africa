@@ -74,7 +74,7 @@ export default function How() {
                           <Icon size={22} className="text-white" />
                         </div>
                         <div>
-                          <div className="text-xs text-gray-400 font-semibold mb-1">
+                          <div className="text-xs text-gray-600 font-semibold mb-1">
                             {t('how.stepLabel')} {step.number}
                           </div>
                           <h3 className="text-lg font-bold text-black mb-2">{step.title}</h3>
