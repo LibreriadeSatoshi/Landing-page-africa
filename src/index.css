@@ -28,7 +28,7 @@ html {
 
 @layer components {
   .btn-primary {
-    @apply bg-[#F7931A] hover:bg-[#E07B0A] text-white font-semibold px-8 py-3 rounded-full transition-all duration-200 inline-flex items-center gap-2 text-sm md:text-base;
+    @apply bg-orange-700 hover:bg-orange-800 text-white font-semibold px-8 py-3 rounded-full transition-all duration-200 inline-flex items-center gap-2 text-sm md:text-base;
   }
 
   .btn-secondary {

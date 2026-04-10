@@ -1,27 +1,27 @@
-import { ArrowDown } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { ArrowDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 type HeroProps = {
-  onApply?: () => void
-}
+  onApply?: () => void;
+};
 
 export default function Hero({ onApply }: Readonly<HeroProps>) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const handleApply = () => {
-    if (onApply) onApply()
-    else scrollTo('enroll')
-  }
+    if (onApply) onApply();
+    else scrollTo('enroll');
+  };
 
   const stats = [
     { value: '54', label: t('hero.stats.countries') },
     { value: '100%', label: t('hero.stats.free') },
     { value: '18-35', label: t('hero.stats.ageRange') },
-  ]
+  ];
 
   return (
     <section
@@ -53,9 +53,8 @@ export default function Hero({ onApply }: Readonly<HeroProps>) {
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight mb-6">
-          {t('hero.titlePrefix')}{' '}
-          <span className="text-[#F7931A]">{t('hero.titleHighlight')}</span> {t('hero.titleMiddle')}{' '}
-          <br className="hidden sm:block" />
+          {t('hero.titlePrefix')} <span className="text-[#F7931A]">{t('hero.titleHighlight')}</span>{' '}
+          {t('hero.titleMiddle')} <br className="hidden sm:block" />
           {t('hero.titleSuffix')}
         </h1>
 
@@ -67,7 +66,7 @@ export default function Hero({ onApply }: Readonly<HeroProps>) {
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-3xl font-black text-[#F7931A]">{stat.value}</div>
-              <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
+              <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -76,7 +75,11 @@ export default function Hero({ onApply }: Readonly<HeroProps>) {
           <button type="button" onClick={handleApply} className="btn-primary text-base px-10 py-4">
             {t('hero.ctaApply')}
           </button>
-          <button type="button" onClick={() => scrollTo('about')} className="btn-secondary text-base px-10 py-4">
+          <button
+            type="button"
+            onClick={() => scrollTo('about')}
+            className="btn-secondary text-base px-10 py-4"
+          >
             {t('hero.ctaLearnMore')}
           </button>
         </div>
@@ -84,7 +87,7 @@ export default function Hero({ onApply }: Readonly<HeroProps>) {
         <button
           type="button"
           onClick={() => scrollTo('about')}
-          className="mt-16 text-gray-600 hover:text-[#F7931A] transition-colors flex flex-col items-center gap-2 mx-auto"
+          className="mt-16 text-gray-400 hover:text-[#F7931A] transition-colors flex flex-col items-center gap-2 mx-auto"
           aria-label={t('hero.scrollAria')}
         >
           <span className="text-xs uppercase tracking-widest">{t('hero.scrollLabel')}</span>
@@ -92,5 +95,5 @@ export default function Hero({ onApply }: Readonly<HeroProps>) {
         </button>
       </div>
     </section>
-  )
+  );
 }

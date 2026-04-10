@@ -1,12 +1,12 @@
-import { ArrowRight, ClipboardList } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { ArrowRight, ClipboardList } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 type EnrollmentFormProps = {
-  onOpenApplication: () => void
-}
+  onOpenApplication: () => void;
+};
 
 export default function EnrollmentForm({ onOpenApplication }: EnrollmentFormProps) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <section id="enroll" className="py-20 md:py-28 bg-black">
@@ -15,21 +15,15 @@ export default function EnrollmentForm({ onOpenApplication }: EnrollmentFormProp
           <span className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
             {t('enrollment.label')}
           </span>
-          <h2 className="section-heading text-white mt-4 mb-4">
-            {t('enrollment.title')}
-          </h2>
-          <p className="text-gray-400 text-lg">
-            {t('enrollment.description')}
-          </p>
+          <h2 className="section-heading text-white mt-4 mb-4">{t('enrollment.title')}</h2>
+          <p className="text-gray-400 text-lg">{t('enrollment.description')}</p>
         </div>
 
         <div className="bg-white rounded-3xl p-8 md:p-12 text-center shadow-xl border border-gray-100">
           <div className="w-14 h-14 bg-[#F7931A]/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
             <ClipboardList className="text-[#F7931A]" size={28} />
           </div>
-          <h3 className="text-xl font-bold text-black mb-3">
-            {t('enrollment.cardTitle')}
-          </h3>
+          <h3 className="text-xl font-bold text-black mb-3">{t('enrollment.cardTitle')}</h3>
           <p className="text-gray-600 text-sm leading-relaxed mb-8 max-w-md mx-auto">
             {t('enrollment.cardDescription')}
           </p>
@@ -42,19 +36,18 @@ export default function EnrollmentForm({ onOpenApplication }: EnrollmentFormProp
             {t('enrollment.start')}
             <ArrowRight size={18} />
           </button>
-          <p className="text-xs text-gray-400 mt-6">
+          <p className="text-xs text-gray-600 mt-6">
             {t('enrollment.questionsPrefix')}{' '}
             <a
               href="mailto:ambassadors@africabitcoineducation.org?subject=Ambassador%20Question"
-              className="text-[#F7931A] hover:underline"
+              className="text-orange-700 underline"
             >
               ambassadors@africabitcoineducation.org
-            </a>
-            {' '}
+            </a>{' '}
             {t('enrollment.questionsSuffix')}
           </p>
         </div>
       </div>
     </section>
-  )
+  );
 }

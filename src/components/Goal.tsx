@@ -1,8 +1,8 @@
-import { Target, TrendingUp, Shield, Code2, Brain, Calculator } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { Target, TrendingUp, Shield, Code2, Brain, Calculator } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Goal() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const subjects = [
     { icon: Target, label: t('goal.subjects.blockchain') },
     { icon: Code2, label: t('goal.subjects.cs') },
@@ -10,7 +10,7 @@ export default function Goal() {
     { icon: Shield, label: t('goal.subjects.crypto') },
     { icon: TrendingUp, label: t('goal.subjects.coding') },
     { icon: Brain, label: t('goal.subjects.ai') },
-  ]
+  ];
 
   return (
     <section id="program" className="py-20 md:py-28 bg-gray-50">
@@ -18,19 +18,16 @@ export default function Goal() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: text */}
           <div>
-            <span className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
+            <span className="text-orange-700 text-sm font-semibold uppercase tracking-widest">
               {t('goal.label')}
             </span>
             <h2 className="section-heading text-black mt-4 mb-6">
-              {t('goal.titlePrefix')}<br />
-              <span className="text-[#F7931A]">{t('goal.titleHighlight')}</span>
+              {t('goal.titlePrefix')}
+              <br />
+              <span className="text-orange-700">{t('goal.titleHighlight')}</span>
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              {t('goal.description')}
-            </p>
-            <p className="text-gray-700 font-medium mb-6">
-              {t('goal.pillars')}
-            </p>
+            <p className="text-gray-600 text-lg leading-relaxed mb-8">{t('goal.description')}</p>
+            <p className="text-gray-700 font-medium mb-6">{t('goal.pillars')}</p>
 
             {/* Subject grid */}
             <div className="grid grid-cols-2 gap-3">
@@ -65,25 +62,28 @@ export default function Goal() {
                   { level: t('goal.tiers.educator'), count: '50+', color: 'bg-[#F7931A]/60' },
                   { level: t('goal.tiers.leader'), count: '10+', color: 'bg-[#F7931A]' },
                 ].map((tier) => (
-                  <div key={tier.level} className="flex items-center justify-between bg-white/5 rounded-xl px-4 py-3">
+                  <div
+                    key={tier.level}
+                    className="flex items-center justify-between bg-white/5 rounded-xl px-4 py-3"
+                  >
                     <span className="text-gray-300 text-sm font-medium">{tier.level}</span>
                     <div className="flex items-center gap-3">
                       <div className={`h-2 rounded-full ${tier.color}`} style={{ width: '80px' }} />
-                      <span className="text-[#F7931A] text-sm font-bold w-12 text-right">{tier.count}</span>
+                      <span className="text-[#F7931A] text-sm font-bold w-12 text-right">
+                        {tier.count}
+                      </span>
                     </div>
                   </div>
                 ))}
               </div>
 
               <div className="mt-8 text-center">
-                <p className="text-gray-500 text-xs">
-                  {t('goal.footer')}
-                </p>
+                <p className="text-gray-400 text-xs">{t('goal.footer')}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,12 +1,7 @@
-import { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { useTranslation } from 'react-i18next'
-import {
-  ArrowLeft,
-  ArrowRight,
-  CheckCircle,
-  Send,
-} from 'lucide-react'
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { ArrowLeft, ArrowRight, CheckCircle, Send } from 'lucide-react';
 import {
   ADDITIONAL_LANGUAGES_OPTIONS,
   AFRICAN_COUNTRIES,
@@ -15,47 +10,47 @@ import {
   PRIMARY_LANGUAGE_OPTIONS,
   STORAGE_KEY,
   TIMEZONES,
-} from '../constants/ambassadorForm'
+} from '../constants/ambassadorForm';
 
 export type AmbassadorFormValues = {
   // Section 1
-  fullName: string
-  email: string
-  between16and35: 'yes' | 'no' | ''
-  age: string
-  gender: string
-  country: string
-  city: string
-  timezone: string
-  primaryLanguage: string
-  additionalLanguages: string
-  readWriteLanguages: 'yes' | 'no' | ''
-  hearAbout: string
+  fullName: string;
+  email: string;
+  between16and35: 'yes' | 'no' | '';
+  age: string;
+  gender: string;
+  country: string;
+  city: string;
+  timezone: string;
+  primaryLanguage: string;
+  additionalLanguages: string;
+  readWriteLanguages: 'yes' | 'no' | '';
+  hearAbout: string;
   // Section 2
-  isAdult: 'yes' | 'no' | ''
-  guardianConsentAccepted: boolean
-  guardianName: string
-  guardianRelationship: string
-  guardianEmail: string
-  guardianPhone: string
+  isAdult: 'yes' | 'no' | '';
+  guardianConsentAccepted: boolean;
+  guardianName: string;
+  guardianRelationship: string;
+  guardianEmail: string;
+  guardianPhone: string;
   // Section 3
-  hoursPerWeek: string
-  commitThreeMonths: 'yes' | 'no' | ''
-  hopeToLearn: string
-  helpCommunity: string
-  hasLaptop: 'yes' | 'no' | ''
-  internetSpeed: string
-  videoConferencing: 'yes' | 'no' | ''
+  hoursPerWeek: string;
+  commitThreeMonths: 'yes' | 'no' | '';
+  hopeToLearn: string;
+  helpCommunity: string;
+  hasLaptop: 'yes' | 'no' | '';
+  internetSpeed: string;
+  videoConferencing: 'yes' | 'no' | '';
   // Section 4
-  bitcoinKnowledge: string
-  usedBitcoin: 'yes' | 'no' | ''
-  uniqueOptional: string
-  questionsForUs: string
-  teachingExperience: string
-  programmingExperience: string
-  anythingElse: string
-  consentAccepted: boolean
-}
+  bitcoinKnowledge: string;
+  usedBitcoin: 'yes' | 'no' | '';
+  uniqueOptional: string;
+  questionsForUs: string;
+  teachingExperience: string;
+  programmingExperience: string;
+  anythingElse: string;
+  consentAccepted: boolean;
+};
 
 const defaultValues: AmbassadorFormValues = {
   fullName: '',
@@ -91,10 +86,10 @@ const defaultValues: AmbassadorFormValues = {
   programmingExperience: '',
   anythingElse: '',
   consentAccepted: false,
-}
+};
 
 function wordCount(text: string): number {
-  return text.trim().split(/\s+/).filter(Boolean).length
+  return text.trim().split(/\s+/).filter(Boolean).length;
 }
 
 const STEP1_FIELDS: (keyof AmbassadorFormValues)[] = [
@@ -110,7 +105,7 @@ const STEP1_FIELDS: (keyof AmbassadorFormValues)[] = [
   'additionalLanguages',
   'readWriteLanguages',
   'hearAbout',
-]
+];
 
 const STEP3_FIELDS: (keyof AmbassadorFormValues)[] = [
   'hoursPerWeek',
@@ -120,17 +115,17 @@ const STEP3_FIELDS: (keyof AmbassadorFormValues)[] = [
   'hasLaptop',
   'internetSpeed',
   'videoConferencing',
-]
+];
 
 type ApplicationWizardProps = {
-  onClose: () => void
-}
+  onClose: () => void;
+};
 
 export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizardProps>) {
-  const { t } = useTranslation()
-  const [step, setStep] = useState(0)
-  const [submitted, setSubmitted] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
+  const { t } = useTranslation();
+  const [step, setStep] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const {
     register,
@@ -143,106 +138,103 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
   } = useForm<AmbassadorFormValues>({
     defaultValues,
     mode: 'onTouched',
-  })
+  });
 
-  const isAdult = watch('isAdult')
+  const isAdult = watch('isAdult');
 
   // Restore draft
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY)
-      if (!raw) return
-      const parsed = JSON.parse(raw) as { values?: AmbassadorFormValues; step?: number }
-      if (parsed.values) reset({ ...defaultValues, ...parsed.values })
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const parsed = JSON.parse(raw) as { values?: AmbassadorFormValues; step?: number };
+      if (parsed.values) reset({ ...defaultValues, ...parsed.values });
       if (typeof parsed.step === 'number' && parsed.step >= 0 && parsed.step <= 3) {
-        setStep(parsed.step)
+        setStep(parsed.step);
       }
     } catch {
       /* ignore */
     }
-  }, [reset])
+  }, [reset]);
 
-  const formSnapshot = watch()
+  const formSnapshot = watch();
   useEffect(() => {
     try {
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({ values: getValues(), step }),
-      )
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ values: getValues(), step }));
     } catch {
       /* ignore */
     }
-  }, [formSnapshot, step, getValues])
+  }, [formSnapshot, step, getValues]);
 
   const inputClass = (hasError: boolean) =>
     `w-full px-4 py-3 rounded-xl border text-black text-sm bg-white transition-colors outline-none focus:ring-2 focus:ring-[#F7931A]/40 ${
       hasError ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-[#F7931A]'
-    }`
+    }`;
 
-  const labelClass = 'block text-sm font-semibold text-gray-700 mb-1.5'
+  const labelClass = 'block text-sm font-semibold text-gray-700 mb-1.5';
 
   const validateStep1 = async () => {
-    const ok = await trigger(STEP1_FIELDS)
-    if (!ok) return false
-    const v = getValues()
-    const n = Number.parseInt(v.age, 10)
+    const ok = await trigger(STEP1_FIELDS);
+    if (!ok) return false;
+    const v = getValues();
+    const n = Number.parseInt(v.age, 10);
     if (Number.isNaN(n) || n < 16 || n > 35) {
-      await trigger('age')
-      return false
+      await trigger('age');
+      return false;
     }
     if (v.between16and35 === 'no') {
-      return false
+      return false;
     }
-    return true
-  }
+    return true;
+  };
 
   const validateStep2 = async () => {
-    const ok = await trigger(['isAdult'])
-    if (!ok) return false
-    if (isAdult === 'yes') return true
-    if (isAdult !== 'no') return false
+    const ok = await trigger(['isAdult']);
+    if (!ok) return false;
+    if (isAdult === 'yes') return true;
+    if (isAdult !== 'no') return false;
     const fields: (keyof AmbassadorFormValues)[] = [
       'guardianConsentAccepted',
       'guardianName',
       'guardianRelationship',
       'guardianEmail',
       'guardianPhone',
-    ]
-    return trigger(fields)
-  }
+    ];
+    return trigger(fields);
+  };
 
   const validateStep3 = async () => {
-    const v = getValues()
+    const v = getValues();
     if (wordCount(v.hopeToLearn) > 200) {
-      await trigger('hopeToLearn')
-      return false
+      await trigger('hopeToLearn');
+      return false;
     }
-    return trigger(STEP3_FIELDS)
-  }
+    return trigger(STEP3_FIELDS);
+  };
 
   const goNext = async () => {
     if (step === 0) {
-      const valid = await validateStep1()
-      if (valid) setStep(1)
-      return
+      const valid = await validateStep1();
+      if (valid) setStep(1);
+      return;
     }
     if (step === 1) {
-      const valid = await validateStep2()
-      if (valid) setStep(2)
-      return
+      const valid = await validateStep2();
+      if (valid) setStep(2);
+      return;
     }
     if (step === 2) {
-      const valid = await validateStep3()
-      if (valid) setStep(3)
+      const valid = await validateStep3();
+      if (valid) setStep(3);
     }
-  }
+  };
 
   const goBack = () => {
-    if (step > 0) setStep((s) => s - 1)
-  }
+    if (step > 0) setStep((s) => s - 1);
+  };
 
   const onFinalSubmit = async (data: AmbassadorFormValues) => {
-    setSubmitting(true)
+    setSubmitting(true);
     try {
       await fetch('https://formspree.io/f/YOUR_FORM_ID', {
         method: 'POST',
@@ -252,33 +244,33 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
           ...data,
           timestamp: new Date().toISOString(),
         }),
-      })
-      setSubmitted(true)
+      });
+      setSubmitted(true);
       try {
-        localStorage.removeItem(STORAGE_KEY)
+        localStorage.removeItem(STORAGE_KEY);
       } catch {
         /* ignore */
       }
-      reset(defaultValues)
+      reset(defaultValues);
     } catch {
-      setSubmitted(true)
+      setSubmitted(true);
       try {
-        localStorage.removeItem(STORAGE_KEY)
+        localStorage.removeItem(STORAGE_KEY);
       } catch {
         /* ignore */
       }
-      reset(defaultValues)
+      reset(defaultValues);
     } finally {
-      setSubmitting(false)
+      setSubmitting(false);
     }
-  }
+  };
 
   const bitcoinKnowledgeOptions = [
     { value: 'beginner', label: t('application.bitcoinOptions.beginner') },
     { value: 'intermediate', label: t('application.bitcoinOptions.intermediate') },
     { value: 'advanced', label: t('application.bitcoinOptions.advanced') },
     { value: 'expert', label: t('application.bitcoinOptions.expert') },
-  ]
+  ];
 
   if (submitted) {
     return (
@@ -289,22 +281,21 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
         <div className="max-w-lg w-full bg-white/5 border border-[#F7931A]/30 rounded-3xl p-10 text-center">
           <CheckCircle size={56} className="text-[#F7931A] mx-auto mb-4" />
           <h1 className="text-white text-2xl font-bold mb-3">{t('application.success.title')}</h1>
-          <p className="text-gray-400 text-lg mb-8">
-            {t('application.success.description')}
-          </p>
-          <button type="button" onClick={onClose} className="btn-outline-orange w-full justify-center">
+          <p className="text-gray-400 text-lg mb-8">{t('application.success.description')}</p>
+          <button
+            type="button"
+            onClick={onClose}
+            className="btn-outline-orange w-full justify-center"
+          >
             {t('application.backHome')}
           </button>
         </div>
       </div>
-    )
+    );
   }
 
   return (
-    <div
-      className="min-h-screen bg-gray-50 pb-16 pt-24"
-      data-testid="application-wizard"
-    >
+    <div className="min-h-screen bg-gray-50 pb-16 pt-24" data-testid="application-wizard">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <button
@@ -318,12 +309,8 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
           <p className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
             {t('application.label')}
           </p>
-          <h1 className="section-heading text-black mt-2 mb-2">
-            {t('application.title')}
-          </h1>
-          <p className="text-gray-600 text-sm leading-relaxed">
-            {t('application.description')}
-          </p>
+          <h1 className="section-heading text-black mt-2 mb-2">{t('application.title')}</h1>
+          <p className="text-gray-600 text-sm leading-relaxed">{t('application.description')}</p>
           <div className="mt-4 h-2 bg-gray-200 rounded-full overflow-hidden">
             <progress
               className="h-full w-full [appearance:none] [&::-webkit-progress-bar]:bg-transparent [&::-webkit-progress-value]:bg-[#F7931A] [&::-moz-progress-bar]:bg-[#F7931A]"
@@ -422,15 +409,14 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
                   {...register('age', {
                     required: 'Required',
                     validate: (v) => {
-                      const n = Number.parseInt(v, 10)
-                      if (Number.isNaN(n) || n < 16 || n > 35) return 'Age must be between 16 and 35'
-                      return true
+                      const n = Number.parseInt(v, 10);
+                      if (Number.isNaN(n) || n < 16 || n > 35)
+                        return 'Age must be between 16 and 35';
+                      return true;
                     },
                   })}
                 />
-                {errors.age && (
-                  <p className="text-red-500 text-xs mt-1">{errors.age.message}</p>
-                )}
+                {errors.age && <p className="text-red-500 text-xs mt-1">{errors.age.message}</p>}
               </div>
 
               <div>
@@ -525,7 +511,8 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.additionalLanguages')} <span className="text-red-500">*</span>
+                  {t('application.fields.additionalLanguages')}{' '}
+                  <span className="text-red-500">*</span>
                 </label>
                 <select
                   className={inputClass(!!errors.additionalLanguages)}
@@ -573,8 +560,7 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.hearAbout')}{' '}
-                  <span className="text-red-500">*</span>
+                  {t('application.fields.hearAbout')} <span className="text-red-500">*</span>
                 </label>
                 <select
                   className={inputClass(!!errors.hearAbout)}
@@ -600,9 +586,7 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
               <h2 className="text-lg font-bold text-black border-b border-gray-100 pb-2">
                 {t('application.sections.two')}
               </h2>
-              <p className="text-sm text-gray-600">
-                {t('application.sections.twoDescription')}
-              </p>
+              <p className="text-sm text-gray-600">{t('application.sections.twoDescription')}</p>
 
               <div>
                 <span className={labelClass}>
@@ -635,7 +619,8 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
                 <>
                   <div>
                     <span className={labelClass}>
-                      {t('application.fields.guardianConsent')} <span className="text-red-500">*</span>
+                      {t('application.fields.guardianConsent')}{' '}
+                      <span className="text-red-500">*</span>
                     </span>
                     <label className="flex items-start gap-3 cursor-pointer mt-2">
                       <input
@@ -662,22 +647,24 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className={labelClass}>
-                        {t('application.fields.guardianName')} <span className="text-red-500">*</span>
+                        {t('application.fields.guardianName')}{' '}
+                        <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
                         className={inputClass(!!errors.guardianName)}
                         {...register('guardianName', {
                           validate: (v) => {
-                            if (isAdult !== 'no') return true
-                            return v?.trim() ? true : 'Required'
+                            if (isAdult !== 'no') return true;
+                            return v?.trim() ? true : 'Required';
                           },
                         })}
                       />
                     </div>
                     <div>
                       <label className={labelClass}>
-                        {t('application.fields.guardianRelationship')} <span className="text-red-500">*</span>
+                        {t('application.fields.guardianRelationship')}{' '}
+                        <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
@@ -685,8 +672,8 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
                         className={inputClass(!!errors.guardianRelationship)}
                         {...register('guardianRelationship', {
                           validate: (v) => {
-                            if (isAdult !== 'no') return true
-                            return v?.trim() ? true : 'Required'
+                            if (isAdult !== 'no') return true;
+                            return v?.trim() ? true : 'Required';
                           },
                         })}
                       />
@@ -696,31 +683,33 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className={labelClass}>
-                        {t('application.fields.guardianEmail')} <span className="text-red-500">*</span>
+                        {t('application.fields.guardianEmail')}{' '}
+                        <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="email"
                         className={inputClass(!!errors.guardianEmail)}
                         {...register('guardianEmail', {
                           validate: (v) => {
-                            if (isAdult !== 'no') return true
-                            if (!v?.trim()) return 'Required'
-                            return /^\S+@\S+\.\S+$/.test(v) ? true : 'Enter a valid email'
+                            if (isAdult !== 'no') return true;
+                            if (!v?.trim()) return 'Required';
+                            return /^\S+@\S+\.\S+$/.test(v) ? true : 'Enter a valid email';
                           },
                         })}
                       />
                     </div>
                     <div>
                       <label className={labelClass}>
-                        {t('application.fields.guardianPhone')} <span className="text-red-500">*</span>
+                        {t('application.fields.guardianPhone')}{' '}
+                        <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="tel"
                         className={inputClass(!!errors.guardianPhone)}
                         {...register('guardianPhone', {
                           validate: (v) => {
-                            if (isAdult !== 'no') return true
-                            return v?.trim() ? true : 'Required'
+                            if (isAdult !== 'no') return true;
+                            return v?.trim() ? true : 'Required';
                           },
                         })}
                       />
@@ -760,7 +749,8 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
 
               <div>
                 <span className={labelClass}>
-                  {t('application.fields.commitThreeMonths')} <span className="text-red-500">*</span>
+                  {t('application.fields.commitThreeMonths')}{' '}
+                  <span className="text-red-500">*</span>
                 </span>
                 <div className="flex gap-6">
                   <label className="inline-flex items-center gap-2 cursor-pointer">
@@ -787,8 +777,7 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.hopeToLearn')}{' '}
-                  <span className="text-red-500">*</span>
+                  {t('application.fields.hopeToLearn')} <span className="text-red-500">*</span>
                   <span className="font-normal text-gray-500"> {t('application.maxWords')}</span>
                 </label>
                 <textarea
@@ -801,7 +790,10 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
                   })}
                 />
                 <p className="text-xs text-gray-500 mt-1">
-                  {t('application.wordsCount', { current: wordCount(watch('hopeToLearn')), max: 200 })}
+                  {t('application.wordsCount', {
+                    current: wordCount(watch('hopeToLearn')),
+                    max: 200,
+                  })}
                 </p>
                 {errors.hopeToLearn && (
                   <p className="text-red-500 text-xs mt-1">{errors.hopeToLearn.message}</p>
@@ -810,8 +802,7 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.helpCommunity')}{' '}
-                  <span className="text-red-500">*</span>
+                  {t('application.fields.helpCommunity')} <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   rows={5}
@@ -861,7 +852,8 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
                   >
                     fast.com
                   </a>
-                  {t('application.fields.internetSpeedSuffix')} <span className="text-red-500">*</span>
+                  {t('application.fields.internetSpeedSuffix')}{' '}
+                  <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -876,7 +868,8 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
 
               <div>
                 <span className={labelClass}>
-                  {t('application.fields.videoConferencing')} <span className="text-red-500">*</span>
+                  {t('application.fields.videoConferencing')}{' '}
+                  <span className="text-red-500">*</span>
                 </span>
                 <div className="flex gap-6">
                   <label className="inline-flex items-center gap-2 cursor-pointer">
@@ -982,7 +975,8 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.teachingExperience')} <span className="text-red-500">*</span>
+                  {t('application.fields.teachingExperience')}{' '}
+                  <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   rows={3}
@@ -997,7 +991,8 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.programmingExperience')} <span className="text-red-500">*</span>
+                  {t('application.fields.programmingExperience')}{' '}
+                  <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   rows={3}
@@ -1006,7 +1001,9 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
                   {...register('programmingExperience', { required: 'Required' })}
                 />
                 {errors.programmingExperience && (
-                  <p className="text-red-500 text-xs mt-1">{errors.programmingExperience.message}</p>
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.programmingExperience.message}
+                  </p>
                 )}
               </div>
 
@@ -1052,11 +1049,7 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
               </button>
             )}
             {step < 3 && (
-              <button
-                type="button"
-                onClick={goNext}
-                className="btn-primary justify-center flex-1"
-              >
+              <button type="button" onClick={goNext} className="btn-primary justify-center flex-1">
                 {t('application.continue')}
                 <ArrowRight size={18} />
               </button>
@@ -1084,5 +1077,5 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
         </form>
       </div>
     </div>
-  )
+  );
 }
