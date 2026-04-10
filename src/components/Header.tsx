@@ -168,7 +168,7 @@ export default function Header({
                             }`}
                           >
                             <span>{lang.label}</span>
-                            <span className="text-[11px] uppercase tracking-wider text-gray-500">
+                            <span className="text-[11px] uppercase tracking-wider text-gray-400">
                               {lang.code}
                             </span>
                           </button>
@@ -219,7 +219,7 @@ export default function Header({
 
           {/* Language selector — mobile (inline pills) */}
           <div className="flex items-center gap-2 px-3 py-3 border-t border-white/10 mt-2 pt-4">
-            <Globe size={14} className="text-gray-500 flex-shrink-0" />
+            <Globe size={14} className="text-gray-400 flex-shrink-0" aria-hidden="true" />
             {LANGUAGES.map((lang) => (
               <button
                 key={lang.code}

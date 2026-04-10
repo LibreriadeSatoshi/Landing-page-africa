@@ -87,7 +87,7 @@ export default function Hero({ onApply }: Readonly<HeroProps>) {
         <button
           type="button"
           onClick={() => scrollTo('about')}
-          className="mt-16 text-gray-600 hover:text-[#F7931A] transition-colors flex flex-col items-center gap-2 mx-auto"
+          className="mt-16 text-gray-400 hover:text-[#F7931A] transition-colors flex flex-col items-center gap-2 mx-auto"
           aria-label={t('hero.scrollAria')}
         >
           <span className="text-xs uppercase tracking-widest">{t('hero.scrollLabel')}</span>
