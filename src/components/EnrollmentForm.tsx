@@ -40,7 +40,7 @@ export default function EnrollmentForm({ onOpenApplication }: EnrollmentFormProp
             {t('enrollment.questionsPrefix')}{' '}
             <a
               href="mailto:ambassadors@africabitcoineducation.org?subject=Ambassador%20Question"
-              className="text-[#F7931A] hover:underline"
+              className="text-orange-700 hover:underline"
             >
               ambassadors@africabitcoineducation.org
             </a>{' '}

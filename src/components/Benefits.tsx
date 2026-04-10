@@ -48,14 +48,14 @@ export default function Benefits() {
     <section id="benefits" className="py-20 md:py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-4">
-          <span className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-orange-700 text-sm font-semibold uppercase tracking-widest">
             {t('benefits.label')}
           </span>
         </div>
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading text-black mb-6">
             {t('benefits.titlePrefix')}{' '}
-            <span className="text-[#F7931A]">{t('benefits.titleHighlight')}</span>
+            <span className="text-orange-700">{t('benefits.titleHighlight')}</span>
           </h2>
           <p className="section-subheading">{t('benefits.description')}</p>
         </div>

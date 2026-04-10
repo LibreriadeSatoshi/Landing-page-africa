@@ -18,13 +18,13 @@ export default function Goal() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: text */}
           <div>
-            <span className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
+            <span className="text-orange-700 text-sm font-semibold uppercase tracking-widest">
               {t('goal.label')}
             </span>
             <h2 className="section-heading text-black mt-4 mb-6">
               {t('goal.titlePrefix')}
               <br />
-              <span className="text-[#F7931A]">{t('goal.titleHighlight')}</span>
+              <span className="text-orange-700">{t('goal.titleHighlight')}</span>
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-8">{t('goal.description')}</p>
             <p className="text-gray-700 font-medium mb-6">{t('goal.pillars')}</p>

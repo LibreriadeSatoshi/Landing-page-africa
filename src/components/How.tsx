@@ -40,13 +40,14 @@ export default function How() {
     <section className="py-20 md:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-4">
-          <span className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-orange-700 text-sm font-semibold uppercase tracking-widest">
             {t('how.label')}
           </span>
         </div>
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading text-black mb-6">
-            {t('how.titlePrefix')} <span className="text-[#F7931A]">{t('how.titleHighlight')}</span>
+            {t('how.titlePrefix')}{' '}
+            <span className="text-orange-700">{t('how.titleHighlight')}</span>
           </h2>
           <p className="section-subheading">{t('how.description')}</p>
         </div>

@@ -26,7 +26,7 @@ export default function What() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section label */}
         <div className="text-center mb-4">
-          <span className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-orange-700 text-sm font-semibold uppercase tracking-widest">
             {t('what.label')}
           </span>
         </div>
