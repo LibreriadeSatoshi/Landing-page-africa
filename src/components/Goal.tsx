@@ -78,7 +78,7 @@ export default function Goal() {
               </div>
 
               <div className="mt-8 text-center">
-                <p className="text-gray-500 text-xs">{t('goal.footer')}</p>
+                <p className="text-gray-400 text-xs">{t('goal.footer')}</p>
               </div>
             </div>
           </div>

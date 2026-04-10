@@ -59,7 +59,7 @@ export default function Why() {
           <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-white max-w-4xl mx-auto leading-tight">
             {t('why.quotePrefix')} <span className="text-[#F7931A]">{t('why.quoteHighlight')}</span>
           </p>
-          <p className="text-gray-500 mt-4">{t('why.quoteAuthor')}</p>
+          <p className="text-gray-400 mt-4">{t('why.quoteAuthor')}</p>
         </div>
       </div>
     </section>

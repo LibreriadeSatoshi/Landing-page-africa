@@ -21,7 +21,7 @@ export default function Footer() {
                 {t('brand.prefix')} <span className="text-[#F7931A]">{t('brand.highlight')}</span>
               </span>
             </div>
-            <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
+            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               {t('footer.description')}
             </p>
           </div>
@@ -88,19 +88,19 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-600 text-xs text-center sm:text-left">
+          <p className="text-gray-400 text-xs text-center sm:text-left">
             {t('footer.copyright', { year: new Date().getFullYear() })}
           </p>
           <div className="flex gap-4">
-            <a href="#" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">
+            <a href="#" className="text-gray-400 hover:text-white text-xs transition-colors">
               {t('footer.legal.privacy')}
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">
+            <a href="#" className="text-gray-400 hover:text-white text-xs transition-colors">
               {t('footer.legal.terms')}
             </a>
             <a
               href="mailto:contact@libreriadesatoshi.com"
-              className="text-gray-600 hover:text-[#F7931A] text-xs transition-colors"
+              className="text-gray-400 hover:text-[#F7931A] text-xs transition-colors"
             >
               {t('footer.legal.contact')}
             </a>

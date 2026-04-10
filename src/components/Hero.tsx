@@ -66,7 +66,7 @@ export default function Hero({ onApply }: Readonly<HeroProps>) {
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-3xl font-black text-[#F7931A]">{stat.value}</div>
-              <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
+              <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
             </div>
           ))}
         </div>
