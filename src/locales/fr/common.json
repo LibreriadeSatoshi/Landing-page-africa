@@ -38,9 +38,18 @@
     "description": "Libreria de Satoshi est un programme africain d'education Bitcoin et d'ambassadeurs. Nous construisons un reseau durable de jeunes leaders africains qui maitrisent Bitcoin et la blockchain, puis transmettent ce savoir dans leurs communautes.",
     "quote": "\"Par cohortes, pratique et mentorat, nous transformons des apprenants ambitieux en educateurs confiants et leaders communautaires.\"",
     "cards": {
-      "reach": { "title": "Portee continentale", "description": "Un programme panafricain pour atteindre chaque region, depasser les barrieres linguistiques et multiplier la connaissance." },
-      "knowledge": { "title": "Connaissance technique approfondie", "description": "Fondamentaux Bitcoin, informatique, outils open source, cryptographie, code, economie et IA dans un cursus structure." },
-      "community": { "title": "Croissance communautaire", "description": "Passez d'apprenant a educateur. Construisez un impact durable en devenant un referent Bitcoin local." }
+      "reach": {
+        "title": "Portee continentale",
+        "description": "Un programme panafricain pour atteindre chaque region, depasser les barrieres linguistiques et multiplier la connaissance."
+      },
+      "knowledge": {
+        "title": "Connaissance technique approfondie",
+        "description": "Fondamentaux Bitcoin, informatique, outils open source, cryptographie, code, economie et IA dans un cursus structure."
+      },
+      "community": {
+        "title": "Croissance communautaire",
+        "description": "Passez d'apprenant a educateur. Construisez un impact durable en devenant un referent Bitcoin local."
+      }
     }
   },
   "goal": {
@@ -60,7 +69,12 @@
       "coding": "Competences en code",
       "ai": "Intelligence artificielle"
     },
-    "tiers": { "learner": "Apprenant", "ambassador": "Ambassadeur", "educator": "Educateur", "leader": "Leader" }
+    "tiers": {
+      "learner": "Apprenant",
+      "ambassador": "Ambassadeur",
+      "educator": "Educateur",
+      "leader": "Leader"
+    }
   },
   "why": {
     "label": "Pourquoi c'est important",
@@ -71,9 +85,18 @@
     "quoteHighlight": "Nous changeons cela.\"",
     "quoteAuthor": "- Libreria de Satoshi",
     "reasons": {
-      "gap": { "title": "Le manque est reel", "description": "L'adoption Bitcoin en Afrique augmente vite, mais l'education technique profonde est en retard. Beaucoup de contenus restent en anglais." },
-      "languages": { "title": "Les langues locales comptent", "description": "L'education doit vivre dans les communautes, dans les langues de pensee des personnes." },
-      "teachers": { "title": "L'Afrique a besoin d'enseignants", "description": "Vos communautes ont besoin de leaders. Devenir enseignant est un levier puissant." }
+      "gap": {
+        "title": "Le manque est reel",
+        "description": "L'adoption Bitcoin en Afrique augmente vite, mais l'education technique profonde est en retard. Beaucoup de contenus restent en anglais."
+      },
+      "languages": {
+        "title": "Les langues locales comptent",
+        "description": "L'education doit vivre dans les communautes, dans les langues de pensee des personnes."
+      },
+      "teachers": {
+        "title": "L'Afrique a besoin d'enseignants",
+        "description": "Vos communautes ont besoin de leaders. Devenir enseignant est un levier puissant."
+      }
     }
   },
   "how": {
@@ -83,11 +106,26 @@
     "description": "Un programme structure, etape par etape, pour vous amener de debutant Bitcoin a educateur communautaire.",
     "stepLabel": "Etape",
     "steps": {
-      "one": { "title": "Apprentissage en cohorte", "description": "Rejoignez des pairs de toute l'Afrique et progressez ensemble." },
-      "two": { "title": "Formation technique pratique", "description": "Pratiquez avec de vrais outils Bitcoin et logiciels open source." },
-      "three": { "title": "Leadership et localisation", "description": "Developpez communication et facilitation adaptees a votre contexte." },
-      "four": { "title": "Partage de connaissance", "description": "Animez des ateliers et sessions pour multiplier l'impact." },
-      "five": { "title": "Preuve d'impact", "description": "Documentez vos resultats et construisez votre credibilite." }
+      "one": {
+        "title": "Apprentissage en cohorte",
+        "description": "Rejoignez des pairs de toute l'Afrique et progressez ensemble."
+      },
+      "two": {
+        "title": "Formation technique pratique",
+        "description": "Pratiquez avec de vrais outils Bitcoin et logiciels open source."
+      },
+      "three": {
+        "title": "Leadership et localisation",
+        "description": "Developpez communication et facilitation adaptees a votre contexte."
+      },
+      "four": {
+        "title": "Partage de connaissance",
+        "description": "Animez des ateliers et sessions pour multiplier l'impact."
+      },
+      "five": {
+        "title": "Preuve d'impact",
+        "description": "Documentez vos resultats et construisez votre credibilite."
+      }
     }
   },
   "benefits": {
@@ -98,14 +136,39 @@
     "curriculumLabel": "Curriculum",
     "curriculumTitle": "Ce que vous allez apprendre",
     "curriculumDescription": "Du premier principe aux competences techniques, dans votre langue et a votre rythme.",
-    "subjects": { "one": "Philosophie Bitcoin et blockchain", "two": "Bases d'informatique", "three": "Economie et mathematiques", "four": "Cryptographie", "five": "Bases du code", "six": "Introduction a l'IA" },
+    "subjects": {
+      "one": "Philosophie Bitcoin et blockchain",
+      "two": "Bases d'informatique",
+      "three": "Economie et mathematiques",
+      "four": "Cryptographie",
+      "five": "Bases du code",
+      "six": "Introduction a l'IA"
+    },
     "cards": {
-      "training": { "title": "Formation structuree gratuite", "description": "Acces sans frais a un programme Bitcoin premium." },
-      "skills": { "title": "Competences reelles", "description": "Philosophie Bitcoin, cryptographie, code et fondamentaux blockchain." },
-      "mentorship": { "title": "Mentorat", "description": "Apprenez avec des ambassadeurs et leaders techniques experimentes." },
-      "certified": { "title": "Parcours d'educateur certifie", "description": "Chemin clair vers la reconnaissance dans votre communaute." },
-      "network": { "title": "Reseau panafricain", "description": "Connectez-vous avec des leaders Bitcoin de 54 pays." },
-      "opportunities": { "title": "Opportunites exclusives", "description": "Acces aux emplois, projets et collaborations de l'ecosysteme Bitcoin." }
+      "training": {
+        "title": "Formation structuree gratuite",
+        "description": "Acces sans frais a un programme Bitcoin premium."
+      },
+      "skills": {
+        "title": "Competences reelles",
+        "description": "Philosophie Bitcoin, cryptographie, code et fondamentaux blockchain."
+      },
+      "mentorship": {
+        "title": "Mentorat",
+        "description": "Apprenez avec des ambassadeurs et leaders techniques experimentes."
+      },
+      "certified": {
+        "title": "Parcours d'educateur certifie",
+        "description": "Chemin clair vers la reconnaissance dans votre communaute."
+      },
+      "network": {
+        "title": "Reseau panafricain",
+        "description": "Connectez-vous avec des leaders Bitcoin de 54 pays."
+      },
+      "opportunities": {
+        "title": "Opportunites exclusives",
+        "description": "Acces aux emplois, projets et collaborations de l'ecosysteme Bitcoin."
+      }
     }
   },
   "enrollment": {
@@ -124,8 +187,18 @@
     "connect": "Connexion",
     "poweredBy": "Propulse par",
     "social": { "twitter": "Twitter", "telegram": "Telegram", "github": "GitHub" },
-    "links": { "home": "Accueil", "about": "A propos", "program": "Programme", "benefits": "Avantages", "apply": "Postuler" },
-    "legal": { "privacy": "Politique de confidentialite", "terms": "Conditions d'utilisation", "contact": "Contact" },
+    "links": {
+      "home": "Accueil",
+      "about": "A propos",
+      "program": "Programme",
+      "benefits": "Avantages",
+      "apply": "Postuler"
+    },
+    "legal": {
+      "privacy": "Politique de confidentialite",
+      "terms": "Conditions d'utilisation",
+      "contact": "Contact"
+    },
     "copyright": "© {{year}} Africa Bitcoin Education. Tous droits reserves."
   },
   "application": {
@@ -199,7 +272,12 @@
       "advanced": "Avance - j'ai des connaissances approfondies",
       "expert": "Expert - tres grande maitrise"
     },
-    "select": { "country": "Selectionnez un pays", "timezone": "Selectionnez un fuseau", "language": "Selectionnez une langue", "generic": "Selectionnez" },
+    "select": {
+      "country": "Selectionnez un pays",
+      "timezone": "Selectionnez un fuseau",
+      "language": "Selectionnez une langue",
+      "generic": "Selectionnez"
+    },
     "validation": { "ageRangeWarning": "Vous devez avoir entre 16 et 35 ans pour postuler." },
     "maxWords": "(max 200 mots)",
     "wordsCount": "{{current}} / {{max}} mots"

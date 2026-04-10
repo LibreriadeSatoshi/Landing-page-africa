@@ -1,91 +1,91 @@
-import { useEffect, useRef, useState } from 'react'
-import { Globe, Menu, X } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { useEffect, useRef, useState } from 'react';
+import { Globe, Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const LANGUAGES = [
   { code: 'en', label: 'English' },
   { code: 'fr', label: 'Français' },
   { code: 'sw', label: 'Kiswahili' },
-] as const
+] as const;
 
-type LangCode = (typeof LANGUAGES)[number]['code']
+type LangCode = (typeof LANGUAGES)[number]['code'];
 
 type HeaderProps = {
-  applicationMode?: boolean
-  onCloseApplication?: () => void
-  onOpenApplication?: () => void
-}
+  applicationMode?: boolean;
+  onCloseApplication?: () => void;
+  onOpenApplication?: () => void;
+};
 
 export default function Header({
   applicationMode,
   onCloseApplication,
   onOpenApplication,
 }: Readonly<HeaderProps>) {
-  const { t, i18n } = useTranslation()
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [langOpen, setLangOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('about')
-  const langRef = useRef<HTMLDivElement>(null)
+  const { t, i18n } = useTranslation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('about');
+  const langRef = useRef<HTMLDivElement>(null);
   const navItems = [
     { label: t('header.about'), id: 'about' },
     { label: t('header.program'), id: 'program' },
     { label: t('header.benefits'), id: 'benefits' },
-  ]
+  ];
 
   const scrollTo = (id: string) => {
-    setMenuOpen(false)
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  }
+    setMenuOpen(false);
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const openApply = () => {
-    setMenuOpen(false)
-    onOpenApplication?.()
-  }
+    setMenuOpen(false);
+    onOpenApplication?.();
+  };
 
   const changeLanguage = (language: LangCode) => {
-    void i18n.changeLanguage(language)
-    localStorage.setItem('language', language)
-    setLangOpen(false)
-  }
+    void i18n.changeLanguage(language);
+    localStorage.setItem('language', language);
+    setLangOpen(false);
+  };
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
-        setLangOpen(false)
+        setLangOpen(false);
       }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const sections = navItems
       .map((item) => document.getElementById(item.id))
-      .filter((el): el is HTMLElement => el !== null)
+      .filter((el): el is HTMLElement => el !== null);
 
-    if (!sections.length) return
+    if (!sections.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
         if (visible[0]?.target?.id) {
-          setActiveSection(visible[0].target.id)
+          setActiveSection(visible[0].target.id);
         }
       },
       {
         threshold: [0.25, 0.5, 0.75],
         rootMargin: '-20% 0px -55% 0px',
-      },
-    )
+      }
+    );
 
-    sections.forEach((section) => observer.observe(section))
-    return () => observer.disconnect()
-  }, [navItems])
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [navItems]);
 
-  const currentLang = LANGUAGES.find((l) => l.code === i18n.resolvedLanguage) ?? LANGUAGES[0]
+  const currentLang = LANGUAGES.find((l) => l.code === i18n.resolvedLanguage) ?? LANGUAGES[0];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-white/10">
@@ -119,7 +119,7 @@ export default function Header({
                 {/* Nav links — center (desktop) */}
                 <nav className="flex items-center gap-2">
                   {navItems.map((item) => {
-                    const isActive = activeSection === item.id
+                    const isActive = activeSection === item.id;
                     return (
                       <button
                         key={item.id}
@@ -135,13 +135,13 @@ export default function Header({
                           }`}
                         />
                       </button>
-                    )
+                    );
                   })}
                 </nav>
 
                 {/* Right actions — language + CTA (desktop) */}
                 <div className="flex items-center gap-3">
-                {/* Language dropdown */}
+                  {/* Language dropdown */}
                   <div ref={langRef} className="relative">
                     <button
                       type="button"
@@ -246,5 +246,5 @@ export default function Header({
         </div>
       )}
     </header>
-  )
+  );
 }

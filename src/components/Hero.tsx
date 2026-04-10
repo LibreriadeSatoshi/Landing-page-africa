@@ -1,27 +1,27 @@
-import { ArrowDown } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { ArrowDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 type HeroProps = {
-  onApply?: () => void
-}
+  onApply?: () => void;
+};
 
 export default function Hero({ onApply }: Readonly<HeroProps>) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const handleApply = () => {
-    if (onApply) onApply()
-    else scrollTo('enroll')
-  }
+    if (onApply) onApply();
+    else scrollTo('enroll');
+  };
 
   const stats = [
     { value: '54', label: t('hero.stats.countries') },
     { value: '100%', label: t('hero.stats.free') },
     { value: '18-35', label: t('hero.stats.ageRange') },
-  ]
+  ];
 
   return (
     <section
@@ -53,9 +53,8 @@ export default function Hero({ onApply }: Readonly<HeroProps>) {
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight mb-6">
-          {t('hero.titlePrefix')}{' '}
-          <span className="text-[#F7931A]">{t('hero.titleHighlight')}</span> {t('hero.titleMiddle')}{' '}
-          <br className="hidden sm:block" />
+          {t('hero.titlePrefix')} <span className="text-[#F7931A]">{t('hero.titleHighlight')}</span>{' '}
+          {t('hero.titleMiddle')} <br className="hidden sm:block" />
           {t('hero.titleSuffix')}
         </h1>
 
@@ -76,7 +75,11 @@ export default function Hero({ onApply }: Readonly<HeroProps>) {
           <button type="button" onClick={handleApply} className="btn-primary text-base px-10 py-4">
             {t('hero.ctaApply')}
           </button>
-          <button type="button" onClick={() => scrollTo('about')} className="btn-secondary text-base px-10 py-4">
+          <button
+            type="button"
+            onClick={() => scrollTo('about')}
+            className="btn-secondary text-base px-10 py-4"
+          >
             {t('hero.ctaLearnMore')}
           </button>
         </div>
@@ -92,5 +95,5 @@ export default function Hero({ onApply }: Readonly<HeroProps>) {
         </button>
       </div>
     </section>
-  )
+  );
 }

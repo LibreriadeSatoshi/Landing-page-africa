@@ -22,7 +22,11 @@
     "titleMiddle": "Jamii Yako.",
     "titleSuffix": "Unda Mustakabali wa Afrika.",
     "description": "Jiunge na harakati ya vijana viongozi wa Afrika wanaojenga uelewa wa kiufundi wa Bitcoin, blockchain na teknolojia huria - kwa lugha yako, kwa kasi yako.",
-    "stats": { "countries": "Nchi za Afrika", "free": "Programu ya Bure", "ageRange": "Kiwango cha Umri" },
+    "stats": {
+      "countries": "Nchi za Afrika",
+      "free": "Programu ya Bure",
+      "ageRange": "Kiwango cha Umri"
+    },
     "ctaApply": "Omba Sasa - Ni Bure",
     "ctaLearnMore": "Jifunze Zaidi",
     "scrollAria": "Telezesha chini",
@@ -34,9 +38,18 @@
     "description": "Libreria de Satoshi ni programu ya juu ya elimu ya Bitcoin na mabalozi barani Afrika. Tunajenga mtandao endelevu wa vijana viongozi wa Afrika wanaoelewa Bitcoin na blockchain kwa undani na kusambaza maarifa hayo katika jamii zao.",
     "quote": "\"Kupitia kujifunza kwa makundi, mafunzo ya vitendo na uongozi, tunabadilisha wanaojifunza kuwa waelimishaji wenye kujiamini na viongozi wa jamii.\"",
     "cards": {
-      "reach": { "title": "Ufikiaji wa Bara Zima", "description": "Programu ya pana ya Afrika inayofikia kila kona, ikivuka mipaka na vizuizi vya lugha." },
-      "knowledge": { "title": "Maarifa ya Kina ya Kiufundi", "description": "Misingi ya Bitcoin, sayansi ya kompyuta, zana za wazi, kriptografia, uandishi wa msimbo, uchumi na AI." },
-      "community": { "title": "Ukuaji wa Jamii", "description": "Badilika kutoka mwanafunzi hadi mwalimu. Jenga urithi wa kudumu kwa jamii yako." }
+      "reach": {
+        "title": "Ufikiaji wa Bara Zima",
+        "description": "Programu ya pana ya Afrika inayofikia kila kona, ikivuka mipaka na vizuizi vya lugha."
+      },
+      "knowledge": {
+        "title": "Maarifa ya Kina ya Kiufundi",
+        "description": "Misingi ya Bitcoin, sayansi ya kompyuta, zana za wazi, kriptografia, uandishi wa msimbo, uchumi na AI."
+      },
+      "community": {
+        "title": "Ukuaji wa Jamii",
+        "description": "Badilika kutoka mwanafunzi hadi mwalimu. Jenga urithi wa kudumu kwa jamii yako."
+      }
     }
   },
   "goal": {
@@ -56,7 +69,12 @@
       "coding": "Ujuzi wa Uandishi wa Msimbo",
       "ai": "Akili Bandia"
     },
-    "tiers": { "learner": "Mwanafunzi", "ambassador": "Balozi", "educator": "Mwalimu", "leader": "Kiongozi" }
+    "tiers": {
+      "learner": "Mwanafunzi",
+      "ambassador": "Balozi",
+      "educator": "Mwalimu",
+      "leader": "Kiongozi"
+    }
   },
   "why": {
     "label": "Kwa Nini Hii ni Muhimu",
@@ -67,9 +85,18 @@
     "quoteHighlight": "Tunabadilisha hilo.\"",
     "quoteAuthor": "- Libreria de Satoshi",
     "reasons": {
-      "gap": { "title": "Pengo ni Halisi", "description": "Uenezaji wa Bitcoin Afrika unakua haraka, lakini elimu ya kina ya kiufundi bado ipo nyuma." },
-      "languages": { "title": "Lugha za Kiasili ni Muhimu", "description": "Elimu inapaswa kuishi ndani ya jamii, kwa lugha ambazo watu hufikiri nazo." },
-      "teachers": { "title": "Afrika Inahitaji Walimu", "description": "Jamii zinahitaji viongozi wenye uelewa wa kina wa blockchain." }
+      "gap": {
+        "title": "Pengo ni Halisi",
+        "description": "Uenezaji wa Bitcoin Afrika unakua haraka, lakini elimu ya kina ya kiufundi bado ipo nyuma."
+      },
+      "languages": {
+        "title": "Lugha za Kiasili ni Muhimu",
+        "description": "Elimu inapaswa kuishi ndani ya jamii, kwa lugha ambazo watu hufikiri nazo."
+      },
+      "teachers": {
+        "title": "Afrika Inahitaji Walimu",
+        "description": "Jamii zinahitaji viongozi wenye uelewa wa kina wa blockchain."
+      }
     }
   },
   "how": {
@@ -79,11 +106,26 @@
     "description": "Programu ya hatua kwa hatua inayokutoa kutoka mwanzo wa Bitcoin hadi mwalimu wa jamii ndani ya miezi michache.",
     "stepLabel": "Hatua",
     "steps": {
-      "one": { "title": "Kujifunza kwa Kundi", "description": "Jiunge na kundi la wenzao kutoka Afrika nzima na jifunze pamoja." },
-      "two": { "title": "Mafunzo ya Kiufundi ya Vitendo", "description": "Fanya mazoezi na zana halisi za Bitcoin na programu huria." },
-      "three": { "title": "Uongozi na Ujanibishaji", "description": "Boresha mawasiliano na uwezo wa kufundisha katika muktadha wa jamii yako." },
-      "four": { "title": "Kushirikisha Maarifa", "description": "Andaa warsha na vikao vya jamii ili kuongeza athari." },
-      "five": { "title": "Uthibitisho wa Kazi", "description": "Andika athari zako na ujenge historia inayoonyesha uongozi wako." }
+      "one": {
+        "title": "Kujifunza kwa Kundi",
+        "description": "Jiunge na kundi la wenzao kutoka Afrika nzima na jifunze pamoja."
+      },
+      "two": {
+        "title": "Mafunzo ya Kiufundi ya Vitendo",
+        "description": "Fanya mazoezi na zana halisi za Bitcoin na programu huria."
+      },
+      "three": {
+        "title": "Uongozi na Ujanibishaji",
+        "description": "Boresha mawasiliano na uwezo wa kufundisha katika muktadha wa jamii yako."
+      },
+      "four": {
+        "title": "Kushirikisha Maarifa",
+        "description": "Andaa warsha na vikao vya jamii ili kuongeza athari."
+      },
+      "five": {
+        "title": "Uthibitisho wa Kazi",
+        "description": "Andika athari zako na ujenge historia inayoonyesha uongozi wako."
+      }
     }
   },
   "benefits": {
@@ -94,14 +136,39 @@
     "curriculumLabel": "Mtaala",
     "curriculumTitle": "Utakachojifunza",
     "curriculumDescription": "Mtaala wetu unakupa kila kitu kuanzia misingi hadi ujuzi wa kiufundi, kwa lugha yako na kasi yako.",
-    "subjects": { "one": "Falsafa ya Bitcoin na Blockchain", "two": "Misingi ya Sayansi ya Kompyuta", "three": "Uchumi na Hisabati", "four": "Kriptografia", "five": "Misingi ya Uandishi wa Msimbo", "six": "Utangulizi wa AI" },
+    "subjects": {
+      "one": "Falsafa ya Bitcoin na Blockchain",
+      "two": "Misingi ya Sayansi ya Kompyuta",
+      "three": "Uchumi na Hisabati",
+      "four": "Kriptografia",
+      "five": "Misingi ya Uandishi wa Msimbo",
+      "six": "Utangulizi wa AI"
+    },
     "cards": {
-      "training": { "title": "Mafunzo ya Muundo Bila Malipo", "description": "Pata elimu bora ya Bitcoin bila gharama." },
-      "skills": { "title": "Ujuzi wa Dunia Halisi", "description": "Falsafa ya Bitcoin, kriptografia, coding na misingi ya blockchain." },
-      "mentorship": { "title": "Ushauri", "description": "Jifunze kutoka kwa mabalozi na viongozi wa kiufundi wenye uzoefu." },
-      "certified": { "title": "Njia ya Mwalimu Aliyethibitishwa", "description": "Njia wazi ya kuwa mwalimu wa Bitcoin anayekubalika kwenye jamii yako." },
-      "network": { "title": "Mtandao wa Pan-Afrika", "description": "Ungana na viongozi, wabunifu na waelimishaji wa Bitcoin kutoka nchi 54." },
-      "opportunities": { "title": "Fursa Maalum", "description": "Fikia ajira, miradi na ushirikiano ndani ya ikolojia ya Bitcoin." }
+      "training": {
+        "title": "Mafunzo ya Muundo Bila Malipo",
+        "description": "Pata elimu bora ya Bitcoin bila gharama."
+      },
+      "skills": {
+        "title": "Ujuzi wa Dunia Halisi",
+        "description": "Falsafa ya Bitcoin, kriptografia, coding na misingi ya blockchain."
+      },
+      "mentorship": {
+        "title": "Ushauri",
+        "description": "Jifunze kutoka kwa mabalozi na viongozi wa kiufundi wenye uzoefu."
+      },
+      "certified": {
+        "title": "Njia ya Mwalimu Aliyethibitishwa",
+        "description": "Njia wazi ya kuwa mwalimu wa Bitcoin anayekubalika kwenye jamii yako."
+      },
+      "network": {
+        "title": "Mtandao wa Pan-Afrika",
+        "description": "Ungana na viongozi, wabunifu na waelimishaji wa Bitcoin kutoka nchi 54."
+      },
+      "opportunities": {
+        "title": "Fursa Maalum",
+        "description": "Fikia ajira, miradi na ushirikiano ndani ya ikolojia ya Bitcoin."
+      }
     }
   },
   "enrollment": {
@@ -120,8 +187,18 @@
     "connect": "Unganika",
     "poweredBy": "Inaendeshwa na",
     "social": { "twitter": "Twitter", "telegram": "Telegram", "github": "GitHub" },
-    "links": { "home": "Mwanzo", "about": "Kuhusu", "program": "Programu", "benefits": "Faida", "apply": "Omba Sasa" },
-    "legal": { "privacy": "Sera ya Faragha", "terms": "Masharti ya Matumizi", "contact": "Wasiliana" },
+    "links": {
+      "home": "Mwanzo",
+      "about": "Kuhusu",
+      "program": "Programu",
+      "benefits": "Faida",
+      "apply": "Omba Sasa"
+    },
+    "legal": {
+      "privacy": "Sera ya Faragha",
+      "terms": "Masharti ya Matumizi",
+      "contact": "Wasiliana"
+    },
     "copyright": "© {{year}} Africa Bitcoin Education. Haki zote zimehifadhiwa."
   },
   "application": {
@@ -188,14 +265,22 @@
       "teaching": "Eleza uzoefu wowote wa kufundisha au kuratibu",
       "programming": "Eleza uzoefu wowote wa coding au kiufundi"
     },
-    "options": { "adultYes": "Ndiyo, nina miaka 18 au zaidi", "adultNo": "Hapana, niko chini ya miaka 18" },
+    "options": {
+      "adultYes": "Ndiyo, nina miaka 18 au zaidi",
+      "adultNo": "Hapana, niko chini ya miaka 18"
+    },
     "bitcoinOptions": {
       "beginner": "Mwanzo - bado najifunza",
       "intermediate": "Wastani - naelewa Bitcoin vizuri",
       "advanced": "Juu - nina maarifa ya kina",
       "expert": "Mtaalam - uelewa wa juu sana"
     },
-    "select": { "country": "Chagua nchi", "timezone": "Chagua saa za eneo", "language": "Chagua lugha", "generic": "Chagua" },
+    "select": {
+      "country": "Chagua nchi",
+      "timezone": "Chagua saa za eneo",
+      "language": "Chagua lugha",
+      "generic": "Chagua"
+    },
     "validation": { "ageRangeWarning": "Ni lazima uwe na miaka 16 hadi 35 ili kuomba." },
     "maxWords": "(kiwango cha juu maneno 200)",
     "wordsCount": "maneno {{current}} / {{max}}"

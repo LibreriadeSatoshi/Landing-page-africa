@@ -1,8 +1,8 @@
-import { AlertTriangle, Globe, Heart } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { AlertTriangle, Globe, Heart } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Why() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const reasons = [
     {
       icon: AlertTriangle,
@@ -19,7 +19,7 @@ export default function Why() {
       title: t('why.reasons.teachers.title'),
       description: t('why.reasons.teachers.description'),
     },
-  ]
+  ];
 
   return (
     <section className="py-20 md:py-28 bg-black text-white">
@@ -33,12 +33,9 @@ export default function Why() {
 
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading text-white mb-6">
-            {t('why.titlePrefix')}{' '}
-            <span className="text-[#F7931A]">{t('why.titleHighlight')}</span>
+            {t('why.titlePrefix')} <span className="text-[#F7931A]">{t('why.titleHighlight')}</span>
           </h2>
-          <p className="text-gray-400 text-lg leading-relaxed">
-            {t('why.description')}
-          </p>
+          <p className="text-gray-400 text-lg leading-relaxed">{t('why.description')}</p>
         </div>
 
         {/* Reasons */}
@@ -60,12 +57,11 @@ export default function Why() {
         {/* Big quote */}
         <div className="text-center border-t border-white/10 pt-16">
           <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-white max-w-4xl mx-auto leading-tight">
-            {t('why.quotePrefix')}{' '}
-            <span className="text-[#F7931A]">{t('why.quoteHighlight')}</span>
+            {t('why.quotePrefix')} <span className="text-[#F7931A]">{t('why.quoteHighlight')}</span>
           </p>
           <p className="text-gray-500 mt-4">{t('why.quoteAuthor')}</p>
         </div>
       </div>
     </section>
-  )
+  );
 }

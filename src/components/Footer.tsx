@@ -1,11 +1,11 @@
-import { Twitter, Github, MessageCircle } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { Twitter, Github, MessageCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <footer className="bg-black border-t border-white/10 py-12">
@@ -28,7 +28,9 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-widest">{t('footer.navigation')}</h4>
+            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-widest">
+              {t('footer.navigation')}
+            </h4>
             <ul className="space-y-2">
               {[
                 { label: t('footer.links.home'), id: 'hero' },
@@ -51,11 +53,12 @@ export default function Footer() {
 
           {/* Contact + Social */}
           <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-widest">{t('footer.connect')}</h4>
+            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-widest">
+              {t('footer.connect')}
+            </h4>
             <p className="text-gray-400 text-sm mb-4">
               {t('footer.poweredBy')}{' '}
-              <span className="text-[#F7931A] font-semibold">Bitcoin Without Borders</span>
-              {' '}/ Ubuntu
+              <span className="text-[#F7931A] font-semibold">Bitcoin Without Borders</span> / Ubuntu
             </p>
             <div className="flex gap-3">
               <a
@@ -89,12 +92,21 @@ export default function Footer() {
             {t('footer.copyright', { year: new Date().getFullYear() })}
           </p>
           <div className="flex gap-4">
-            <a href="#" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">{t('footer.legal.privacy')}</a>
-            <a href="#" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">{t('footer.legal.terms')}</a>
-            <a href="mailto:contact@libreriadesatoshi.com" className="text-gray-600 hover:text-[#F7931A] text-xs transition-colors">{t('footer.legal.contact')}</a>
+            <a href="#" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">
+              {t('footer.legal.privacy')}
+            </a>
+            <a href="#" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">
+              {t('footer.legal.terms')}
+            </a>
+            <a
+              href="mailto:contact@libreriadesatoshi.com"
+              className="text-gray-600 hover:text-[#F7931A] text-xs transition-colors"
+            >
+              {t('footer.legal.contact')}
+            </a>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

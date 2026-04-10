@@ -1,16 +1,40 @@
-import { Star, BookOpen, Users, Award, Network, Zap } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { Star, BookOpen, Users, Award, Network, Zap } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Benefits() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const benefits = [
-    { icon: BookOpen, title: t('benefits.cards.training.title'), description: t('benefits.cards.training.description') },
-    { icon: Zap, title: t('benefits.cards.skills.title'), description: t('benefits.cards.skills.description') },
-    { icon: Users, title: t('benefits.cards.mentorship.title'), description: t('benefits.cards.mentorship.description') },
-    { icon: Award, title: t('benefits.cards.certified.title'), description: t('benefits.cards.certified.description') },
-    { icon: Network, title: t('benefits.cards.network.title'), description: t('benefits.cards.network.description') },
-    { icon: Star, title: t('benefits.cards.opportunities.title'), description: t('benefits.cards.opportunities.description') },
-  ]
+    {
+      icon: BookOpen,
+      title: t('benefits.cards.training.title'),
+      description: t('benefits.cards.training.description'),
+    },
+    {
+      icon: Zap,
+      title: t('benefits.cards.skills.title'),
+      description: t('benefits.cards.skills.description'),
+    },
+    {
+      icon: Users,
+      title: t('benefits.cards.mentorship.title'),
+      description: t('benefits.cards.mentorship.description'),
+    },
+    {
+      icon: Award,
+      title: t('benefits.cards.certified.title'),
+      description: t('benefits.cards.certified.description'),
+    },
+    {
+      icon: Network,
+      title: t('benefits.cards.network.title'),
+      description: t('benefits.cards.network.description'),
+    },
+    {
+      icon: Star,
+      title: t('benefits.cards.opportunities.title'),
+      description: t('benefits.cards.opportunities.description'),
+    },
+  ];
   const subjects = [
     t('benefits.subjects.one'),
     t('benefits.subjects.two'),
@@ -18,7 +42,7 @@ export default function Benefits() {
     t('benefits.subjects.four'),
     t('benefits.subjects.five'),
     t('benefits.subjects.six'),
-  ]
+  ];
 
   return (
     <section id="benefits" className="py-20 md:py-28 bg-gray-50">
@@ -33,9 +57,7 @@ export default function Benefits() {
             {t('benefits.titlePrefix')}{' '}
             <span className="text-[#F7931A]">{t('benefits.titleHighlight')}</span>
           </h2>
-          <p className="section-subheading">
-            {t('benefits.description')}
-          </p>
+          <p className="section-subheading">{t('benefits.description')}</p>
         </div>
 
         {/* Benefits grid */}
@@ -46,7 +68,10 @@ export default function Benefits() {
               className="card hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
             >
               <div className="w-10 h-10 bg-[#F7931A]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#F7931A] transition-colors">
-                <Icon size={20} className="text-[#F7931A] group-hover:text-white transition-colors" />
+                <Icon
+                  size={20}
+                  className="text-[#F7931A] group-hover:text-white transition-colors"
+                />
               </div>
               <h3 className="font-bold text-black mb-2">{title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
@@ -64,9 +89,7 @@ export default function Benefits() {
               <h3 className="text-2xl md:text-3xl font-bold text-white mt-3 mb-4">
                 {t('benefits.curriculumTitle')}
               </h3>
-              <p className="text-gray-400 leading-relaxed">
-                {t('benefits.curriculumDescription')}
-              </p>
+              <p className="text-gray-400 leading-relaxed">{t('benefits.curriculumDescription')}</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {subjects.map((subject) => (
@@ -83,5 +106,5 @@ export default function Benefits() {
         </div>
       </div>
     </section>
-  )
+  );
 }

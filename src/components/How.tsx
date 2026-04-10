@@ -1,8 +1,8 @@
-import { Users, Wrench, MessageCircle, Share2, CheckCircle } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { Users, Wrench, MessageCircle, Share2, CheckCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function How() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const steps = [
     {
       number: '01',
@@ -34,7 +34,7 @@ export default function How() {
       title: t('how.steps.five.title'),
       description: t('how.steps.five.description'),
     },
-  ]
+  ];
 
   return (
     <section className="py-20 md:py-28 bg-white">
@@ -46,12 +46,9 @@ export default function How() {
         </div>
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading text-black mb-6">
-            {t('how.titlePrefix')}{' '}
-            <span className="text-[#F7931A]">{t('how.titleHighlight')}</span>
+            {t('how.titlePrefix')} <span className="text-[#F7931A]">{t('how.titleHighlight')}</span>
           </h2>
-          <p className="section-subheading">
-            {t('how.description')}
-          </p>
+          <p className="section-subheading">{t('how.description')}</p>
         </div>
 
         {/* Timeline / Steps */}
@@ -61,8 +58,8 @@ export default function How() {
 
           <div className="space-y-12">
             {steps.map((step, idx) => {
-              const Icon = step.icon
-              const isLeft = idx % 2 === 0
+              const Icon = step.icon;
+              const isLeft = idx % 2 === 0;
               return (
                 <div
                   key={step.number}
@@ -80,7 +77,9 @@ export default function How() {
                             {t('how.stepLabel')} {step.number}
                           </div>
                           <h3 className="text-lg font-bold text-black mb-2">{step.title}</h3>
-                          <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                          <p className="text-gray-600 text-sm leading-relaxed">
+                            {step.description}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -96,11 +95,11 @@ export default function How() {
                   {/* Empty space for the other side */}
                   <div className="hidden lg:block lg:w-5/12" />
                 </div>
-              )
+              );
             })}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
