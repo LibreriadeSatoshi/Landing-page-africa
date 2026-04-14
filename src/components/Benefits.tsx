@@ -1,38 +1,28 @@
-import { Star, BookOpen, Users, Award, Network, Zap } from 'lucide-react';
+import { Users, Award, Network, Zap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Benefits() {
   const { t } = useTranslation();
   const benefits = [
     {
-      icon: BookOpen,
-      title: t('benefits.cards.training.title'),
-      description: t('benefits.cards.training.description'),
-    },
-    {
-      icon: Zap,
-      title: t('benefits.cards.skills.title'),
-      description: t('benefits.cards.skills.description'),
-    },
-    {
-      icon: Users,
-      title: t('benefits.cards.mentorship.title'),
-      description: t('benefits.cards.mentorship.description'),
-    },
-    {
       icon: Award,
       title: t('benefits.cards.certified.title'),
       description: t('benefits.cards.certified.description'),
     },
     {
-      icon: Network,
-      title: t('benefits.cards.network.title'),
-      description: t('benefits.cards.network.description'),
+      icon: Zap,
+      title: t('benefits.cards.earnAsYouLearn.title'),
+      description: t('benefits.cards.earnAsYouLearn.description'),
     },
     {
-      icon: Star,
-      title: t('benefits.cards.opportunities.title'),
-      description: t('benefits.cards.opportunities.description'),
+      icon: Users,
+      title: t('benefits.cards.internships.title'),
+      description: t('benefits.cards.internships.description'),
+    },
+    {
+      icon: Network,
+      title: t('benefits.cards.globalOpportunities.title'),
+      description: t('benefits.cards.globalOpportunities.description'),
     },
   ];
   const subjects = [
@@ -61,7 +51,7 @@ export default function Benefits() {
         </div>
 
         {/* Benefits grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 mb-16">
           {benefits.map(({ icon: Icon, title, description }) => (
             <div
               key={title}
