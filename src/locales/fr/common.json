@@ -226,6 +226,7 @@
       "primaryLanguage": "Langue principale",
       "additionalLanguages": "Parlez-vous d'autres langues?",
       "readWriteLanguages": "Pouvez-vous lire et ecrire ces langues?",
+      "readWriteLanguagesDetail": "Dans quelle(s) langue(s) pouvez-vous lire et ecrire?",
       "hearAbout": "Comment avez-vous connu le programme?",
       "isAdult": "Avez-vous 18 ans ou plus?",
       "guardianConsent": "Consentement parental / tuteur",
@@ -255,7 +256,8 @@
       "guardianRelationship": "ex. Mere, Pere",
       "internetSpeed": "ex. 25 Mbps telechargement",
       "teaching": "Decrivez votre experience d'enseignement ou facilitation",
-      "programming": "Decrivez votre experience technique ou de code"
+      "programming": "Decrivez votre experience technique ou de code",
+      "readWriteLanguagesDetail": "ex. anglais, swahili"
     },
     "options": { "adultYes": "Oui, j'ai 18 ans ou plus", "adultNo": "Non, j'ai moins de 18 ans" },
     "bitcoinOptions": {
