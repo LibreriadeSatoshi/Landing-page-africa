@@ -1,4 +1,4 @@
-import { Star, BookOpen, Users, Award, Network, Zap } from 'lucide-react';
+import { Users, Award, Network, Zap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Benefits() {
