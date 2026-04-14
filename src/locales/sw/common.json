@@ -226,6 +226,7 @@
       "primaryLanguage": "Lugha kuu",
       "additionalLanguages": "Je, unazungumza lugha nyingine?",
       "readWriteLanguages": "Je, unaweza kusoma na kuandika lugha hizo?",
+      "readWriteLanguagesDetail": "Ni lugha zipi unazoweza kusoma na kuandika?",
       "hearAbout": "Ulijuaje kuhusu programu ya ubalozi?",
       "isAdult": "Je, una miaka 18 au zaidi?",
       "guardianConsent": "Idhini ya mzazi / mlezi",
@@ -255,7 +256,8 @@
       "guardianRelationship": "mf. Mama, Baba",
       "internetSpeed": "mf. 25 Mbps download",
       "teaching": "Eleza uzoefu wowote wa kufundisha au kuratibu",
-      "programming": "Eleza uzoefu wowote wa coding au kiufundi"
+      "programming": "Eleza uzoefu wowote wa coding au kiufundi",
+      "readWriteLanguagesDetail": "mf. Kiingereza, Kiswahili"
     },
     "options": {
       "adultYes": "Ndiyo, nina miaka 18 au zaidi",

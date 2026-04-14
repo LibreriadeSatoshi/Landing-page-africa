@@ -25,6 +25,7 @@ export type AmbassadorFormValues = {
   primaryLanguage: string;
   additionalLanguages: string;
   readWriteLanguages: 'yes' | 'no' | '';
+  readWriteLanguagesDetail: string;
   hearAbout: string;
   // Section 2
   isAdult: 'yes' | 'no' | '';
@@ -64,6 +65,7 @@ const defaultValues: AmbassadorFormValues = {
   primaryLanguage: '',
   additionalLanguages: '',
   readWriteLanguages: '',
+  readWriteLanguagesDetail: '',
   hearAbout: '',
   isAdult: '',
   guardianConsentAccepted: false,
@@ -104,6 +106,7 @@ const STEP1_FIELDS: (keyof AmbassadorFormValues)[] = [
   'primaryLanguage',
   'additionalLanguages',
   'readWriteLanguages',
+  'readWriteLanguagesDetail',
   'hearAbout',
 ];
 
@@ -134,6 +137,7 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
     trigger,
     reset,
     getValues,
+    setValue,
     formState: { errors },
   } = useForm<AmbassadorFormValues>({
     defaultValues,
@@ -141,6 +145,13 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
   });
 
   const isAdult = watch('isAdult');
+  const readWriteLanguagesChoice = watch('readWriteLanguages');
+
+  useEffect(() => {
+    if (readWriteLanguagesChoice === 'no') {
+      setValue('readWriteLanguagesDetail', '');
+    }
+  }, [readWriteLanguagesChoice, setValue]);
 
   // Restore draft
   useEffect(() => {
@@ -365,7 +376,7 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
                 )}
               </div>
 
-              <div>
+              {/* <div>
                 <span className={labelClass}>
                   {t('application.fields.between16and35')} <span className="text-red-500">*</span>
                 </span>
@@ -395,7 +406,7 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
                 {errors.between16and35 && (
                   <p className="text-red-500 text-xs mt-1">{errors.between16and35.message}</p>
                 )}
-              </div>
+              </div> */}
 
               <div>
                 <label className={labelClass}>
@@ -535,14 +546,14 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
                   {t('application.fields.readWriteLanguages')}{' '}
                   <span className="text-red-500">*</span>
                 </span>
-                <div className="flex gap-6">
+                <div className="flex flex-wrap gap-6">
                   <label className="inline-flex items-center gap-2 cursor-pointer">
                     <input
                       type="radio"
                       value="yes"
                       {...register('readWriteLanguages', { required: 'Please select' })}
                     />
-                    <span className="text-sm">{t('common.yes')}</span>
+                    <span className="text-sm text-gray-800">{t('common.yes')}</span>
                   </label>
                   <label className="inline-flex items-center gap-2 cursor-pointer">
                     <input
@@ -550,9 +561,35 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
                       value="no"
                       {...register('readWriteLanguages', { required: 'Please select' })}
                     />
-                    <span className="text-sm">{t('common.no')}</span>
+                    <span className="text-sm text-gray-800">{t('common.no')}</span>
                   </label>
                 </div>
+                {readWriteLanguagesChoice === 'yes' && (
+                  <div className="mt-3 rounded-xl border border-gray-200 bg-gray-50/80 p-4">
+                    <label className={labelClass} htmlFor="readWriteLanguagesDetail">
+                      {t('application.fields.readWriteLanguagesDetail')}{' '}
+                      <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="readWriteLanguagesDetail"
+                      type="text"
+                      autoComplete="off"
+                      placeholder={t('application.placeholders.readWriteLanguagesDetail')}
+                      className={inputClass(!!errors.readWriteLanguagesDetail)}
+                      {...register('readWriteLanguagesDetail', {
+                        validate: (value, formValues) =>
+                          formValues.readWriteLanguages !== 'yes' ||
+                          value.trim().length > 0 ||
+                          'Required',
+                      })}
+                    />
+                    {errors.readWriteLanguagesDetail && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.readWriteLanguagesDetail.message}
+                      </p>
+                    )}
+                  </div>
+                )}
                 {errors.readWriteLanguages && (
                   <p className="text-red-500 text-xs mt-1">{errors.readWriteLanguages.message}</p>
                 )}

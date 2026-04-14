@@ -230,6 +230,7 @@
       "primaryLanguage": "Primary language",
       "additionalLanguages": "Do you speak any additional languages?",
       "readWriteLanguages": "Can you read and write in the languages specified above?",
+      "readWriteLanguagesDetail": "Which language(s) can you read and write?",
       "hearAbout": "How did you hear about the Africa Bitcoin Education Ambassador Program?",
       "isAdult": "Are you 18 years or older?",
       "guardianConsent": "Parental / guardian consent",
@@ -259,7 +260,8 @@
       "guardianRelationship": "e.g. Mother, Father",
       "internetSpeed": "e.g. 25 Mbps download",
       "teaching": "Describe any teaching, tutoring, or facilitation experience",
-      "programming": "Describe any coding or technical experience (none is OK)"
+      "programming": "Describe any coding or technical experience (none is OK)",
+      "readWriteLanguagesDetail": "e.g. English, Swahili"
     },
     "options": {
       "adultYes": "Yes, I am 18 or older",
