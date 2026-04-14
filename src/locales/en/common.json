@@ -145,29 +145,21 @@
       "six": "Introduction to AI"
     },
     "cards": {
-      "training": {
-        "title": "Free Structured Training",
-        "description": "Access premium Bitcoin education at zero cost - structured curriculum from industry experts."
-      },
-      "skills": {
-        "title": "Real-World Skills",
-        "description": "Bitcoin philosophy, cryptography, coding, and blockchain fundamentals that you can apply immediately."
-      },
-      "mentorship": {
-        "title": "Mentorship Access",
-        "description": "Learn from experienced ambassadors and technical leaders in the Bitcoin ecosystem."
-      },
       "certified": {
-        "title": "Certified Educator Path",
-        "description": "Clear pathway to becoming a certified Bitcoin educator recognized in your community."
+        "title": "Certified Educator",
+        "description": "Earn an official certification that recognizes you as a qualified Bitcoin and open-source educator across Africa."
       },
-      "network": {
-        "title": "Pan-African Network",
-        "description": "Connect with African Bitcoin leaders, builders, and educators across 54 countries."
+      "earnAsYouLearn": {
+        "title": "Earn as You Learn",
+        "description": "Receive financial rewards, access to grants, and economic benefits for your active participation and contributions throughout the program."
       },
-      "opportunities": {
-        "title": "Exclusive Opportunities",
-        "description": "Access to the growing Bitcoin ecosystem - jobs, projects, and collaborations across Africa."
+      "internships": {
+        "title": "Paid Internships",
+        "description": "Top performers get access to paid internship opportunities within the technology and open-source ecosystem."
+      },
+      "globalOpportunities": {
+        "title": "Global Opportunities",
+        "description": "Scholarships and invitations to international Bitcoin & tech conferences, events, and residencies worldwide."
       }
     }
   },

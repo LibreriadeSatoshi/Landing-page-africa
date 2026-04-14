@@ -145,29 +145,21 @@
       "six": "Introduction a l'IA"
     },
     "cards": {
-      "training": {
-        "title": "Formation structuree gratuite",
-        "description": "Acces sans frais a un programme Bitcoin premium."
-      },
-      "skills": {
-        "title": "Competences reelles",
-        "description": "Philosophie Bitcoin, cryptographie, code et fondamentaux blockchain."
-      },
-      "mentorship": {
-        "title": "Mentorat",
-        "description": "Apprenez avec des ambassadeurs et leaders techniques experimentes."
-      },
       "certified": {
-        "title": "Parcours d'educateur certifie",
-        "description": "Chemin clair vers la reconnaissance dans votre communaute."
+        "title": "Éducateur certifié",
+        "description": "Obtenez une certification officielle qui vous reconnaît comme un éducateur qualifié du Bitcoin et de l'open source à travers l'Afrique."
       },
-      "network": {
-        "title": "Reseau panafricain",
-        "description": "Connectez-vous avec des leaders Bitcoin de 54 pays."
+      "earnAsYouLearn": {
+        "title": "Gagnez en apprenant",
+        "description": "Recevez des récompenses financières, un accès aux subventions et des avantages économiques pour votre participation active et vos contributions au programme."
       },
-      "opportunities": {
-        "title": "Opportunites exclusives",
-        "description": "Acces aux emplois, projets et collaborations de l'ecosysteme Bitcoin."
+      "internships": {
+        "title": "Stages rémunérés",
+        "description": "Les meilleurs participants accèdent à des stages rémunérés dans l'écosystème technologique et open source."
+      },
+      "globalOpportunities": {
+        "title": "Opportunités mondiales",
+        "description": "Bourses et invitations à des conférences, événements et résidences Bitcoin et tech à l'échelle internationale."
       }
     }
   },

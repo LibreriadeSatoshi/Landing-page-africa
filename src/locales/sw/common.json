@@ -145,29 +145,21 @@
       "six": "Utangulizi wa AI"
     },
     "cards": {
-      "training": {
-        "title": "Mafunzo ya Muundo Bila Malipo",
-        "description": "Pata elimu bora ya Bitcoin bila gharama."
-      },
-      "skills": {
-        "title": "Ujuzi wa Dunia Halisi",
-        "description": "Falsafa ya Bitcoin, kriptografia, coding na misingi ya blockchain."
-      },
-      "mentorship": {
-        "title": "Ushauri",
-        "description": "Jifunze kutoka kwa mabalozi na viongozi wa kiufundi wenye uzoefu."
-      },
       "certified": {
-        "title": "Njia ya Mwalimu Aliyethibitishwa",
-        "description": "Njia wazi ya kuwa mwalimu wa Bitcoin anayekubalika kwenye jamii yako."
+        "title": "Mwalimu Aliyethibitishwa",
+        "description": "Pata cheti rasmi kinachokutambua kama mwalimu mwenye sifa wa Bitcoin na open-source barani Afrika."
       },
-      "network": {
-        "title": "Mtandao wa Pan-Afrika",
-        "description": "Ungana na viongozi, wabunifu na waelimishaji wa Bitcoin kutoka nchi 54."
+      "earnAsYouLearn": {
+        "title": "Pata Mara Unapojifunza",
+        "description": "Pokea malipo ya kifedha, ufikiaji wa ruzuku, na faida za kiuchumi kwa ushiriki wako wa shughuli na michango katika programu."
       },
-      "opportunities": {
-        "title": "Fursa Maalum",
-        "description": "Fikia ajira, miradi na ushirikiano ndani ya ikolojia ya Bitcoin."
+      "internships": {
+        "title": "Mafunzo ya Kulipwa",
+        "description": "Wale waliofanya vizuri zaidi wanapata fursa za mafunzo ya kulipwa ndani ya ekosistema ya teknolojia na open-source."
+      },
+      "globalOpportunities": {
+        "title": "Fursa za Kimataifa",
+        "description": "Udhamini na mialiko kwa mikutano, matukio, na makazi ya kazi ya kimataifa ya Bitcoin na teknolojia duniani kote."
       }
     }
   },
