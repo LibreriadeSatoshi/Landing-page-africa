@@ -3,9 +3,10 @@
     "yes": "Oui",
     "no": "Non"
   },
-  "brand": {
-    "prefix": "Afrique",
-    "highlight": "Education Bitcoin"
+  "nav": {
+    "forLearners": "Pour les Apprenants",
+    "forEducators": "Pour les Éducateurs",
+    "forPartners": "Pour les Partenaires"
   },
   "header": {
     "backToSite": "Retour au site",
@@ -16,19 +17,60 @@
     "toggleMenu": "Ouvrir le menu"
   },
   "hero": {
-    "badge": "Candidatures ouvertes - Programme Ambassadeur Afrique 2026",
-    "titlePrefix": "Apprenez Bitcoin.",
-    "titleHighlight": "Enseignez",
-    "titleMiddle": "a votre communaute.",
-    "titleSuffix": "Faconnez l'avenir de l'Afrique.",
-    "description": "Rejoignez un mouvement de jeunes leaders africains qui developpent leur maitrise technique du Bitcoin, de la blockchain et des technologies open source - dans votre langue, a votre rythme.",
+    "audiences": {
+      "learners": "Rejoignez notre programme d'ambassadeur pour maîtriser Bitcoin et devenir un éducateur communautaire",
+      "educators": "Accédez aux ressources pédagogiques et outils pour faciliter les ateliers d'éducation Bitcoin",
+      "partners": "Partenez avec nous pour étendre l'éducation Bitcoin à travers l'Afrique"
+    },
+    "badge": {
+      "learners": "Candidatures ouvertes - Programme Ambassadeur Afrique 2026",
+      "educators": "Ressources pour Éducateurs Disponibles",
+      "partners": "Opportunités de Partenariat"
+    },
+    "title": {
+      "learners": {
+        "prefix": "Apprenez Bitcoin.",
+        "highlight": "Enseignez",
+        "middle": "à votre communauté.",
+        "suffix": "Façonnez l'avenir de l'Afrique."
+      },
+      "educators": {
+        "prefix": "Autonomisez les Éducateurs.",
+        "highlight": "Facilitez",
+        "middle": "les Ateliers Bitcoin.",
+        "suffix": "Transformez les Communautés."
+      },
+      "partners": {
+        "prefix": "Partenez Avec Nous.",
+        "highlight": "Étendez",
+        "middle": "l'Éducation Bitcoin.",
+        "suffix": "Impactez des Millions."
+      }
+    },
+    "description": {
+      "learners": "Rejoignez un mouvement de jeunes leaders africains qui développent leur maîtrise technique du Bitcoin, de la blockchain et des technologies open source - dans votre langue, à votre rythme.",
+      "educators": "Accédez à des matériaux pédagogiques complets, guides de facilitation d'ateliers et outils de construction communautaire pour enseigner efficacement les concepts Bitcoin et blockchain.",
+      "partners": "Collaborez avec des organisations, entreprises et institutions pour apporter une éducation Bitcoin de qualité aux communautés à travers l'Afrique et au-delà."
+    },
     "stats": {
       "countries": "Pays africains",
       "free": "Programme gratuit",
-      "ageRange": "Tranche d'age"
+      "ageRange": "Tranche d'âge"
     },
-    "ctaApply": "Postuler maintenant - Gratuit",
-    "ctaLearnMore": "En savoir plus",
+    "cta": {
+      "learners": {
+        "apply": "Postuler maintenant - Gratuit",
+        "learnMore": "En savoir plus"
+      },
+      "educators": {
+        "apply": "Accéder aux Ressources",
+        "learnMore": "En savoir plus"
+      },
+      "partners": {
+        "apply": "Devenir Partenaire",
+        "learnMore": "En savoir plus"
+      }
+    },
     "scrollAria": "Defiler vers le bas",
     "scrollLabel": "Defiler"
   },
@@ -281,5 +323,9 @@
     "validation": { "ageRangeWarning": "Vous devez avoir entre 16 et 35 ans pour postuler." },
     "maxWords": "(max 200 mots)",
     "wordsCount": "{{current}} / {{max}} mots"
+  },
+  "brand": {
+    "prefix": "Afrique",
+    "highlight": "Bitcoin"
   }
 }

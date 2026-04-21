@@ -3,9 +3,10 @@
     "yes": "Yes",
     "no": "No"
   },
-  "brand": {
-    "prefix": "Africa",
-    "highlight": "Bitcoin Education"
+  "nav": {
+    "forLearners": "For Learners",
+    "forEducators": "For Educators",
+    "forPartners": "For Partners"
   },
   "header": {
     "backToSite": "Back to site",
@@ -16,19 +17,60 @@
     "toggleMenu": "Toggle menu"
   },
   "hero": {
-    "badge": "Applications Open — Africa Ambassador Program 2026",
-    "titlePrefix": "Learn Bitcoin.",
-    "titleHighlight": "Teach",
-    "titleMiddle": "Your Community.",
-    "titleSuffix": "Shape Africa's Future.",
-    "description": "Join a movement of young African leaders building technical fluency in Bitcoin, blockchain, and open-source technology - in your language, at your pace.",
+    "audiences": {
+      "learners": "Join our ambassador program to master Bitcoin and become a community educator",
+      "educators": "Access teaching resources and tools to facilitate Bitcoin education workshops",
+      "partners": "Partner with us to expand Bitcoin education across Africa"
+    },
+    "badge": {
+      "learners": "Applications Open — Africa Ambassador Program 2026",
+      "educators": "Educator Resources Available",
+      "partners": "Partnership Opportunities"
+    },
+    "title": {
+      "learners": {
+        "prefix": "Learn Bitcoin.",
+        "highlight": "Teach",
+        "middle": "Your Community.",
+        "suffix": "Shape Africa's Future."
+      },
+      "educators": {
+        "prefix": "Empower Educators.",
+        "highlight": "Facilitate",
+        "middle": "Bitcoin Workshops.",
+        "suffix": "Transform Communities."
+      },
+      "partners": {
+        "prefix": "Partner With Us.",
+        "highlight": "Expand",
+        "middle": "Bitcoin Education.",
+        "suffix": "Impact Millions."
+      }
+    },
+    "description": {
+      "learners": "Join a movement of young African leaders building technical fluency in Bitcoin, blockchain, and open-source technology - in your language, at your pace.",
+      "educators": "Access comprehensive teaching materials, workshop facilitation guides, and community building tools to effectively teach Bitcoin and blockchain concepts.",
+      "partners": "Collaborate with organizations, companies, and institutions to bring quality Bitcoin education to communities across Africa and beyond."
+    },
     "stats": {
       "countries": "African Countries",
       "free": "Free Program",
       "ageRange": "Age Range"
     },
-    "ctaApply": "Apply Now — It's Free",
-    "ctaLearnMore": "Learn More",
+    "cta": {
+      "learners": {
+        "apply": "Apply Now — It's Free",
+        "learnMore": "Learn More"
+      },
+      "educators": {
+        "apply": "Access Resources",
+        "learnMore": "Learn More"
+      },
+      "partners": {
+        "apply": "Partner With Us",
+        "learnMore": "Learn More"
+      }
+    },
     "scrollAria": "Scroll down",
     "scrollLabel": "Scroll"
   },
@@ -174,7 +216,7 @@
   "enrollment": {
     "label": "Apply Today",
     "title": "Ready to Join?",
-    "description": "Start the ambassador application - it takes about 5-15 minutes. Your progress is saved automatically on this device.",
+    "description": "Start the ambassador application - it takes about 5-15 minutes.",
     "cardTitle": "Full application in four short steps",
     "cardDescription": "Personal details, guardian consent if you are under 18, your availability and commitment, and your Bitcoin experience. Answer in your own words - authenticity matters.",
     "start": "Start application",
@@ -290,5 +332,9 @@
     },
     "maxWords": "(max 200 words)",
     "wordsCount": "{{current}} / {{max}} words"
+  },
+  "brand": {
+    "prefix": "Africa",
+    "highlight": "Bitcoin"
   }
 }

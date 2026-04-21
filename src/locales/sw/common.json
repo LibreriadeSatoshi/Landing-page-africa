@@ -3,9 +3,10 @@
     "yes": "Ndiyo",
     "no": "Hapana"
   },
-  "brand": {
-    "prefix": "Afrika",
-    "highlight": "Elimu ya Bitcoin"
+  "nav": {
+    "forLearners": "Kwa Wanafunzi",
+    "forEducators": "Kwa Walimu",
+    "forPartners": "Kwa Washirika"
   },
   "header": {
     "backToSite": "Rudi kwenye tovuti",
@@ -16,19 +17,60 @@
     "toggleMenu": "Badili menyu"
   },
   "hero": {
-    "badge": "Maombi Yamefunguliwa - Mpango wa Mabalozi wa Afrika 2026",
-    "titlePrefix": "Jifunze Bitcoin.",
-    "titleHighlight": "Fundisha",
-    "titleMiddle": "Jamii Yako.",
-    "titleSuffix": "Unda Mustakabali wa Afrika.",
-    "description": "Jiunge na harakati ya vijana viongozi wa Afrika wanaojenga uelewa wa kiufundi wa Bitcoin, blockchain na teknolojia huria - kwa lugha yako, kwa kasi yako.",
+    "audiences": {
+      "learners": "Jiunge na mpango wetu wa ubalozi ili kubobea Bitcoin na kuwa mwalimu wa jamii",
+      "educators": "Pata rasilimali za kufundisha na zana za kuwezesha mafunzo ya Bitcoin",
+      "partners": "Shiriki nasi kupanua elimu ya Bitcoin barani Afrika"
+    },
+    "badge": {
+      "learners": "Maombi Yamefunguliwa - Mpango wa Mabalozi wa Afrika 2026",
+      "educators": "Rasilimali za Walimu Zinapatikana",
+      "partners": "Fursa za Ushirikiano"
+    },
+    "title": {
+      "learners": {
+        "prefix": "Jifunze Bitcoin.",
+        "highlight": "Fundisha",
+        "middle": "Jamii Yako.",
+        "suffix": "Unda Mustakabali wa Afrika."
+      },
+      "educators": {
+        "prefix": "Wape Nguvu Walimu.",
+        "highlight": "Wezesha",
+        "middle": "Mafunzo ya Bitcoin.",
+        "suffix": "Badilisha Jamii."
+      },
+      "partners": {
+        "prefix": "Shiriki Nasi.",
+        "highlight": "Panua",
+        "middle": "Elimu ya Bitcoin.",
+        "suffix": "Athiri Mamilioni."
+      }
+    },
+    "description": {
+      "learners": "Jiunge na harakati ya vijana viongozi wa Afrika wanaojenga uelewa wa kiufundi wa Bitcoin, blockchain na teknolojia huria - kwa lugha yako, kwa kasi yako.",
+      "educators": "Pata nyenzo kamili za kufundisha, miongozo ya kuwezesha mafunzo, na zana za kujenga jamii ili kufundisha kwa ufanisi dhana za Bitcoin na blockchain.",
+      "partners": "Shiriki kazi na mashirika, kampuni, na taasisi ili kuleta elimu bora ya Bitcoin katika jamii barani Afrika na zaidi."
+    },
     "stats": {
       "countries": "Nchi za Afrika",
       "free": "Programu ya Bure",
       "ageRange": "Kiwango cha Umri"
     },
-    "ctaApply": "Omba Sasa - Ni Bure",
-    "ctaLearnMore": "Jifunze Zaidi",
+    "cta": {
+      "learners": {
+        "apply": "Omba Sasa - Ni Bure",
+        "learnMore": "Jifunze Zaidi"
+      },
+      "educators": {
+        "apply": "Pata Rasilimali",
+        "learnMore": "Jifunze Zaidi"
+      },
+      "partners": {
+        "apply": "Shiriki Nasi",
+        "learnMore": "Jifunze Zaidi"
+      }
+    },
     "scrollAria": "Telezesha chini",
     "scrollLabel": "Telezesha"
   },
@@ -284,5 +326,9 @@
     "validation": { "ageRangeWarning": "Ni lazima uwe na miaka 16 hadi 35 ili kuomba." },
     "maxWords": "(kiwango cha juu maneno 200)",
     "wordsCount": "maneno {{current}} / {{max}}"
+  },
+  "brand": {
+    "prefix": "Afrika",
+    "highlight": "Bitcoin"
   }
 }

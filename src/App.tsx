@@ -10,9 +10,11 @@ import Benefits from './components/Benefits';
 import EnrollmentForm from './components/EnrollmentForm';
 import Footer from './components/Footer';
 import ApplicationWizard from './components/ApplicationWizard';
+import { type AudienceType } from './components/AudienceSelector';
 
 function App() {
   const [applicationOpen, setApplicationOpen] = useState(false);
+  const [selectedAudience, setSelectedAudience] = useState<AudienceType>('learners');
 
   if (applicationOpen) {
     return (
@@ -27,7 +29,11 @@ function App() {
     <div className="min-h-screen">
       <Header onOpenApplication={() => setApplicationOpen(true)} />
       <main>
-        <Hero onApply={() => setApplicationOpen(true)} />
+        <Hero
+          audience={selectedAudience}
+          onAudienceChange={setSelectedAudience}
+          onApply={() => setApplicationOpen(true)}
+        />
         <What />
         <Goal />
         <Why />

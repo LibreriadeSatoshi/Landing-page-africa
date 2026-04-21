@@ -1,11 +1,18 @@
 import { ArrowDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import AudienceSelector, { type AudienceType } from './AudienceSelector';
 
 type HeroProps = {
+  audience?: AudienceType;
+  onAudienceChange?: (audience: AudienceType) => void;
   onApply?: () => void;
 };
 
-export default function Hero({ onApply }: Readonly<HeroProps>) {
+export default function Hero({
+  audience = 'learners',
+  onAudienceChange,
+  onApply,
+}: Readonly<HeroProps>) {
   const { t } = useTranslation();
 
   const scrollTo = (id: string) => {
@@ -47,19 +54,24 @@ export default function Hero({ onApply }: Readonly<HeroProps>) {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24 pt-32">
+        {onAudienceChange && (
+          <AudienceSelector selectedAudience={audience} onAudienceChange={onAudienceChange} />
+        )}
+
         <div className="inline-flex items-center gap-2 bg-[#F7931A]/10 border border-[#F7931A]/30 text-[#F7931A] text-xs font-semibold px-4 py-2 rounded-full mb-8">
           <span className="w-2 h-2 bg-[#F7931A] rounded-full animate-pulse" />
-          {t('hero.badge')}
+          {t(`hero.badge.${audience}`)}
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight mb-6">
-          {t('hero.titlePrefix')} <span className="text-[#F7931A]">{t('hero.titleHighlight')}</span>{' '}
-          {t('hero.titleMiddle')} <br className="hidden sm:block" />
-          {t('hero.titleSuffix')}
+          {t(`hero.title.${audience}.prefix`)}{' '}
+          <span className="text-[#F7931A]">{t(`hero.title.${audience}.highlight`)}</span>{' '}
+          {t(`hero.title.${audience}.middle`)} <br className="hidden sm:block" />
+          {t(`hero.title.${audience}.suffix`)}
         </h1>
 
         <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed mb-10">
-          {t('hero.description')}
+          {t(`hero.description.${audience}`)}
         </p>
 
         <div className="flex flex-wrap justify-center gap-8 mb-12">
@@ -73,14 +85,14 @@ export default function Hero({ onApply }: Readonly<HeroProps>) {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button type="button" onClick={handleApply} className="btn-primary text-base px-10 py-4">
-            {t('hero.ctaApply')}
+            {t(`hero.cta.${audience}.apply`)}
           </button>
           <button
             type="button"
             onClick={() => scrollTo('about')}
             className="btn-secondary text-base px-10 py-4"
           >
-            {t('hero.ctaLearnMore')}
+            {t(`hero.cta.${audience}.learnMore`)}
           </button>
         </div>
 
