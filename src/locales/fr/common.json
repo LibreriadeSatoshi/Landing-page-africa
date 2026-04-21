@@ -3,9 +3,10 @@
     "yes": "Oui",
     "no": "Non"
   },
-  "brand": {
-    "prefix": "Afrique",
-    "highlight": "Education Bitcoin"
+  "nav": {
+    "forLearners": "Pour les Apprenants",
+    "forEducators": "Pour les Éducateurs",
+    "forPartners": "Pour les Partenaires"
   },
   "header": {
     "backToSite": "Retour au site",
@@ -16,26 +17,67 @@
     "toggleMenu": "Ouvrir le menu"
   },
   "hero": {
-    "badge": "Candidatures ouvertes - Programme Ambassadeur Afrique 2026",
-    "titlePrefix": "Apprenez Bitcoin.",
-    "titleHighlight": "Enseignez",
-    "titleMiddle": "a votre communaute.",
-    "titleSuffix": "Faconnez l'avenir de l'Afrique.",
-    "description": "Rejoignez un mouvement de jeunes leaders africains qui developpent leur maitrise technique du Bitcoin, de la blockchain et des technologies open source - dans votre langue, a votre rythme.",
+    "audiences": {
+      "learners": "Rejoignez notre programme d'ambassadeur pour maîtriser Bitcoin et devenir un éducateur communautaire",
+      "educators": "Accédez aux ressources pédagogiques et outils pour faciliter les ateliers d'éducation Bitcoin",
+      "partners": "Partenez avec nous pour étendre l'éducation Bitcoin à travers l'Afrique"
+    },
+    "badge": {
+      "learners": "Candidatures ouvertes - Programme Ambassadeur Afrique 2026",
+      "educators": "Ressources pour Éducateurs Disponibles",
+      "partners": "Opportunités de Partenariat"
+    },
+    "title": {
+      "learners": {
+        "prefix": "Apprenez Bitcoin.",
+        "highlight": "Enseignez",
+        "middle": "à votre communauté.",
+        "suffix": "Façonnez l'avenir de l'Afrique."
+      },
+      "educators": {
+        "prefix": "Autonomisez les Éducateurs.",
+        "highlight": "Facilitez",
+        "middle": "les Ateliers Bitcoin.",
+        "suffix": "Transformez les Communautés."
+      },
+      "partners": {
+        "prefix": "Partenez Avec Nous.",
+        "highlight": "Étendez",
+        "middle": "l'Éducation Bitcoin.",
+        "suffix": "Impactez des Millions."
+      }
+    },
+    "description": {
+      "learners": "Rejoignez un mouvement de jeunes leaders africains qui développent leur maîtrise technique du Bitcoin, de la blockchain et des technologies open source - dans votre langue, à votre rythme.",
+      "educators": "Accédez à des matériaux pédagogiques complets, guides de facilitation d'ateliers et outils de construction communautaire pour enseigner efficacement les concepts Bitcoin et blockchain.",
+      "partners": "Collaborez avec des organisations, entreprises et institutions pour apporter une éducation Bitcoin de qualité aux communautés à travers l'Afrique et au-delà."
+    },
     "stats": {
       "countries": "Pays africains",
       "free": "Programme gratuit",
-      "ageRange": "Tranche d'age"
+      "ageRange": "Tranche d'âge"
     },
-    "ctaApply": "Postuler maintenant - Gratuit",
-    "ctaLearnMore": "En savoir plus",
+    "cta": {
+      "learners": {
+        "apply": "Postuler maintenant - Gratuit",
+        "learnMore": "En savoir plus"
+      },
+      "educators": {
+        "apply": "Accéder aux Ressources",
+        "learnMore": "En savoir plus"
+      },
+      "partners": {
+        "apply": "Devenir Partenaire",
+        "learnMore": "En savoir plus"
+      }
+    },
     "scrollAria": "Defiler vers le bas",
     "scrollLabel": "Defiler"
   },
   "what": {
     "label": "Ce que nous construisons",
     "title": "Le reseau africain d'education Bitcoin, langue d'abord",
-    "description": "Libreria de Satoshi est un programme africain d'education Bitcoin et d'ambassadeurs. Nous construisons un reseau durable de jeunes leaders africains qui maitrisent Bitcoin et la blockchain, puis transmettent ce savoir dans leurs communautes.",
+    "description": "Libreria de Satoshi construit le plus grand programme d'education technologique et d'ambassadeurs de l'Afrique. Un reseau auto-suffisant de jeunes leaders africains qui maitrisent les competences numeriques de pointe et multiplient ce savoir dans leurs communautes.",
     "quote": "\"Par cohortes, pratique et mentorat, nous transformons des apprenants ambitieux en educateurs confiants et leaders communautaires.\"",
     "cards": {
       "reach": {
@@ -158,8 +200,16 @@
         "description": "Les meilleurs participants accèdent à des stages rémunérés dans l'écosystème technologique et open source."
       },
       "globalOpportunities": {
-        "title": "Opportunités mondiales",
-        "description": "Bourses et invitations à des conférences, événements et résidences Bitcoin et tech à l'échelle internationale."
+        "title": "Communauté mondiale et opportunités",
+        "description": "Connectez-vous avec des éducateurs Bitcoin et des leaders de l'écosystème mondial, et débloquez des bourses, des invitations à des conférences et des résidences internationales."
+      },
+      "techTraining": {
+        "title": "Formation technologique de pointe",
+        "description": "Formation pratique en Bitcoin, cryptographie, Blockchain, codage, IA et outils open source et compétences qui comptent maintenant et à l'avenir."
+      },
+      "portfolio": {
+        "title": "Portfolio international",
+        "description": "Construisez un portfolio réel et vérifiable de travaux et de contributions qui se démarque dans l'espace tech mondial."
       }
     }
   },
@@ -275,5 +325,9 @@
     "validation": { "ageRangeWarning": "Vous devez avoir entre 16 et 35 ans pour postuler." },
     "maxWords": "(max 200 mots)",
     "wordsCount": "{{current}} / {{max}} mots"
+  },
+  "brand": {
+    "prefix": "Afrique",
+    "highlight": "Bitcoin"
   }
 }
