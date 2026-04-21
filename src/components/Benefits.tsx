@@ -1,4 +1,4 @@
-import { Users, Award, Network, Zap } from 'lucide-react';
+import { Award, Bitcoin, Briefcase, Globe, Cpu, FolderOpen } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Benefits() {
@@ -10,19 +10,29 @@ export default function Benefits() {
       description: t('benefits.cards.certified.description'),
     },
     {
-      icon: Zap,
+      icon: Bitcoin,
       title: t('benefits.cards.earnAsYouLearn.title'),
       description: t('benefits.cards.earnAsYouLearn.description'),
     },
     {
-      icon: Users,
+      icon: Briefcase,
       title: t('benefits.cards.internships.title'),
       description: t('benefits.cards.internships.description'),
     },
     {
-      icon: Network,
+      icon: Globe,
       title: t('benefits.cards.globalOpportunities.title'),
       description: t('benefits.cards.globalOpportunities.description'),
+    },
+    {
+      icon: Cpu,
+      title: t('benefits.cards.techTraining.title'),
+      description: t('benefits.cards.techTraining.description'),
+    },
+    {
+      icon: FolderOpen,
+      title: t('benefits.cards.portfolio.title'),
+      description: t('benefits.cards.portfolio.description'),
     },
   ];
   const subjects = [
@@ -51,11 +61,11 @@ export default function Benefits() {
         </div>
 
         {/* Benefits grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 mb-16">
+        <div className="flex flex-wrap justify-center gap-6 mb-16">
           {benefits.map(({ icon: Icon, title, description }) => (
             <div
               key={title}
-              className="card hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+              className="card hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group w-full max-w-sm"
             >
               <div className="w-10 h-10 bg-[#F7931A]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#F7931A] transition-colors">
                 <Icon

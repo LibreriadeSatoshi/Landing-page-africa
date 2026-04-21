@@ -35,7 +35,7 @@
   "what": {
     "label": "Tunachojenga",
     "title": "Mtandao wa Elimu ya Bitcoin wa Afrika unaoanza kwa lugha",
-    "description": "Libreria de Satoshi ni programu ya juu ya elimu ya Bitcoin na mabalozi barani Afrika. Tunajenga mtandao endelevu wa vijana viongozi wa Afrika wanaoelewa Bitcoin na blockchain kwa undani na kusambaza maarifa hayo katika jamii zao.",
+    "description": "Libreria de Satoshi inajenga programu kubwa zaidi ya elimu ya teknolojia na mabalozi ya Afrika. Mtandao unaojitegemea wa vijana viongozi wa Afrika wanaobobea katika ujuzi wa hali ya juu wa dijitali, na kuzidisha maarifa hayo katika jamii zao.",
     "quote": "\"Kupitia kujifunza kwa makundi, mafunzo ya vitendo na uongozi, tunabadilisha wanaojifunza kuwa waelimishaji wenye kujiamini na viongozi wa jamii.\"",
     "cards": {
       "reach": {
@@ -158,8 +158,16 @@
         "description": "Wale waliofanya vizuri zaidi wanapata fursa za mafunzo ya kulipwa ndani ya ekosistema ya teknolojia na open-source."
       },
       "globalOpportunities": {
-        "title": "Fursa za Kimataifa",
-        "description": "Udhamini na mialiko kwa mikutano, matukio, na makazi ya kazi ya kimataifa ya Bitcoin na teknolojia duniani kote."
+        "title": "Jamii ya Kimataifa na Fursa",
+        "description": "Ungana na walimu wa Bitcoin na viongozi wa ekosistema duniani kote, na ufungue udhamini, mialiko ya mikutano na makazi ya kimataifa."
+      },
+      "techTraining": {
+        "title": "Mafunzo ya Teknolojia ya Juu",
+        "description": "Mafunzo ya vitendo katika Bitcoin, kriptografia, Blockchain, uandishi wa msimbo, AI, na zana za open-source na ujuzi unaofaa sasa na katika siku zijazo."
+      },
+      "portfolio": {
+        "title": "Portfolio ya Kimataifa",
+        "description": "Jenga portfolio halisi na inayothibitishwa ya kazi na michango inayojitokeza katika nafasi ya teknolojia ya kimataifa."
       }
     }
   },

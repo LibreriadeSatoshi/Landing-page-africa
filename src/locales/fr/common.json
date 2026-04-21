@@ -35,7 +35,7 @@
   "what": {
     "label": "Ce que nous construisons",
     "title": "Le reseau africain d'education Bitcoin, langue d'abord",
-    "description": "Libreria de Satoshi est un programme africain d'education Bitcoin et d'ambassadeurs. Nous construisons un reseau durable de jeunes leaders africains qui maitrisent Bitcoin et la blockchain, puis transmettent ce savoir dans leurs communautes.",
+    "description": "Libreria de Satoshi construit le plus grand programme d'education technologique et d'ambassadeurs de l'Afrique. Un reseau auto-suffisant de jeunes leaders africains qui maitrisent les competences numeriques de pointe et multiplient ce savoir dans leurs communautes.",
     "quote": "\"Par cohortes, pratique et mentorat, nous transformons des apprenants ambitieux en educateurs confiants et leaders communautaires.\"",
     "cards": {
       "reach": {
@@ -158,8 +158,16 @@
         "description": "Les meilleurs participants accèdent à des stages rémunérés dans l'écosystème technologique et open source."
       },
       "globalOpportunities": {
-        "title": "Opportunités mondiales",
-        "description": "Bourses et invitations à des conférences, événements et résidences Bitcoin et tech à l'échelle internationale."
+        "title": "Communauté mondiale et opportunités",
+        "description": "Connectez-vous avec des éducateurs Bitcoin et des leaders de l'écosystème mondial, et débloquez des bourses, des invitations à des conférences et des résidences internationales."
+      },
+      "techTraining": {
+        "title": "Formation technologique de pointe",
+        "description": "Formation pratique en Bitcoin, cryptographie, Blockchain, codage, IA et outils open source et compétences qui comptent maintenant et à l'avenir."
+      },
+      "portfolio": {
+        "title": "Portfolio international",
+        "description": "Construisez un portfolio réel et vérifiable de travaux et de contributions qui se démarque dans l'espace tech mondial."
       }
     }
   },
