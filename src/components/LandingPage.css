@@ -77,6 +77,12 @@ nav {
   color: var(--orange);
 }
 
+.landing-nav-end {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -390,6 +396,7 @@ button.btn-amber {
 .panel-hero-icon {
   font-size: 48px;
   margin-bottom: 16px;
+  min-height: 48px;
 }
 
 .panel-hero h3 {
@@ -745,6 +752,12 @@ button.btn-amber {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  color: inherit;
 }
 
 .faq-q .icon {
@@ -867,8 +880,17 @@ footer p {
     padding: 0 20px;
   }
 
+  .landing-nav-end {
+    gap: 12px;
+  }
+
   .nav-links {
     display: none;
+  }
+
+  /* Keep language control visible when links collapse */
+  .landing-lang-switcher {
+    margin-left: auto;
   }
 
   .hero {

@@ -10,14 +10,14 @@ function App() {
   if (applicationOpen) {
     return (
       <div className="min-h-screen">
-        <Header applicationMode onCloseApplication={() => setApplicationOpen(false)} />
+        <Header onCloseApplication={() => setApplicationOpen(false)} />
         <ApplicationWizard onClose={() => setApplicationOpen(false)} />
       </div>
     );
   }
 
   return (
-    <div>
+    <div className="min-h-screen">
       <LandingPage onApply={() => setApplicationOpen(true)} />
     </div>
   );
