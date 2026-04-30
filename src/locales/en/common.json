@@ -338,5 +338,257 @@
   "brand": {
     "prefix": "Africa",
     "highlight": "Bitcoin"
+  },
+  "landing": {
+    "nav": {
+      "logoSuffix": ".",
+      "program": "Program",
+      "whyAfrica": "Why Africa",
+      "howItWorks": "How It Works",
+      "faq": "FAQ",
+      "applyNow": "Apply Now"
+    },
+    "hero": {
+      "eyebrow": "🌍 Continent-wide · Multilingual · Free",
+      "titleLine1": "Learn Bitcoin.",
+      "titleLine2": "Teach Africa.",
+      "titleEmphasis": "In your language.",
+      "description": "Join a structured Bitcoin education network building technical fluency across Africa in the languages people actually think in. Learners become educators. Knowledge compounds.",
+      "applyAmbassador": "Apply as Ambassador",
+      "exploreProgram": "Explore the Program",
+      "cardTitle": "Program at a glance",
+      "statNumberCountries": "12+",
+      "statNumberLanguages": "5–10",
+      "statNumberWeeks": "12 weeks",
+      "statNumberFree": "Free",
+      "statCountries": "Countries · Nigeria, Ghana, Cameroon, Cote D'ivoire, Senegal, Togo, Egypt, Kenya, Uganda, Tanzania + more",
+      "statLanguages": "African languages · Luganda, Kikuyu, Twi, Swahili, French…",
+      "statSchedule": "Cohort-based program · 90 min/week + 10 hrs reading",
+      "statFree": "learn at zero cost"
+    },
+    "programSection": {
+      "label": "Who is this for?",
+      "title": "There's a place for you here",
+      "description": "Whether you want to learn, teach, or scale Bitcoin education, the network is built for you.",
+      "tabLearners": "🎒 Learners",
+      "tabEducators": "🎓 Educators",
+      "tabPartners": "🤝 Partners",
+      "learners": {
+        "title": "Start your Bitcoin journey in your language",
+        "body": "Free, structured Bitcoin education for Africans aged 18–35. Learn blockchain, cryptography, economics, and coding. No prior experience needed, just the drive to understand and the commitment to share.",
+        "applyCta": "Apply as Ambassador",
+        "tileCommitment": "Commitment",
+        "tileCommitmentValue": "90 min/week + 10 hrs reading",
+        "tileWhat": "What you learn",
+        "tileWhatValue": "Bitcoin · AI · Cryptography · Economics · Coding",
+        "tileWho": "Who can apply",
+        "tileWhoValue": "Ages 18–35 · No experience needed",
+        "colWhoTitle": "Who can apply",
+        "colWhoItems": [
+          "High school, university, or graduate students",
+          "Anyone eager to learn Bitcoin, no prior knowledge required",
+          "Willing to share knowledge in your local language",
+          "Fluent in at least 2 languages (English inclusive)",
+          "Have reliable internet and a computer or smartphone"
+        ],
+        "colLangTitle": "Languages we support",
+        "pillEnglish": "🇳🇬 English",
+        "pillFrench": "🇫🇷 French",
+        "pillMore": "+ More",
+        "colCountriesTitle": "Countries we're active in",
+        "countryNigeria": "Nigeria",
+        "countryGhana": "Ghana",
+        "countryKenya": "Kenya",
+        "countryUganda": "Uganda",
+        "countryTanzania": "Tanzania"
+      },
+      "teachers": {
+        "title": "Become a certified Bitcoin educator",
+        "body": "Join our tutor network. Train a cohort of 8–12 learners, localize curriculum into regional languages, and build Africa's next generation of technical Bitcoin educators. Get compensated for your expertise.",
+        "applyCta": "Apply as Tutor",
+        "tilePersonas": "Tutor personas",
+        "tilePersonasValue": "SME · Technical SME · Professor · Event Organizer",
+        "tileCohort": "Cohort size",
+        "tileCohortValue": "8–12 learners per educator",
+        "tileSupport": "Support & pay",
+        "tileSupportValue": "Weekly calls · Curriculum · $5–10/hr",
+        "colWhoTitle": "Who should apply",
+        "colWhoItems": [
+          "Bilingual educators and translators",
+          "High school and university teachers",
+          "Community organizers running meetups",
+          "Subject matter experts in Bitcoin or technology",
+          "Developers keen to share technical knowledge"
+        ],
+        "colJourneyTitle": "Tutor journey",
+        "journeyPhase1": "Phase 1 - Orientation:",
+        "journeyPhase1Body": "Welcome, platform training, mock teaching session",
+        "journeyPhase2": "Phase 2 - Run cohort:",
+        "journeyPhase2Body": "Lead weekly sessions, localize content, bi-weekly check-ins",
+        "journeyPhase3": "Phase 3 - Review & grow:",
+        "journeyPhase3Body": "Collect feedback, refine curriculum, mentor next cohort"
+      },
+      "partners": {
+        "title": "Scale Bitcoin education across Africa",
+        "body": "Co-build a continent-wide, language-first Bitcoin knowledge network. Support curriculum development, events, infrastructure, and ambassador growth across 7+ countries.",
+        "cta": "Explore Partnership",
+        "tileReach": "Our reach",
+        "tileReachValue": "7 countries · 12–14 cities · 56+ ambassadors",
+        "tileOpportunity": "The opportunity",
+        "tileOpportunityValue": "Language-first · Grassroots · Scalable",
+        "tileHub": "Core hub",
+        "tileHubValue": "Librería de Satoshi - content & expertise",
+        "colOppTitle": "Partnership opportunities",
+        "colOppItems": [
+          "Curriculum co-development and content sponsorship",
+          "Event and meetup coordination support",
+          "Ambassador stipends and infrastructure funding",
+          "Research, data insights, and co-branding",
+          "Language localisation and translation partnerships"
+        ],
+        "colWhoTitle": "Who should partner with us",
+        "pillNgo": "NGOs",
+        "pillUni": "Universities",
+        "pillBitcoin": "Bitcoin Orgs",
+        "pillTech": "Tech Companies",
+        "pillGrants": "Grant Funders"
+      }
+    },
+    "howSection": {
+      "label": "The model",
+      "title": "How the program works",
+      "description": "A structured three-month journey from learner to ambassador to educator.",
+      "cards": [
+        {
+          "title": "Cohort-based learning",
+          "body": "Small, focused groups across African countries. Guided sessions with weekly check-ins ensure accountability and real progress, not passive watching."
+        },
+        {
+          "title": "Hands-on technical training",
+          "body": "Practical exercises in Bitcoin fundamentals, cryptography, coding basics, and open-source tools. You build real skills, not surface-level familiarity."
+        },
+        {
+          "title": "Proof-of-work funnel",
+          "body": "Learners advance by passing assessments, not just showing up. Progress is earned, which makes the credential mean something."
+        },
+        {
+          "title": "Localization & language-first",
+          "body": "Bilingual ambassadors translate and contextualize every module. Your cohort learns in the language you think in, not the language forced on you."
+        },
+        {
+          "title": "Learner → Educator pipeline",
+          "body": "Top performers are identified and given the tools, curriculum, and support to lead their own cohort. Knowledge compounds, region by region."
+        },
+        {
+          "title": "Certification & recognition",
+          "body": "Graduates receive an official certificate shareable on LinkedIn, access to the educator network, and priority for grant opportunities across Africa."
+        }
+      ]
+    },
+    "benefitsSection": {
+      "label": "What you gain",
+      "title": "Benefits of joining",
+      "description": "This is not a passive course. You leave as a technically literate educator with a real network and a real credential.",
+      "cards": [
+        {
+          "title": "Certified Educator",
+          "body": "Earn an official certification that recognizes you as a qualified Bitcoin and open-source educator across Africa."
+        },
+        {
+          "title": "Earn as You Learn",
+          "body": "Receive financial rewards, access to grants, and economic benefits for your active participation and contributions throughout the program."
+        },
+        {
+          "title": "Paid Internships",
+          "body": "Top performers get access to paid internship opportunities within the technology and open-source ecosystem."
+        },
+        {
+          "title": "Global Community & Opportunities",
+          "body": "Connect with Bitcoin educators and ecosystem leaders worldwide, and unlock scholarships, conference invitations, and international residencies."
+        },
+        {
+          "title": "Cutting-Edge Tech Training",
+          "body": "Hands-on training in Bitcoin, cryptography, Blockchain, coding, AI, and open-source tools and skills that matter now and in the future."
+        },
+        {
+          "title": "International Portfolio",
+          "body": "Build a real and verifiable portfolio of work and contributions that stands out in the global tech space."
+        }
+      ]
+    },
+    "faqSection": {
+      "label": "Questions",
+      "title": "Frequently asked",
+      "items": [
+        {
+          "question": "What is Bitcoin, and why does it matter for Africa?",
+          "answer": "Bitcoin is a digital currency that allows you to send and receive money without banks or intermediaries. It runs on a decentralized network called blockchain, where transactions are verified worldwide and recorded on a public ledger that no single entity controls. For Africa, where millions lack access to traditional banking, Bitcoin represents financial infrastructure that belongs to everyone."
+        },
+        {
+          "question": "Do I need prior Bitcoin or tech experience?",
+          "answer": "No. The program is designed for motivated learners starting from zero. What matters is your commitment to showing up, studying 10–20 hours per week by yourself, and your willingness to eventually share what you learn with your community."
+        },
+        {
+          "question": "Is the program really free?",
+          "answer": "Yes, completely free for all learners. Our mission is to remove every barrier to quality education. Cost should never be one of them. The program is funded through grants and the Bitcoin ecosystem's support for open education."
+        },
+        {
+          "question": "Why do I need to speak two languages?",
+          "answer": "The core of this program is localization, making Bitcoin education accessible to communities that don't speak English. Ambassadors who are fluent in at least two languages (English included) can bridge that gap for the next cohort. The bilingual requirement is not a barrier; it's your superpower in this network."
+        },
+        {
+          "question": "What happens after I complete the program?",
+          "answer": "Top graduates are identified through assessments and peer performance. Those who show educator-readiness are invited to lead their own cohort of 8–12 learners in their language, in their community. You receive curriculum support, tutor resources, and compensation ($5–10/hr) for your time. The knowledge compounds from there."
+        },
+        {
+          "question": "Is Bitcoin legal in my country?",
+          "answer": "Bitcoin's legal status varies by country. In most African countries, Bitcoin is legal to own and use, though regulations differ. Some countries have embraced it, others have restrictions on businesses, and a few have specific bans. Our program teaches you about Bitcoin's technical foundations and how to navigate the regulatory landscape in your region safely."
+        }
+      ]
+    },
+    "cta": {
+      "titleLine1": "Ready to be part of",
+      "titleLine2": "Africa's Bitcoin",
+      "titleEmphasis": "future?",
+      "description": "Whether you're here to learn, teach, or invest in this mission, there's a place for you. Join the network building Bitcoin education from the ground up, in every African language.",
+      "applyLearner": "Apply as Learner",
+      "becomeTutor": "Become a Tutor",
+      "partnerWithUs": "Partner With Us"
+    }
+  },
+  "unifiedFooter": {
+    "newsletterTitle": "Stay updated on Bitcoin education across Africa",
+    "newsletterDescription": "Get updates on new programs, ambassador stories, and resources delivered to your inbox.",
+    "emailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "subscribeSuccess": "Thanks for subscribing! Check your email.",
+    "consent": "We respect your privacy. Unsubscribe anytime.",
+    "privacyPolicy": "Privacy Policy",
+    "columnProgram": "Program",
+    "columnLearn": "Learn",
+    "columnExplore": "Explore",
+    "columnConnect": "Connect",
+    "linkLearners": "Learners",
+    "linkEducators": "Educators",
+    "linkPartners": "Partners",
+    "linkApplyNow": "Apply Now",
+    "linkBitcoinBasics": "Bitcoin Basics",
+    "linkResources": "Resources",
+    "linkBlog": "Blog",
+    "linkLibreria": "Librería de Satoshi",
+    "linkDocumentation": "Documentation",
+    "linkFaq": "FAQ",
+    "linkContact": "Contact",
+    "connectBlurb": "Join our community across Africa and stay connected.",
+    "bottomLead": "Africa Bitcoin Education",
+    "bottomTagline": "Building technical fluency across Africa in every language.",
+    "copyright": "© {{year}} Africa Bitcoin Education. All rights reserved.",
+    "legalPrivacy": "Privacy Policy",
+    "legalTerms": "Terms of Service",
+    "legalConduct": "Code of Conduct",
+    "ariaTwitter": "Twitter",
+    "ariaTelegram": "Telegram",
+    "ariaYoutube": "YouTube",
+    "ariaDiscord": "Discord"
   }
 }
