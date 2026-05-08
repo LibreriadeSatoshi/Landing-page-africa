@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import './LandingPage.css';
 import LanguageSwitcher from './LanguageSwitcher';
 import UnifiedFooter from './UnifiedFooter';
+import type { ApplicationIntent } from '../constants/ambassadorForm';
 
 type AudienceTab = 'learners' | 'teachers' | 'partners';
 
@@ -15,7 +16,7 @@ type HowCard = { title: string; body: string };
 type BenefitCard = { title: string; body: string };
 
 type LandingPageProps = {
-  onApply?: () => void;
+  onApply?: (intent: ApplicationIntent) => void;
 };
 
 const benefitIcons = ['🏅', '💰', '💼', '🌐', '📚', '📁'];
@@ -99,7 +100,7 @@ function LandingPage({ onApply }: LandingPageProps) {
             </h1>
             <p className="hero-sub">{t('landing.hero.description')}</p>
             <div className="hero-actions">
-              <button type="button" onClick={onApply} className="btn-primary">
+              <button type="button" onClick={() => onApply?.('learner')} className="btn-primary">
                 {t('landing.hero.applyAmbassador')}
               </button>
               <a href="#about" className="btn-outline">
@@ -183,7 +184,7 @@ function LandingPage({ onApply }: LandingPageProps) {
                 </div>
                 <h3>{t('landing.programSection.learners.title')}</h3>
                 <p>{t('landing.programSection.learners.body')}</p>
-                <button type="button" onClick={onApply} className="btn-teal">
+                <button type="button" onClick={() => onApply?.('learner')} className="btn-teal">
                   {t('landing.programSection.learners.applyCta')}
                 </button>
               </div>
@@ -282,7 +283,7 @@ function LandingPage({ onApply }: LandingPageProps) {
                 </div>
                 <h3>{t('landing.programSection.teachers.title')}</h3>
                 <p>{t('landing.programSection.teachers.body')}</p>
-                <button type="button" onClick={onApply} className="btn-blue">
+                <button type="button" onClick={() => onApply?.('tutor')} className="btn-blue">
                   {t('landing.programSection.teachers.applyCta')}
                 </button>
               </div>
@@ -499,10 +500,10 @@ function LandingPage({ onApply }: LandingPageProps) {
         </h2>
         <p>{t('landing.cta.description')}</p>
         <div className="cta-actions">
-          <button type="button" onClick={onApply} className="btn-primary">
+          <button type="button" onClick={() => onApply?.('learner')} className="btn-primary">
             {t('landing.cta.applyLearner')}
           </button>
-          <button type="button" onClick={onApply} className="btn-outline">
+          <button type="button" onClick={() => onApply?.('tutor')} className="btn-outline">
             {t('landing.cta.becomeTutor')}
           </button>
           <a href="mailto:ambassadors@africabitcoineducation.org" className="btn-outline">

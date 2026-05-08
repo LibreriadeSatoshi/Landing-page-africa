@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, CheckCircle, Send } from 'lucide-react';
 import {
   ADDITIONAL_LANGUAGES_OPTIONS,
   AFRICAN_COUNTRIES,
+  type ApplicationIntent,
   HEAR_ABOUT_OPTIONS,
   HOURS_PER_WEEK_OPTIONS,
   PRIMARY_LANGUAGE_OPTIONS,
@@ -122,13 +123,18 @@ const STEP3_FIELDS: (keyof AmbassadorFormValues)[] = [
 
 type ApplicationWizardProps = {
   onClose: () => void;
+  applicationIntent: ApplicationIntent;
 };
 
-export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizardProps>) {
-  const { t } = useTranslation();
+export default function ApplicationWizard({
+  onClose,
+  applicationIntent,
+}: Readonly<ApplicationWizardProps>) {
+  const { t, i18n } = useTranslation();
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   const {
     register,
@@ -246,16 +252,27 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
 
   const onFinalSubmit = async (data: AmbassadorFormValues) => {
     setSubmitting(true);
+    setSubmitError(false);
     try {
-      await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const base = (i18n.language ?? 'en').slice(0, 2).toLowerCase();
+      const locale = ['en', 'fr', 'sw'].includes(base) ? base : 'en';
+
+      const res = await fetch('/api/application-submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           form: 'Africa Bitcoin Education — Ambassador Application',
+          applicationIntent,
           ...data,
+          locale,
           timestamp: new Date().toISOString(),
         }),
       });
+
+      if (!res.ok) {
+        throw new Error('application_submit_failed');
+      }
+
       setSubmitted(true);
       try {
         localStorage.removeItem(STORAGE_KEY);
@@ -264,13 +281,7 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
       }
       reset(defaultValues);
     } catch {
-      setSubmitted(true);
-      try {
-        localStorage.removeItem(STORAGE_KEY);
-      } catch {
-        /* ignore */
-      }
-      reset(defaultValues);
+      setSubmitError(true);
     } finally {
       setSubmitting(false);
     }
@@ -1074,6 +1085,11 @@ export default function ApplicationWizard({ onClose }: Readonly<ApplicationWizar
           )}
 
           {/* Nav */}
+          {submitError && (
+            <p className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
+              {t('application.submitError')}
+            </p>
+          )}
           <div className="flex flex-col-reverse sm:flex-row gap-3 pt-4 border-t border-gray-100">
             {step > 0 && (
               <button

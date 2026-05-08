@@ -18,3 +18,8 @@
   from = "/api/newsletter-subscribe"
   to = "/.netlify/functions/newsletter-subscribe"
   status = 200
+
+[[redirects]]
+  from = "/api/application-submit"
+  to = "/.netlify/functions/application-submit"
+  status = 200

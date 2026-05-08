@@ -1,5 +1,8 @@
 /** Shared options for the Africa Bitcoin Education Ambassador application wizard */
 
+/** Which CTA opened the wizard — sent to Customer.io as `application_intent`. */
+export type ApplicationIntent = 'learner' | 'tutor';
+
 export const AFRICAN_COUNTRIES = [
   'Algeria',
   'Angola',
