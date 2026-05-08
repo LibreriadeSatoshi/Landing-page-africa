@@ -3,25 +3,59 @@ import { Mail, Twitter, MessageCircle, Globe, BookOpen } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import './UnifiedFooter.css';
 
-interface UnifiedFooterProps {
-  onNewsletterSubmit?: (email: string) => void;
-}
+type SubscribeStatus = 'idle' | 'submitting' | 'success' | 'error';
+type ErrorKey = 'invalidEmail' | 'subscribeError';
 
-export default function UnifiedFooter({ onNewsletterSubmit }: UnifiedFooterProps) {
-  const { t } = useTranslation();
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const SUPPORTED_LOCALES = ['en', 'fr', 'sw'] as const;
+
+export default function UnifiedFooter() {
+  const { t, i18n } = useTranslation();
   const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
+  const [status, setStatus] = useState<SubscribeStatus>('idle');
+  const [errorKey, setErrorKey] = useState<ErrorKey>('subscribeError');
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email && email.includes('@')) {
-      onNewsletterSubmit?.(email);
+    if (status === 'submitting') return;
+
+    const trimmed = email.trim();
+    if (!trimmed || !EMAIL_RE.test(trimmed)) {
+      setErrorKey('invalidEmail');
+      setStatus('error');
+      return;
+    }
+
+    setStatus('submitting');
+
+    // Send only the 2-letter base locale (e.g. "en-US" → "en") and only if supported.
+    const base = (i18n.language ?? 'en').slice(0, 2).toLowerCase();
+    const locale = (SUPPORTED_LOCALES as readonly string[]).includes(base) ? base : 'en';
+
+    try {
+      const res = await fetch('/api/newsletter-subscribe', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ email: trimmed, locale }),
+      });
+
+      if (!res.ok) {
+        const data = (await res.json().catch(() => ({}))) as { error?: string };
+        setErrorKey(data.error === 'invalid_email' ? 'invalidEmail' : 'subscribeError');
+        setStatus('error');
+        return;
+      }
+
       setEmail('');
-      setSubscribed(true);
-      setTimeout(() => setSubscribed(false), 3000);
+      setStatus('success');
+      setTimeout(() => setStatus('idle'), 4000);
+    } catch {
+      setErrorKey('subscribeError');
+      setStatus('error');
     }
   };
 
+  const isSubmitting = status === 'submitting';
   const year = new Date().getFullYear();
 
   return (
@@ -33,24 +67,36 @@ export default function UnifiedFooter({ onNewsletterSubmit }: UnifiedFooterProps
               <h3>{t('unifiedFooter.newsletterTitle')}</h3>
               <p>{t('unifiedFooter.newsletterDescription')}</p>
             </div>
-            <form onSubmit={handleSubscribe} className="newsletter-form">
+            <form onSubmit={handleSubscribe} className="newsletter-form" noValidate>
               <div className="form-group">
                 <input
                   type="email"
                   placeholder={t('unifiedFooter.emailPlaceholder')}
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (status === 'error') setStatus('idle');
+                  }}
                   required
+                  disabled={isSubmitting}
+                  autoComplete="email"
                   className="email-input"
+                  aria-invalid={status === 'error'}
+                  aria-describedby="newsletter-status"
                 />
-                <button type="submit" className="subscribe-btn">
+                <button type="submit" className="subscribe-btn" disabled={isSubmitting}>
                   <Mail size={16} />
-                  {t('unifiedFooter.subscribe')}
+                  {isSubmitting ? t('unifiedFooter.subscribing') : t('unifiedFooter.subscribe')}
                 </button>
               </div>
-              {subscribed && (
-                <p className="success-message">{t('unifiedFooter.subscribeSuccess')}</p>
-              )}
+              <div id="newsletter-status" aria-live="polite" role="status">
+                {status === 'success' && (
+                  <p className="success-message">{t('unifiedFooter.subscribeSuccess')}</p>
+                )}
+                {status === 'error' && (
+                  <p className="error-message">{t(`unifiedFooter.${errorKey}`)}</p>
+                )}
+              </div>
               <p className="consent-text">
                 {t('unifiedFooter.consent')}
                 <a href="#"> {t('unifiedFooter.privacyPolicy')}</a>
