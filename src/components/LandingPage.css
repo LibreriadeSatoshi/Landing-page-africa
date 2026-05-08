@@ -213,14 +213,6 @@ nav {
   background: transparent;
 }
 
-button.btn-primary,
-button.btn-outline,
-button.btn-teal,
-button.btn-blue,
-button.btn-amber {
-  background: transparent;
-}
-
 .btn-primary {
   background: var(--orange);
   color: white;
