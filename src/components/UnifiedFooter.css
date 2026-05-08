@@ -96,14 +96,26 @@
   white-space: nowrap;
 }
 
-.subscribe-btn:hover {
+.subscribe-btn:hover:not(:disabled) {
   background: var(--orange-dark);
   transform: translateY(-1px);
+}
+
+.subscribe-btn:disabled,
+.email-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .success-message {
   font-size: 14px;
   color: var(--teal);
+  font-weight: 500;
+}
+
+.error-message {
+  font-size: 14px;
+  color: #ff6b6b;
   font-weight: 500;
 }
 
