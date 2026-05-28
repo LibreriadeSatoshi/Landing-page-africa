@@ -17,8 +17,6 @@ export type AmbassadorFormValues = {
   // Section 1
   fullName: string;
   email: string;
-  between16and35: 'yes' | 'no' | '';
-  age: string;
   gender: string;
   country: string;
   city: string;
@@ -29,13 +27,6 @@ export type AmbassadorFormValues = {
   readWriteLanguagesDetail: string;
   hearAbout: string;
   // Section 2
-  isAdult: 'yes' | 'no' | '';
-  guardianConsentAccepted: boolean;
-  guardianName: string;
-  guardianRelationship: string;
-  guardianEmail: string;
-  guardianPhone: string;
-  // Section 3
   hoursPerWeek: string;
   commitThreeMonths: 'yes' | 'no' | '';
   hopeToLearn: string;
@@ -57,8 +48,6 @@ export type AmbassadorFormValues = {
 const defaultValues: AmbassadorFormValues = {
   fullName: '',
   email: '',
-  between16and35: '',
-  age: '',
   gender: '',
   country: '',
   city: '',
@@ -68,12 +57,6 @@ const defaultValues: AmbassadorFormValues = {
   readWriteLanguages: '',
   readWriteLanguagesDetail: '',
   hearAbout: '',
-  isAdult: '',
-  guardianConsentAccepted: false,
-  guardianName: '',
-  guardianRelationship: '',
-  guardianEmail: '',
-  guardianPhone: '',
   hoursPerWeek: '',
   commitThreeMonths: '',
   hopeToLearn: '',
@@ -98,8 +81,6 @@ function wordCount(text: string): number {
 const STEP1_FIELDS: (keyof AmbassadorFormValues)[] = [
   'fullName',
   'email',
-  'between16and35',
-  'age',
   'gender',
   'country',
   'city',
@@ -111,7 +92,7 @@ const STEP1_FIELDS: (keyof AmbassadorFormValues)[] = [
   'hearAbout',
 ];
 
-const STEP3_FIELDS: (keyof AmbassadorFormValues)[] = [
+const STEP2_FIELDS: (keyof AmbassadorFormValues)[] = [
   'hoursPerWeek',
   'commitThreeMonths',
   'hopeToLearn',
@@ -150,7 +131,6 @@ export default function ApplicationWizard({
     mode: 'onTouched',
   });
 
-  const isAdult = watch('isAdult');
   const readWriteLanguagesChoice = watch('readWriteLanguages');
 
   useEffect(() => {
@@ -166,7 +146,7 @@ export default function ApplicationWizard({
       if (!raw) return;
       const parsed = JSON.parse(raw) as { values?: AmbassadorFormValues; step?: number };
       if (parsed.values) reset({ ...defaultValues, ...parsed.values });
-      if (typeof parsed.step === 'number' && parsed.step >= 0 && parsed.step <= 3) {
+      if (typeof parsed.step === 'number' && parsed.step >= 0 && parsed.step <= 2) {
         setStep(parsed.step);
       }
     } catch {
@@ -191,42 +171,16 @@ export default function ApplicationWizard({
   const labelClass = 'block text-sm font-semibold text-gray-700 mb-1.5';
 
   const validateStep1 = async () => {
-    const ok = await trigger(STEP1_FIELDS);
-    if (!ok) return false;
-    const v = getValues();
-    const n = Number.parseInt(v.age, 10);
-    if (Number.isNaN(n) || n < 16 || n > 35) {
-      await trigger('age');
-      return false;
-    }
-    if (v.between16and35 === 'no') {
-      return false;
-    }
-    return true;
+    return trigger(STEP1_FIELDS);
   };
 
   const validateStep2 = async () => {
-    const ok = await trigger(['isAdult']);
-    if (!ok) return false;
-    if (isAdult === 'yes') return true;
-    if (isAdult !== 'no') return false;
-    const fields: (keyof AmbassadorFormValues)[] = [
-      'guardianConsentAccepted',
-      'guardianName',
-      'guardianRelationship',
-      'guardianEmail',
-      'guardianPhone',
-    ];
-    return trigger(fields);
-  };
-
-  const validateStep3 = async () => {
     const v = getValues();
     if (wordCount(v.hopeToLearn) > 200) {
       await trigger('hopeToLearn');
       return false;
     }
-    return trigger(STEP3_FIELDS);
+    return trigger(STEP2_FIELDS);
   };
 
   const goNext = async () => {
@@ -238,11 +192,6 @@ export default function ApplicationWizard({
     if (step === 1) {
       const valid = await validateStep2();
       if (valid) setStep(2);
-      return;
-    }
-    if (step === 2) {
-      const valid = await validateStep3();
-      if (valid) setStep(3);
     }
   };
 
@@ -337,11 +286,11 @@ export default function ApplicationWizard({
             <progress
               className="h-full w-full [appearance:none] [&::-webkit-progress-bar]:bg-transparent [&::-webkit-progress-value]:bg-[#F7931A] [&::-moz-progress-bar]:bg-[#F7931A]"
               value={step + 1}
-              max={4}
+              max={3}
             />
           </div>
           <p className="text-xs text-gray-500 mt-2">
-            {t('application.stepOf', { current: step + 1, total: 4 })}
+            {t('application.stepOf', { current: step + 1, total: 3 })}
           </p>
         </div>
 
@@ -385,60 +334,6 @@ export default function ApplicationWizard({
                 {errors.email && (
                   <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
                 )}
-              </div>
-
-              {/* <div>
-                <span className={labelClass}>
-                  {t('application.fields.between16and35')} <span className="text-red-500">*</span>
-                </span>
-                <div className="flex gap-6">
-                  <label className="inline-flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      value="yes"
-                      {...register('between16and35', { required: 'Please select' })}
-                    />
-                    <span className="text-sm text-gray-800">{t('common.yes')}</span>
-                  </label>
-                  <label className="inline-flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      value="no"
-                      {...register('between16and35', { required: 'Please select' })}
-                    />
-                    <span className="text-sm text-gray-800">{t('common.no')}</span>
-                  </label>
-                </div>
-                {watch('between16and35') === 'no' && (
-                  <p className="text-amber-700 text-xs mt-2">
-                    {t('application.validation.ageRangeWarning')}
-                  </p>
-                )}
-                {errors.between16and35 && (
-                  <p className="text-red-500 text-xs mt-1">{errors.between16and35.message}</p>
-                )}
-              </div> */}
-
-              <div>
-                <label className={labelClass}>
-                  {t('application.fields.age')} <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="number"
-                  min={16}
-                  max={35}
-                  className={inputClass(!!errors.age)}
-                  {...register('age', {
-                    required: 'Required',
-                    validate: (v) => {
-                      const n = Number.parseInt(v, 10);
-                      if (Number.isNaN(n) || n < 16 || n > 35)
-                        return 'Age must be between 16 and 35';
-                      return true;
-                    },
-                  })}
-                />
-                {errors.age && <p className="text-red-500 text-xs mt-1">{errors.age.message}</p>}
               </div>
 
               <div>
@@ -628,151 +523,11 @@ export default function ApplicationWizard({
             </div>
           )}
 
-          {/* Step 2: Guardian */}
+          {/* Step 2: Commitment */}
           {step === 1 && (
             <div className="space-y-5" data-testid="wizard-step-2">
               <h2 className="text-lg font-bold text-black border-b border-gray-100 pb-2">
                 {t('application.sections.two')}
-              </h2>
-              <p className="text-sm text-gray-600">{t('application.sections.twoDescription')}</p>
-
-              <div>
-                <span className={labelClass}>
-                  {t('application.fields.isAdult')} <span className="text-red-500">*</span>
-                </span>
-                <div className="flex flex-col gap-3">
-                  <label className="inline-flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      value="yes"
-                      {...register('isAdult', { required: 'Please select' })}
-                    />
-                    <span className="text-sm">{t('application.options.adultYes')}</span>
-                  </label>
-                  <label className="inline-flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      value="no"
-                      {...register('isAdult', { required: 'Please select' })}
-                    />
-                    <span className="text-sm">{t('application.options.adultNo')}</span>
-                  </label>
-                </div>
-                {errors.isAdult && (
-                  <p className="text-red-500 text-xs mt-1">{errors.isAdult.message}</p>
-                )}
-              </div>
-
-              {isAdult === 'no' && (
-                <>
-                  <div>
-                    <span className={labelClass}>
-                      {t('application.fields.guardianConsent')}{' '}
-                      <span className="text-red-500">*</span>
-                    </span>
-                    <label className="flex items-start gap-3 cursor-pointer mt-2">
-                      <input
-                        type="checkbox"
-                        className="mt-1 rounded border-gray-300"
-                        {...register('guardianConsentAccepted', {
-                          validate: (v, formValues) =>
-                            formValues.isAdult === 'no'
-                              ? v === true || 'Consent is required'
-                              : true,
-                        })}
-                      />
-                      <span className="text-sm text-gray-700 leading-relaxed">
-                        {t('application.fields.guardianConsentText')}
-                      </span>
-                    </label>
-                    {errors.guardianConsentAccepted && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {errors.guardianConsentAccepted.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className={labelClass}>
-                        {t('application.fields.guardianName')}{' '}
-                        <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        className={inputClass(!!errors.guardianName)}
-                        {...register('guardianName', {
-                          validate: (v) => {
-                            if (isAdult !== 'no') return true;
-                            return v?.trim() ? true : 'Required';
-                          },
-                        })}
-                      />
-                    </div>
-                    <div>
-                      <label className={labelClass}>
-                        {t('application.fields.guardianRelationship')}{' '}
-                        <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        placeholder={t('application.placeholders.guardianRelationship')}
-                        className={inputClass(!!errors.guardianRelationship)}
-                        {...register('guardianRelationship', {
-                          validate: (v) => {
-                            if (isAdult !== 'no') return true;
-                            return v?.trim() ? true : 'Required';
-                          },
-                        })}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className={labelClass}>
-                        {t('application.fields.guardianEmail')}{' '}
-                        <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        className={inputClass(!!errors.guardianEmail)}
-                        {...register('guardianEmail', {
-                          validate: (v) => {
-                            if (isAdult !== 'no') return true;
-                            if (!v?.trim()) return 'Required';
-                            return /^\S+@\S+\.\S+$/.test(v) ? true : 'Enter a valid email';
-                          },
-                        })}
-                      />
-                    </div>
-                    <div>
-                      <label className={labelClass}>
-                        {t('application.fields.guardianPhone')}{' '}
-                        <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="tel"
-                        className={inputClass(!!errors.guardianPhone)}
-                        {...register('guardianPhone', {
-                          validate: (v) => {
-                            if (isAdult !== 'no') return true;
-                            return v?.trim() ? true : 'Required';
-                          },
-                        })}
-                      />
-                    </div>
-                  </div>
-                </>
-              )}
-            </div>
-          )}
-
-          {/* Step 3: Commitment */}
-          {step === 2 && (
-            <div className="space-y-5" data-testid="wizard-step-3">
-              <h2 className="text-lg font-bold text-black border-b border-gray-100 pb-2">
-                {t('application.sections.three')}
               </h2>
 
               <div>
@@ -944,11 +699,11 @@ export default function ApplicationWizard({
             </div>
           )}
 
-          {/* Step 4: Bitcoin + submit */}
-          {step === 3 && (
-            <div className="space-y-5" data-testid="wizard-step-4">
+          {/* Step 3: Bitcoin + submit */}
+          {step === 2 && (
+            <div className="space-y-5" data-testid="wizard-step-3">
               <h2 className="text-lg font-bold text-black border-b border-gray-100 pb-2">
-                {t('application.sections.four')}
+                {t('application.sections.three')}
               </h2>
 
               <div>
@@ -1101,13 +856,13 @@ export default function ApplicationWizard({
                 {t('application.back')}
               </button>
             )}
-            {step < 3 && (
+            {step < 2 && (
               <button type="button" onClick={goNext} className="btn-primary justify-center flex-1">
                 {t('application.continue')}
                 <ArrowRight size={18} />
               </button>
             )}
-            {step === 3 && (
+            {step === 2 && (
               <button
                 type="submit"
                 disabled={submitting}

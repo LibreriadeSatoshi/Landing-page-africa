@@ -54,8 +54,7 @@
     },
     "stats": {
       "countries": "African Countries",
-      "free": "Free Program",
-      "ageRange": "Age Range"
+      "free": "Free Program"
     },
     "cta": {
       "learners": {
@@ -218,7 +217,7 @@
     "title": "Ready to Join?",
     "description": "Start the ambassador application - it takes about 5-15 minutes.",
     "cardTitle": "Full application in four short steps",
-    "cardDescription": "Personal details, guardian consent if you are under 18, your availability and commitment, and your Bitcoin experience. Answer in your own words - authenticity matters.",
+    "cardDescription": "Personal details, your availability and commitment, and your Bitcoin experience. Answer in your own words - authenticity matters.",
     "start": "Start application",
     "questionsPrefix": "Questions? Email",
     "questionsSuffix": "with \"Ambassador Question\" in the subject line."
@@ -262,17 +261,13 @@
       "description": "Thank you for applying to become an Africa Bitcoin Education Ambassador. We will review your submission and contact you within 5-7 business days. Please check your email (including spam)."
     },
     "sections": {
-      "one": "Section 1 - Eligibility & personal information",
-      "two": "Section 2 - Guardian / parent (under 18)",
-      "twoDescription": "If you are under 18, a parent or guardian must provide consent. If you are 18 or older, select that option and continue.",
-      "three": "Section 3 - Availability & commitment",
-      "four": "Section 4 - Bitcoin knowledge & experience"
+      "one": "Section 1 - Personal information",
+      "two": "Section 2 - Availability & commitment",
+      "three": "Section 3 - Bitcoin knowledge & experience"
     },
     "fields": {
       "fullName": "Full name",
       "email": "Email address",
-      "between16and35": "Are you between the ages of 16 and 35?",
-      "age": "Age",
       "gender": "Gender",
       "country": "Country",
       "city": "City of residence",
@@ -282,13 +277,6 @@
       "readWriteLanguages": "Can you read and write in the languages specified above?",
       "readWriteLanguagesDetail": "Which language(s) can you read and write?",
       "hearAbout": "How did you hear about the Africa Bitcoin Education Ambassador Program?",
-      "isAdult": "Are you 18 years or older?",
-      "guardianConsent": "Parental / guardian consent",
-      "guardianConsentText": "I am the parent/guardian, and I give consent for the applicant to participate. I understand they will promote Bitcoin education, create content, engage on social media, and represent the organization.",
-      "guardianName": "Guardian / parent full name",
-      "guardianRelationship": "Relationship",
-      "guardianEmail": "Guardian email",
-      "guardianPhone": "Guardian phone",
       "hoursPerWeek": "How many hours per week can you commit?",
       "commitThreeMonths": "Can you commit to a minimum of 3 months?",
       "hopeToLearn": "What do you hope to learn and achieve as an Africa Bitcoin Education Ambassador?",
@@ -307,15 +295,10 @@
     },
     "placeholders": {
       "gender": "How you identify",
-      "guardianRelationship": "e.g. Mother, Father",
       "internetSpeed": "e.g. 25 Mbps download",
       "teaching": "Describe any teaching, tutoring, or facilitation experience",
       "programming": "Describe any coding or technical experience (none is OK)",
       "readWriteLanguagesDetail": "e.g. English, Swahili"
-    },
-    "options": {
-      "adultYes": "Yes, I am 18 or older",
-      "adultNo": "No, I am under 18"
     },
     "bitcoinOptions": {
       "beginner": "Beginner - I'm still learning",
@@ -328,9 +311,6 @@
       "timezone": "Select time zone",
       "language": "Select language",
       "generic": "Select"
-    },
-    "validation": {
-      "ageRangeWarning": "You must be between 16 and 35 to apply."
     },
     "maxWords": "(max 200 words)",
     "wordsCount": "{{current}} / {{max}} words"
@@ -375,14 +355,14 @@
       "tabPartners": "🤝 Partners",
       "learners": {
         "title": "Start your Bitcoin journey in your language",
-        "body": "Free, structured Bitcoin education for Africans aged 18–35. Learn blockchain, cryptography, economics, and coding. No prior experience needed, just the drive to understand and the commitment to share.",
+        "body": "Free, structured Bitcoin education for Africans. Learn blockchain, cryptography, economics, and coding. No prior experience needed, just the drive to understand and the commitment to share.",
         "applyCta": "Apply as Ambassador",
         "tileCommitment": "Commitment",
         "tileCommitmentValue": "90 min/week + 10 hrs reading",
         "tileWhat": "What you learn",
         "tileWhatValue": "Bitcoin · AI · Cryptography · Economics · Coding",
         "tileWho": "Who can apply",
-        "tileWhoValue": "Ages 18–35 · No experience needed",
+        "tileWhoValue": "No experience needed",
         "colWhoTitle": "Who can apply",
         "colWhoItems": [
           "High school, university, or graduate students",

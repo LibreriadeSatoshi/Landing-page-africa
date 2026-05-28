@@ -54,8 +54,7 @@
     },
     "stats": {
       "countries": "Nchi za Afrika",
-      "free": "Programu ya Bure",
-      "ageRange": "Kiwango cha Umri"
+      "free": "Programu ya Bure"
     },
     "cta": {
       "learners": {
@@ -218,7 +217,7 @@
     "title": "Uko tayari kujiunga?",
     "description": "Anza maombi ya ubalozi - huchukua dakika 5 hadi 15.",
     "cardTitle": "Maombi kamili kwa hatua nne fupi",
-    "cardDescription": "Taarifa binafsi, idhini ya mlezi kwa walio chini ya 18, muda wa kujitolea, na uzoefu wa Bitcoin.",
+    "cardDescription": "Taarifa binafsi, muda wa kujitolea, na uzoefu wa Bitcoin.",
     "start": "Anza maombi",
     "questionsPrefix": "Maswali? Tuma barua pepe kwa",
     "questionsSuffix": "ukiweka \"Ambassador Question\" kwenye kichwa cha ujumbe."
@@ -258,17 +257,13 @@
       "description": "Asante kwa kuomba kuwa balozi wa Africa Bitcoin Education. Tutakagua maombi yako na kuwasiliana nawe ndani ya siku 5-7 za kazi."
     },
     "sections": {
-      "one": "Sehemu ya 1 - Ustahiki na taarifa binafsi",
-      "two": "Sehemu ya 2 - Mlezi / mzazi (chini ya miaka 18)",
-      "twoDescription": "Ikiwa uko chini ya miaka 18, mzazi au mlezi lazima atoe idhini.",
-      "three": "Sehemu ya 3 - Upatikanaji na kujitolea",
-      "four": "Sehemu ya 4 - Maarifa na uzoefu wa Bitcoin"
+      "one": "Sehemu ya 1 - Taarifa binafsi",
+      "two": "Sehemu ya 2 - Upatikanaji na kujitolea",
+      "three": "Sehemu ya 3 - Maarifa na uzoefu wa Bitcoin"
     },
     "fields": {
       "fullName": "Jina kamili",
       "email": "Barua pepe",
-      "between16and35": "Je, uko kati ya miaka 16 na 35?",
-      "age": "Umri",
       "gender": "Jinsia",
       "country": "Nchi",
       "city": "Mji wa makazi",
@@ -278,13 +273,6 @@
       "readWriteLanguages": "Je, unaweza kusoma na kuandika lugha hizo?",
       "readWriteLanguagesDetail": "Ni lugha zipi unazoweza kusoma na kuandika?",
       "hearAbout": "Ulijuaje kuhusu programu ya ubalozi?",
-      "isAdult": "Je, una miaka 18 au zaidi?",
-      "guardianConsent": "Idhini ya mzazi / mlezi",
-      "guardianConsentText": "Mimi ni mzazi/mlezi na ninatoa idhini kwa mwombaji kushiriki. Ninaelewa atahamasisha elimu ya Bitcoin, kuunda maudhui na kuwakilisha shirika.",
-      "guardianName": "Jina kamili la mzazi / mlezi",
-      "guardianRelationship": "Uhusiano",
-      "guardianEmail": "Barua pepe ya mlezi",
-      "guardianPhone": "Simu ya mlezi",
       "hoursPerWeek": "Unaweza kujitolea saa ngapi kwa wiki?",
       "commitThreeMonths": "Unaweza kujitolea kwa angalau miezi 3?",
       "hopeToLearn": "Unatarajia kujifunza na kufanikisha nini kama Balozi wa Africa Bitcoin Education?",
@@ -303,15 +291,10 @@
     },
     "placeholders": {
       "gender": "Jinsi unavyojitambulisha",
-      "guardianRelationship": "mf. Mama, Baba",
       "internetSpeed": "mf. 25 Mbps download",
       "teaching": "Eleza uzoefu wowote wa kufundisha au kuratibu",
       "programming": "Eleza uzoefu wowote wa coding au kiufundi",
       "readWriteLanguagesDetail": "mf. Kiingereza, Kiswahili"
-    },
-    "options": {
-      "adultYes": "Ndiyo, nina miaka 18 au zaidi",
-      "adultNo": "Hapana, niko chini ya miaka 18"
     },
     "bitcoinOptions": {
       "beginner": "Mwanzo - bado najifunza",
@@ -325,7 +308,6 @@
       "language": "Chagua lugha",
       "generic": "Chagua"
     },
-    "validation": { "ageRangeWarning": "Ni lazima uwe na miaka 16 hadi 35 ili kuomba." },
     "maxWords": "(kiwango cha juu maneno 200)",
     "wordsCount": "maneno {{current}} / {{max}}"
   },
@@ -369,14 +351,14 @@
       "tabPartners": "🤝 Washirika",
       "learners": {
         "title": "Anza safari yako ya Bitcoin kwa lugha yako",
-        "body": "Elimu ya Bitcoin ya bure na yenye mpango kwa Waafrika walio na miaka 18–35. Jifunze blockchain, cryptography, uchumi, na coding. Hakuna uzoefu unaohitajika, ila nia ya kuelewa na kushiriki.",
+        "body": "Elimu ya Bitcoin ya bure na yenye mpango kwa Waafrika. Jifunze blockchain, cryptography, uchumi, na coding. Hakuna uzoefu unaohitajika, ila nia ya kuelewa na kushiriki.",
         "applyCta": "Omba kama balozi",
         "tileCommitment": "Kujitolea",
         "tileCommitmentValue": "Dakika 90/wiki + masaa 10 ya kusoma",
         "tileWhat": "Unajifunza nini",
         "tileWhatValue": "Bitcoin · AI · Cryptography · Uchumi · Coding",
         "tileWho": "Nani anaweza kuomba",
-        "tileWhoValue": "Miaka 18–35 · Hakuna uzoefu unaohitajika",
+        "tileWhoValue": "Hakuna uzoefu unaohitajika",
         "colWhoTitle": "Nani anaweza kuomba",
         "colWhoItems": [
           "Wanafunzi wa sekondari, chuo, au waliomaliza",

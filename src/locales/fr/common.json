@@ -54,8 +54,7 @@
     },
     "stats": {
       "countries": "Pays africains",
-      "free": "Programme gratuit",
-      "ageRange": "Tranche d'âge"
+      "free": "Programme gratuit"
     },
     "cta": {
       "learners": {
@@ -218,7 +217,7 @@
     "title": "Pret a rejoindre?",
     "description": "Lancez la candidature ambassadeur - environ 5 a 15 minutes.",
     "cardTitle": "Candidature complete en quatre etapes",
-    "cardDescription": "Informations personnelles, consentement tuteur si mineur, disponibilite et experience Bitcoin.",
+    "cardDescription": "Informations personnelles, disponibilite et experience Bitcoin.",
     "start": "Commencer la candidature",
     "questionsPrefix": "Questions? Ecrivez a",
     "questionsSuffix": "avec \"Ambassador Question\" dans l'objet."
@@ -258,17 +257,13 @@
       "description": "Merci pour votre candidature. Nous reviendrons vers vous sous 5 a 7 jours ouvrables."
     },
     "sections": {
-      "one": "Section 1 - Eligibilite et informations personnelles",
-      "two": "Section 2 - Tuteur / parent (moins de 18 ans)",
-      "twoDescription": "Si vous avez moins de 18 ans, un parent ou tuteur doit donner son consentement.",
-      "three": "Section 3 - Disponibilite et engagement",
-      "four": "Section 4 - Connaissances et experience Bitcoin"
+      "one": "Section 1 - Informations personnelles",
+      "two": "Section 2 - Disponibilite et engagement",
+      "three": "Section 3 - Connaissances et experience Bitcoin"
     },
     "fields": {
       "fullName": "Nom complet",
       "email": "Adresse email",
-      "between16and35": "Avez-vous entre 16 et 35 ans?",
-      "age": "Age",
       "gender": "Genre",
       "country": "Pays",
       "city": "Ville de residence",
@@ -278,13 +273,6 @@
       "readWriteLanguages": "Pouvez-vous lire et ecrire ces langues?",
       "readWriteLanguagesDetail": "Dans quelle(s) langue(s) pouvez-vous lire et ecrire?",
       "hearAbout": "Comment avez-vous connu le programme?",
-      "isAdult": "Avez-vous 18 ans ou plus?",
-      "guardianConsent": "Consentement parental / tuteur",
-      "guardianConsentText": "Je suis le parent/tuteur et j'autorise la participation du candidat. Je comprends qu'il/elle promouvra l'education Bitcoin, creera du contenu et representera l'organisation.",
-      "guardianName": "Nom complet du parent / tuteur",
-      "guardianRelationship": "Lien",
-      "guardianEmail": "Email du tuteur",
-      "guardianPhone": "Telephone du tuteur",
       "hoursPerWeek": "Combien d'heures par semaine pouvez-vous consacrer?",
       "commitThreeMonths": "Pouvez-vous vous engager au moins 3 mois?",
       "hopeToLearn": "Que souhaitez-vous apprendre et accomplir en tant qu'ambassadeur Africa Bitcoin Education?",
@@ -303,13 +291,11 @@
     },
     "placeholders": {
       "gender": "Comment vous vous identifiez",
-      "guardianRelationship": "ex. Mere, Pere",
       "internetSpeed": "ex. 25 Mbps telechargement",
       "teaching": "Decrivez votre experience d'enseignement ou facilitation",
       "programming": "Decrivez votre experience technique ou de code",
       "readWriteLanguagesDetail": "ex. anglais, swahili"
     },
-    "options": { "adultYes": "Oui, j'ai 18 ans ou plus", "adultNo": "Non, j'ai moins de 18 ans" },
     "bitcoinOptions": {
       "beginner": "Debutant - j'apprends encore",
       "intermediate": "Intermediaire - je comprends bien Bitcoin",
@@ -322,7 +308,6 @@
       "language": "Selectionnez une langue",
       "generic": "Selectionnez"
     },
-    "validation": { "ageRangeWarning": "Vous devez avoir entre 16 et 35 ans pour postuler." },
     "maxWords": "(max 200 mots)",
     "wordsCount": "{{current}} / {{max}} mots"
   },
@@ -366,14 +351,14 @@
       "tabPartners": "🤝 Partenaires",
       "learners": {
         "title": "Commencez votre parcours Bitcoin dans votre langue",
-        "body": "Formation Bitcoin gratuite et structurée pour les Africains âgés de 18 à 35 ans. Blockchain, cryptographie, économie et code. Aucune expérience préalable requise, seulement la motivation de comprendre et l'engagement à partager.",
+        "body": "Formation Bitcoin gratuite et structurée pour les Africains. Blockchain, cryptographie, économie et code. Aucune expérience préalable requise, seulement la motivation de comprendre et l'engagement à partager.",
         "applyCta": "Postuler comme ambassadeur",
         "tileCommitment": "Engagement",
         "tileCommitmentValue": "90 min/semaine + 10 h de lecture",
         "tileWhat": "Ce que vous apprenez",
         "tileWhatValue": "Bitcoin · IA · Cryptographie · Économie · Code",
         "tileWho": "Qui peut postuler",
-        "tileWhoValue": "18–35 ans · Aucune expérience requise",
+        "tileWhoValue": "Aucune expérience requise",
         "colWhoTitle": "Qui peut postuler",
         "colWhoItems": [
           "Lycéens, étudiants ou diplômés",

@@ -27,7 +27,6 @@ export default function Hero({
   const stats = [
     { value: '54', label: t('hero.stats.countries') },
     { value: '100%', label: t('hero.stats.free') },
-    { value: '18-35', label: t('hero.stats.ageRange') },
   ];
 
   return (
