@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { Globe } from 'lucide-react';
+import { Check, Language } from 'iconoir-react';
 import { useTranslation } from 'react-i18next';
+import './LanguageSwitcher.css';
 
 const LANGUAGES = [
   { code: 'en' as const, label: 'English' },
@@ -14,7 +15,7 @@ type LanguageSwitcherProps = {
   className?: string;
 };
 
-/** Language dropdown for the landing page sticky nav (light background). */
+/** Language dropdown for the landing page sticky nav (Ink background). */
 export default function LanguageSwitcher({ className = '' }: Readonly<LanguageSwitcherProps>) {
   const { i18n } = useTranslation();
   const [langOpen, setLangOpen] = useState(false);
@@ -39,24 +40,21 @@ export default function LanguageSwitcher({ className = '' }: Readonly<LanguageSw
   const currentLang = LANGUAGES.find((l) => l.code === i18n.resolvedLanguage) ?? LANGUAGES[0];
 
   return (
-    <div ref={langRef} className={`relative ${className}`}>
+    <div ref={langRef} className={`lang-switcher ${className}`}>
       <button
         type="button"
         onClick={() => setLangOpen((prev) => !prev)}
-        className="flex items-center gap-1.5 text-gray-600 hover:text-black text-sm transition-colors px-2.5 py-1.5 rounded-lg hover:bg-black/5 border border-transparent hover:border-black/10"
+        className="lang-switcher__toggle"
         aria-haspopup="listbox"
         aria-expanded={langOpen}
         aria-label="Language"
       >
-        <Globe size={15} className="text-gray-500" aria-hidden />
-        <span className="uppercase text-xs font-semibold tracking-wide">{currentLang.code}</span>
+        <Language aria-hidden />
+        <span className="lang-switcher__code">{currentLang.code}</span>
       </button>
 
       {langOpen && (
-        <div
-          className="absolute right-0 mt-2 w-40 bg-white border border-black/10 rounded-xl shadow-2xl py-1 z-[200]"
-          role="listbox"
-        >
+        <div className="lang-switcher__menu" role="listbox">
           {LANGUAGES.map((lang) => (
             <button
               key={lang.code}
@@ -64,16 +62,13 @@ export default function LanguageSwitcher({ className = '' }: Readonly<LanguageSw
               role="option"
               aria-selected={i18n.resolvedLanguage === lang.code}
               onClick={() => changeLanguage(lang.code)}
-              className={`w-full text-left px-4 py-2.5 text-sm transition-colors flex items-center justify-between ${
-                i18n.resolvedLanguage === lang.code
-                  ? 'text-[#F7931A] bg-[#F7931A]/5'
-                  : 'text-gray-700 hover:bg-black/5'
-              }`}
+              className="lang-switcher__option"
             >
-              <span>{lang.label}</span>
-              <span className="text-[11px] uppercase tracking-wider text-gray-400">
-                {lang.code}
+              <span className="lang-switcher__check" aria-hidden>
+                {i18n.resolvedLanguage === lang.code && <Check />}
               </span>
+              <span className="lang-switcher__label">{lang.label}</span>
+              <span className="lang-switcher__code">{lang.code}</span>
             </button>
           ))}
         </div>

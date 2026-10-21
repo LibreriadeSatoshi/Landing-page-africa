@@ -1,6 +1,6 @@
 /** Shared options for the Africa Bitcoin Education Ambassador application wizard */
 
-/** Which CTA opened the wizard — sent to Customer.io as `application_intent`. */
+/** Which CTA opened the wizard; sent to Customer.io as `application_intent`. */
 export type ApplicationIntent = 'learner' | 'tutor';
 
 export const AFRICAN_COUNTRIES = [
@@ -82,7 +82,7 @@ export const PRIMARY_LANGUAGE_OPTIONS = [
   'Other',
 ] as const;
 
-/** “Additional languages” — dropdown per application spec */
+/** “Additional languages” dropdown per application spec */
 export const ADDITIONAL_LANGUAGES_OPTIONS = [
   'None',
   'One additional language',
@@ -118,19 +118,19 @@ export const HOURS_PER_WEEK_OPTIONS = [
 export const BITCOIN_KNOWLEDGE_OPTIONS = [
   {
     value: 'beginner',
-    label: "Beginner — I'm still learning",
+    label: "Beginner: I'm still learning",
   },
   {
     value: 'intermediate',
-    label: 'Intermediate — I understand Bitcoin well',
+    label: 'Intermediate: I understand Bitcoin well',
   },
   {
     value: 'advanced',
-    label: 'Advanced — I have deep knowledge',
+    label: 'Advanced: I have deep knowledge',
   },
   {
     value: 'expert',
-    label: 'Expert — Highly knowledgeable',
+    label: 'Expert: highly knowledgeable',
   },
 ] as const;
 

@@ -12,6 +12,9 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:fast": "vitest run tests/translation-completeness.test.ts",
+    "test:ismos": "node --test scripts/build-tokens.test.mjs scripts/check-ismos.test.mjs",
+    "ismos:tokens": "node scripts/build-tokens.mjs",
+    "ismos:check": "node scripts/check-ismos.mjs index.html src/index.css src/App.tsx src/main.tsx src/components/LandingPage.tsx src/components/LandingPage.css src/components/ApplicationWizard.tsx src/components/ApplicationWizard.css src/components/Header.tsx src/components/Header.css src/components/LanguageSwitcher.tsx src/components/LanguageSwitcher.css src/components/UnifiedFooter.tsx src/components/UnifiedFooter.css src/constants src/locales",
     "ci": "npm run build && npm run format:check && npm run test",
     "prepare": "husky"
   },
@@ -20,6 +23,7 @@
   },
   "dependencies": {
     "i18next": "^26.0.4",
+    "iconoir-react": "^7.11.0",
     "lucide-react": "^0.577.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",

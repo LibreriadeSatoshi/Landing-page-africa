@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import './Header.css';
 
 type HeaderProps = {
   /** Used above the application wizard: logo + back control */
@@ -13,30 +14,23 @@ export default function Header({ onCloseApplication }: Readonly<HeaderProps>) {
   const { t } = useTranslation();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-white/10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <button
-            type="button"
-            className="flex items-center gap-2 cursor-pointer flex-shrink-0 bg-transparent border-none p-0"
-            onClick={() => onCloseApplication?.()}
-          >
-            <div className="w-8 h-8 bg-[#F7931A] rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-sm">₿</span>
-            </div>
-            <span className="text-white font-bold text-lg tracking-tight">
-              {t('brand.prefix')} <span className="text-[#F7931A]">{t('brand.highlight')}</span>
-            </span>
-          </button>
+    <header className="app-header ism-block">
+      <div className="app-header__inner">
+        <button type="button" className="app-header__brand" onClick={() => onCloseApplication?.()}>
+          <span className="app-header__mark">₿</span>
+          <span>
+            {t('brand.prefix')}{' '}
+            <span className="app-header__highlight">{t('brand.highlight')}</span>
+          </span>
+        </button>
 
-          <button
-            type="button"
-            onClick={() => onCloseApplication?.()}
-            className="btn-outline-orange text-sm py-2 px-5"
-          >
-            {t('header.backToSite')}
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => onCloseApplication?.()}
+          className="ism-btn ism-btn--on-color ism-btn--secondary"
+        >
+          {t('header.backToSite')}
+        </button>
       </div>
     </header>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { ArrowLeft, ArrowRight, CheckCircle, Send } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle, Send, WarningCircle } from 'iconoir-react';
 import {
   ADDITIONAL_LANGUAGES_OPTIONS,
   AFRICAN_COUNTRIES,
@@ -12,6 +12,7 @@ import {
   STORAGE_KEY,
   TIMEZONES,
 } from '../constants/ambassadorForm';
+import './ApplicationWizard.css';
 
 export type AmbassadorFormValues = {
   // Section 1
@@ -164,11 +165,9 @@ export default function ApplicationWizard({
   }, [formSnapshot, step, getValues]);
 
   const inputClass = (hasError: boolean) =>
-    `w-full px-4 py-3 rounded-xl border text-black text-sm bg-white transition-colors outline-none focus:ring-2 focus:ring-[#F7931A]/40 ${
-      hasError ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-[#F7931A]'
-    }`;
+    `ism-field__input aw-input${hasError ? ' aw-input--error' : ''}`;
 
-  const labelClass = 'block text-sm font-semibold text-gray-700 mb-1.5';
+  const labelClass = 'aw-label';
 
   const validateStep1 = async () => {
     return trigger(STEP1_FIELDS);
@@ -210,7 +209,9 @@ export default function ApplicationWizard({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          form: 'Africa Bitcoin Education — Ambassador Application',
+          // Integration identifier read by Customer.io as form_label, not interface copy: keep it
+          // byte-identical to the default in netlify/functions/application-submit.ts.
+          form: 'Africa Bitcoin Education \u2014 Ambassador Application',
           applicationIntent,
           ...data,
           locale,
@@ -245,19 +246,12 @@ export default function ApplicationWizard({
 
   if (submitted) {
     return (
-      <div
-        className="min-h-screen bg-black flex items-center justify-center px-4 py-24 pt-28"
-        data-testid="application-success"
-      >
-        <div className="max-w-lg w-full bg-white/5 border border-[#F7931A]/30 rounded-3xl p-10 text-center">
-          <CheckCircle size={56} className="text-[#F7931A] mx-auto mb-4" />
-          <h1 className="text-white text-2xl font-bold mb-3">{t('application.success.title')}</h1>
-          <p className="text-gray-400 text-lg mb-8">{t('application.success.description')}</p>
-          <button
-            type="button"
-            onClick={onClose}
-            className="btn-outline-orange w-full justify-center"
-          >
+      <div className="aw-success ism-block" data-testid="application-success">
+        <div className="aw-success__inner">
+          <CheckCircle className="aw-success__icon" aria-hidden />
+          <h1 className="aw-success__title">{t('application.success.title')}</h1>
+          <p className="aw-success__text">{t('application.success.description')}</p>
+          <button type="button" onClick={onClose} className="ism-btn ism-btn--on-color">
             {t('application.backHome')}
           </button>
         </div>
@@ -266,48 +260,31 @@ export default function ApplicationWizard({
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-16 pt-24" data-testid="application-wizard">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <button
-            type="button"
-            onClick={onClose}
-            className="text-sm font-medium text-gray-600 hover:text-[#F7931A] inline-flex items-center gap-2 mb-4"
-          >
-            <ArrowLeft size={18} />
+    <div className="aw-page" data-testid="application-wizard">
+      <div className="aw-container">
+        <div className="aw-head">
+          <button type="button" onClick={onClose} className="aw-backlink">
+            <ArrowLeft aria-hidden />
             {t('application.backHome')}
           </button>
-          <p className="text-[#F7931A] text-sm font-semibold uppercase tracking-widest">
-            {t('application.label')}
-          </p>
-          <h1 className="section-heading text-black mt-2 mb-2">{t('application.title')}</h1>
-          <p className="text-gray-600 text-sm leading-relaxed">{t('application.description')}</p>
-          <div className="mt-4 h-2 bg-gray-200 rounded-full overflow-hidden">
-            <progress
-              className="h-full w-full [appearance:none] [&::-webkit-progress-bar]:bg-transparent [&::-webkit-progress-value]:bg-[#F7931A] [&::-moz-progress-bar]:bg-[#F7931A]"
-              value={step + 1}
-              max={3}
-            />
-          </div>
-          <p className="text-xs text-gray-500 mt-2">
+          <p className="ism-label">{t('application.label')}</p>
+          <h1 className="aw-title">{t('application.title')}</h1>
+          <p className="aw-description">{t('application.description')}</p>
+          <progress className="aw-progress" value={step + 1} max={3} />
+          <p className="aw-progress-count">
             {t('application.stepOf', { current: step + 1, total: 3 })}
           </p>
         </div>
 
-        <form
-          onSubmit={handleSubmit(onFinalSubmit)}
-          className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6 md:p-10 space-y-6"
-        >
+        <form onSubmit={handleSubmit(onFinalSubmit)} className="aw-form">
           {/* Step 1: Personal */}
           {step === 0 && (
-            <div className="space-y-5" data-testid="wizard-step-1">
-              <h2 className="text-lg font-bold text-black border-b border-gray-100 pb-2">
-                {t('application.sections.one')}
-              </h2>
+            <div className="aw-step" data-testid="wizard-step-1">
+              <h2 className="aw-section-title">{t('application.sections.one')}</h2>
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.fullName')} <span className="text-red-500">*</span>
+                  {t('application.fields.fullName')} <span className="aw-required">*</span>
                 </label>
                 <input
                   type="text"
@@ -315,13 +292,16 @@ export default function ApplicationWizard({
                   {...register('fullName', { required: 'Required' })}
                 />
                 {errors.fullName && (
-                  <p className="text-red-500 text-xs mt-1">{errors.fullName.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.fullName.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.email')} <span className="text-red-500">*</span>
+                  {t('application.fields.email')} <span className="aw-required">*</span>
                 </label>
                 <input
                   type="email"
@@ -332,13 +312,16 @@ export default function ApplicationWizard({
                   })}
                 />
                 {errors.email && (
-                  <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.email.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.gender')} <span className="text-red-500">*</span>
+                  {t('application.fields.gender')} <span className="aw-required">*</span>
                 </label>
                 <input
                   type="text"
@@ -347,14 +330,17 @@ export default function ApplicationWizard({
                   {...register('gender', { required: 'Required' })}
                 />
                 {errors.gender && (
-                  <p className="text-red-500 text-xs mt-1">{errors.gender.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.gender.message}
+                  </p>
                 )}
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="aw-grid-2">
                 <div>
                   <label className={labelClass}>
-                    {t('application.fields.country')} <span className="text-red-500">*</span>
+                    {t('application.fields.country')} <span className="aw-required">*</span>
                   </label>
                   <select
                     className={inputClass(!!errors.country)}
@@ -368,12 +354,15 @@ export default function ApplicationWizard({
                     ))}
                   </select>
                   {errors.country && (
-                    <p className="text-red-500 text-xs mt-1">{errors.country.message}</p>
+                    <p className="aw-error">
+                      <WarningCircle aria-hidden />
+                      {errors.country.message}
+                    </p>
                   )}
                 </div>
                 <div>
                   <label className={labelClass}>
-                    {t('application.fields.city')} <span className="text-red-500">*</span>
+                    {t('application.fields.city')} <span className="aw-required">*</span>
                   </label>
                   <input
                     type="text"
@@ -381,14 +370,17 @@ export default function ApplicationWizard({
                     {...register('city', { required: 'Required' })}
                   />
                   {errors.city && (
-                    <p className="text-red-500 text-xs mt-1">{errors.city.message}</p>
+                    <p className="aw-error">
+                      <WarningCircle aria-hidden />
+                      {errors.city.message}
+                    </p>
                   )}
                 </div>
               </div>
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.timezone')} <span className="text-red-500">*</span>
+                  {t('application.fields.timezone')} <span className="aw-required">*</span>
                 </label>
                 <select
                   className={inputClass(!!errors.timezone)}
@@ -402,13 +394,16 @@ export default function ApplicationWizard({
                   ))}
                 </select>
                 {errors.timezone && (
-                  <p className="text-red-500 text-xs mt-1">{errors.timezone.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.timezone.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.primaryLanguage')} <span className="text-red-500">*</span>
+                  {t('application.fields.primaryLanguage')} <span className="aw-required">*</span>
                 </label>
                 <select
                   className={inputClass(!!errors.primaryLanguage)}
@@ -422,14 +417,17 @@ export default function ApplicationWizard({
                   ))}
                 </select>
                 {errors.primaryLanguage && (
-                  <p className="text-red-500 text-xs mt-1">{errors.primaryLanguage.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.primaryLanguage.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <label className={labelClass}>
                   {t('application.fields.additionalLanguages')}{' '}
-                  <span className="text-red-500">*</span>
+                  <span className="aw-required">*</span>
                 </label>
                 <select
                   className={inputClass(!!errors.additionalLanguages)}
@@ -443,38 +441,41 @@ export default function ApplicationWizard({
                   ))}
                 </select>
                 {errors.additionalLanguages && (
-                  <p className="text-red-500 text-xs mt-1">{errors.additionalLanguages.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.additionalLanguages.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <span className={labelClass}>
                   {t('application.fields.readWriteLanguages')}{' '}
-                  <span className="text-red-500">*</span>
+                  <span className="aw-required">*</span>
                 </span>
-                <div className="flex flex-wrap gap-6">
-                  <label className="inline-flex items-center gap-2 cursor-pointer">
+                <div className="aw-choices">
+                  <label className="aw-choice">
                     <input
                       type="radio"
                       value="yes"
                       {...register('readWriteLanguages', { required: 'Please select' })}
                     />
-                    <span className="text-sm text-gray-800">{t('common.yes')}</span>
+                    <span className="aw-choice-text">{t('common.yes')}</span>
                   </label>
-                  <label className="inline-flex items-center gap-2 cursor-pointer">
+                  <label className="aw-choice">
                     <input
                       type="radio"
                       value="no"
                       {...register('readWriteLanguages', { required: 'Please select' })}
                     />
-                    <span className="text-sm text-gray-800">{t('common.no')}</span>
+                    <span className="aw-choice-text">{t('common.no')}</span>
                   </label>
                 </div>
                 {readWriteLanguagesChoice === 'yes' && (
-                  <div className="mt-3 rounded-xl border border-gray-200 bg-gray-50/80 p-4">
+                  <div className="aw-subfield">
                     <label className={labelClass} htmlFor="readWriteLanguagesDetail">
                       {t('application.fields.readWriteLanguagesDetail')}{' '}
-                      <span className="text-red-500">*</span>
+                      <span className="aw-required">*</span>
                     </label>
                     <input
                       id="readWriteLanguagesDetail"
@@ -490,20 +491,24 @@ export default function ApplicationWizard({
                       })}
                     />
                     {errors.readWriteLanguagesDetail && (
-                      <p className="text-red-500 text-xs mt-1">
+                      <p className="aw-error">
+                        <WarningCircle aria-hidden />
                         {errors.readWriteLanguagesDetail.message}
                       </p>
                     )}
                   </div>
                 )}
                 {errors.readWriteLanguages && (
-                  <p className="text-red-500 text-xs mt-1">{errors.readWriteLanguages.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.readWriteLanguages.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.hearAbout')} <span className="text-red-500">*</span>
+                  {t('application.fields.hearAbout')} <span className="aw-required">*</span>
                 </label>
                 <select
                   className={inputClass(!!errors.hearAbout)}
@@ -517,7 +522,10 @@ export default function ApplicationWizard({
                   ))}
                 </select>
                 {errors.hearAbout && (
-                  <p className="text-red-500 text-xs mt-1">{errors.hearAbout.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.hearAbout.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -525,14 +533,12 @@ export default function ApplicationWizard({
 
           {/* Step 2: Commitment */}
           {step === 1 && (
-            <div className="space-y-5" data-testid="wizard-step-2">
-              <h2 className="text-lg font-bold text-black border-b border-gray-100 pb-2">
-                {t('application.sections.two')}
-              </h2>
+            <div className="aw-step" data-testid="wizard-step-2">
+              <h2 className="aw-section-title">{t('application.sections.two')}</h2>
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.hoursPerWeek')} <span className="text-red-500">*</span>
+                  {t('application.fields.hoursPerWeek')} <span className="aw-required">*</span>
                 </label>
                 <select
                   className={inputClass(!!errors.hoursPerWeek)}
@@ -546,117 +552,126 @@ export default function ApplicationWizard({
                   ))}
                 </select>
                 {errors.hoursPerWeek && (
-                  <p className="text-red-500 text-xs mt-1">{errors.hoursPerWeek.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.hoursPerWeek.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <span className={labelClass}>
-                  {t('application.fields.commitThreeMonths')}{' '}
-                  <span className="text-red-500">*</span>
+                  {t('application.fields.commitThreeMonths')} <span className="aw-required">*</span>
                 </span>
-                <div className="flex gap-6">
-                  <label className="inline-flex items-center gap-2 cursor-pointer">
+                <div className="aw-choices">
+                  <label className="aw-choice">
                     <input
                       type="radio"
                       value="yes"
                       {...register('commitThreeMonths', { required: 'Please select' })}
                     />
-                    <span className="text-sm">{t('common.yes')}</span>
+                    <span className="aw-choice-text">{t('common.yes')}</span>
                   </label>
-                  <label className="inline-flex items-center gap-2 cursor-pointer">
+                  <label className="aw-choice">
                     <input
                       type="radio"
                       value="no"
                       {...register('commitThreeMonths', { required: 'Please select' })}
                     />
-                    <span className="text-sm">{t('common.no')}</span>
+                    <span className="aw-choice-text">{t('common.no')}</span>
                   </label>
                 </div>
                 {errors.commitThreeMonths && (
-                  <p className="text-red-500 text-xs mt-1">{errors.commitThreeMonths.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.commitThreeMonths.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.hopeToLearn')} <span className="text-red-500">*</span>
-                  <span className="font-normal text-gray-500"> {t('application.maxWords')}</span>
+                  {t('application.fields.hopeToLearn')} <span className="aw-required">*</span>
+                  <span className="aw-label-note"> {t('application.maxWords')}</span>
                 </label>
                 <textarea
                   rows={6}
-                  className={`${inputClass(!!errors.hopeToLearn)} resize-y min-h-[120px]`}
+                  className={`${inputClass(!!errors.hopeToLearn)} aw-textarea`}
                   {...register('hopeToLearn', {
                     required: 'Required',
                     validate: (v) =>
                       wordCount(v) <= 200 || `Maximum 200 words (currently ${wordCount(v)})`,
                   })}
                 />
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="aw-help">
                   {t('application.wordsCount', {
                     current: wordCount(watch('hopeToLearn')),
                     max: 200,
                   })}
                 </p>
                 {errors.hopeToLearn && (
-                  <p className="text-red-500 text-xs mt-1">{errors.hopeToLearn.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.hopeToLearn.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.helpCommunity')} <span className="text-red-500">*</span>
+                  {t('application.fields.helpCommunity')} <span className="aw-required">*</span>
                 </label>
                 <textarea
                   rows={5}
-                  className={`${inputClass(!!errors.helpCommunity)} resize-y min-h-[100px]`}
+                  className={`${inputClass(!!errors.helpCommunity)} aw-textarea`}
                   {...register('helpCommunity', { required: 'Required' })}
                 />
                 {errors.helpCommunity && (
-                  <p className="text-red-500 text-xs mt-1">{errors.helpCommunity.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.helpCommunity.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <span className={labelClass}>
-                  {t('application.fields.hasLaptop')} <span className="text-red-500">*</span>
+                  {t('application.fields.hasLaptop')} <span className="aw-required">*</span>
                 </span>
-                <div className="flex gap-6">
-                  <label className="inline-flex items-center gap-2 cursor-pointer">
+                <div className="aw-choices">
+                  <label className="aw-choice">
                     <input
                       type="radio"
                       value="yes"
                       {...register('hasLaptop', { required: 'Please select' })}
                     />
-                    <span className="text-sm">{t('common.yes')}</span>
+                    <span className="aw-choice-text">{t('common.yes')}</span>
                   </label>
-                  <label className="inline-flex items-center gap-2 cursor-pointer">
+                  <label className="aw-choice">
                     <input
                       type="radio"
                       value="no"
                       {...register('hasLaptop', { required: 'Please select' })}
                     />
-                    <span className="text-sm">{t('common.no')}</span>
+                    <span className="aw-choice-text">{t('common.no')}</span>
                   </label>
                 </div>
                 {errors.hasLaptop && (
-                  <p className="text-red-500 text-xs mt-1">{errors.hasLaptop.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.hasLaptop.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <label className={labelClass}>
                   {t('application.fields.internetSpeedPrefix')}{' '}
-                  <a
-                    href="https://fast.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#F7931A] underline"
-                  >
+                  <a href="https://fast.com" target="_blank" rel="noopener noreferrer">
                     fast.com
                   </a>
                   {t('application.fields.internetSpeedSuffix')}{' '}
-                  <span className="text-red-500">*</span>
+                  <span className="aw-required">*</span>
                 </label>
                 <input
                   type="text"
@@ -665,35 +680,40 @@ export default function ApplicationWizard({
                   {...register('internetSpeed', { required: 'Required' })}
                 />
                 {errors.internetSpeed && (
-                  <p className="text-red-500 text-xs mt-1">{errors.internetSpeed.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.internetSpeed.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <span className={labelClass}>
-                  {t('application.fields.videoConferencing')}{' '}
-                  <span className="text-red-500">*</span>
+                  {t('application.fields.videoConferencing')} <span className="aw-required">*</span>
                 </span>
-                <div className="flex gap-6">
-                  <label className="inline-flex items-center gap-2 cursor-pointer">
+                <div className="aw-choices">
+                  <label className="aw-choice">
                     <input
                       type="radio"
                       value="yes"
                       {...register('videoConferencing', { required: 'Please select' })}
                     />
-                    <span className="text-sm">{t('common.yes')}</span>
+                    <span className="aw-choice-text">{t('common.yes')}</span>
                   </label>
-                  <label className="inline-flex items-center gap-2 cursor-pointer">
+                  <label className="aw-choice">
                     <input
                       type="radio"
                       value="no"
                       {...register('videoConferencing', { required: 'Please select' })}
                     />
-                    <span className="text-sm">{t('common.no')}</span>
+                    <span className="aw-choice-text">{t('common.no')}</span>
                   </label>
                 </div>
                 {errors.videoConferencing && (
-                  <p className="text-red-500 text-xs mt-1">{errors.videoConferencing.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.videoConferencing.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -701,60 +721,60 @@ export default function ApplicationWizard({
 
           {/* Step 3: Bitcoin + submit */}
           {step === 2 && (
-            <div className="space-y-5" data-testid="wizard-step-3">
-              <h2 className="text-lg font-bold text-black border-b border-gray-100 pb-2">
-                {t('application.sections.three')}
-              </h2>
+            <div className="aw-step" data-testid="wizard-step-3">
+              <h2 className="aw-section-title">{t('application.sections.three')}</h2>
 
               <div>
                 <label className={labelClass}>
-                  {t('application.fields.bitcoinKnowledge')} <span className="text-red-500">*</span>
+                  {t('application.fields.bitcoinKnowledge')} <span className="aw-required">*</span>
                 </label>
-                <div className="space-y-2">
+                <div className="aw-options">
                   {bitcoinKnowledgeOptions.map((opt) => (
-                    <label
-                      key={opt.value}
-                      className="flex items-start gap-3 cursor-pointer rounded-xl border border-gray-200 p-3 has-[:checked]:border-[#F7931A] has-[:checked]:bg-[#F7931A]/5"
-                    >
+                    <label key={opt.value} className="aw-option">
                       <input
                         type="radio"
                         value={opt.value}
-                        className="mt-1"
                         {...register('bitcoinKnowledge', { required: 'Please select' })}
                       />
-                      <span className="text-sm text-gray-800">{opt.label}</span>
+                      <span className="aw-choice-text">{opt.label}</span>
                     </label>
                   ))}
                 </div>
                 {errors.bitcoinKnowledge && (
-                  <p className="text-red-500 text-xs mt-1">{errors.bitcoinKnowledge.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.bitcoinKnowledge.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <span className={labelClass}>
-                  {t('application.fields.usedBitcoin')} <span className="text-red-500">*</span>
+                  {t('application.fields.usedBitcoin')} <span className="aw-required">*</span>
                 </span>
-                <div className="flex gap-6">
-                  <label className="inline-flex items-center gap-2 cursor-pointer">
+                <div className="aw-choices">
+                  <label className="aw-choice">
                     <input
                       type="radio"
                       value="yes"
                       {...register('usedBitcoin', { required: 'Please select' })}
                     />
-                    <span className="text-sm">{t('common.yes')}</span>
+                    <span className="aw-choice-text">{t('common.yes')}</span>
                   </label>
-                  <label className="inline-flex items-center gap-2 cursor-pointer">
+                  <label className="aw-choice">
                     <input
                       type="radio"
                       value="no"
                       {...register('usedBitcoin', { required: 'Please select' })}
                     />
-                    <span className="text-sm">{t('common.no')}</span>
+                    <span className="aw-choice-text">{t('common.no')}</span>
                   </label>
                 </div>
                 {errors.usedBitcoin && (
-                  <p className="text-red-500 text-xs mt-1">{errors.usedBitcoin.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.usedBitcoin.message}
+                  </p>
                 )}
               </div>
 
@@ -762,7 +782,7 @@ export default function ApplicationWizard({
                 <label className={labelClass}>{t('application.fields.uniqueOptional')}</label>
                 <textarea
                   rows={3}
-                  className={`${inputClass(false)} resize-y`}
+                  className={`${inputClass(false)} aw-textarea`}
                   {...register('uniqueOptional')}
                 />
               </div>
@@ -771,7 +791,7 @@ export default function ApplicationWizard({
                 <label className={labelClass}>{t('application.fields.questionsForUs')}</label>
                 <textarea
                   rows={3}
-                  className={`${inputClass(false)} resize-y`}
+                  className={`${inputClass(false)} aw-textarea`}
                   {...register('questionsForUs')}
                 />
               </div>
@@ -779,32 +799,36 @@ export default function ApplicationWizard({
               <div>
                 <label className={labelClass}>
                   {t('application.fields.teachingExperience')}{' '}
-                  <span className="text-red-500">*</span>
+                  <span className="aw-required">*</span>
                 </label>
                 <textarea
                   rows={3}
                   placeholder={t('application.placeholders.teaching')}
-                  className={`${inputClass(!!errors.teachingExperience)} resize-y`}
+                  className={`${inputClass(!!errors.teachingExperience)} aw-textarea`}
                   {...register('teachingExperience', { required: 'Required' })}
                 />
                 {errors.teachingExperience && (
-                  <p className="text-red-500 text-xs mt-1">{errors.teachingExperience.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.teachingExperience.message}
+                  </p>
                 )}
               </div>
 
               <div>
                 <label className={labelClass}>
                   {t('application.fields.programmingExperience')}{' '}
-                  <span className="text-red-500">*</span>
+                  <span className="aw-required">*</span>
                 </label>
                 <textarea
                   rows={3}
                   placeholder={t('application.placeholders.programming')}
-                  className={`${inputClass(!!errors.programmingExperience)} resize-y`}
+                  className={`${inputClass(!!errors.programmingExperience)} aw-textarea`}
                   {...register('programmingExperience', { required: 'Required' })}
                 />
                 {errors.programmingExperience && (
-                  <p className="text-red-500 text-xs mt-1">
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
                     {errors.programmingExperience.message}
                   </p>
                 )}
@@ -814,26 +838,27 @@ export default function ApplicationWizard({
                 <label className={labelClass}>{t('application.fields.anythingElse')}</label>
                 <textarea
                   rows={3}
-                  className={`${inputClass(false)} resize-y`}
+                  className={`${inputClass(false)} aw-textarea`}
                   {...register('anythingElse')}
                 />
               </div>
 
-              <div className="rounded-xl border border-gray-200 p-4 bg-gray-50">
-                <label className="flex items-start gap-3 cursor-pointer">
+              <div className="aw-consent">
+                <label className="aw-consent-label">
                   <input
                     type="checkbox"
-                    className="mt-1 rounded border-gray-300"
+                    className="aw-checkbox"
                     {...register('consentAccepted', {
                       validate: (v) => v === true || 'You must confirm to submit',
                     })}
                   />
-                  <span className="text-sm text-gray-700 leading-relaxed">
-                    {t('application.fields.submitConsent')}
-                  </span>
+                  <span className="aw-consent-text">{t('application.fields.submitConsent')}</span>
                 </label>
                 {errors.consentAccepted && (
-                  <p className="text-red-500 text-xs mt-2">{errors.consentAccepted.message}</p>
+                  <p className="aw-error">
+                    <WarningCircle aria-hidden />
+                    {errors.consentAccepted.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -841,41 +866,38 @@ export default function ApplicationWizard({
 
           {/* Nav */}
           {submitError && (
-            <p className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
+            <p className="aw-alert" role="alert">
+              <WarningCircle aria-hidden />
               {t('application.submitError')}
             </p>
           )}
-          <div className="flex flex-col-reverse sm:flex-row gap-3 pt-4 border-t border-gray-100">
+          <div className="aw-actions">
             {step > 0 && (
-              <button
-                type="button"
-                onClick={goBack}
-                className="btn-outline-orange justify-center flex-1 sm:flex-none"
-              >
-                <ArrowLeft size={18} />
+              <button type="button" onClick={goBack} className="ism-btn ism-btn--secondary aw-back">
+                <ArrowLeft aria-hidden />
                 {t('application.back')}
               </button>
             )}
             {step < 2 && (
-              <button type="button" onClick={goNext} className="btn-primary justify-center flex-1">
+              <button type="button" onClick={goNext} className="ism-btn aw-next">
                 {t('application.continue')}
-                <ArrowRight size={18} />
+                <ArrowRight aria-hidden />
               </button>
             )}
             {step === 2 && (
-              <button
-                type="submit"
-                disabled={submitting}
-                className="btn-primary justify-center flex-1 disabled:opacity-70 disabled:cursor-not-allowed"
-              >
+              <button type="submit" disabled={submitting} className="ism-btn aw-next">
                 {submitting ? (
                   <>
-                    <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    <span className="aw-dots" aria-hidden>
+                      <span />
+                      <span />
+                      <span />
+                    </span>
                     {t('application.submitting')}
                   </>
                 ) : (
                   <>
-                    <Send size={18} />
+                    <Send aria-hidden />
                     {t('application.submit')}
                   </>
                 )}
