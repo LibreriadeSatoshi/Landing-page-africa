@@ -47,3 +47,15 @@ EN is the source of truth — all keys in EN must exist in FR and SW.
 - Keep interactions lightweight — subtle hover states only
 - Support light and dark mode if applicable
 - Mobile first
+
+## Design system (ISMOS)
+
+All UI, styling, layout and icon work follows the ISMOS design system (kit copied from `../21weeks`, kept byte-identical; do not run Prettier on it or edit it).
+
+- Read `.claude/skills/ismos-ui/SKILL.md` before touching UI. Full guide in `design/ismos/docs/` (01–10); it wins on conflict.
+- `design/ismos/css/ismos.css` is imported from `src/index.css`; `<body class="ism-root">` is set in `index.html`. Tailwind stays on v3 with its default theme, so live components use `ism-*` classes and token CSS variables (`var(--space-16)`, `var(--surface)`…) instead of Tailwind utilities.
+- Never hex, loose px spacing, radii or shadows outside the tokens. Icons: `iconoir-react@7.11.0` only.
+- Do not edit generated files in `design/ismos/`: change `design/ismos/tokens.json` and run `npm run ismos:tokens`.
+- Copy follows ISMOS voice too (`design/ismos/docs/05-voice-and-tone.md`, `05.1-content.md`): no emoji, em dashes, exclamation marks or banned words (learners → students, certificate → record of completion, journey, empower, transform, unlock, cutting-edge…), sentence case outside labels. `npm run ismos:check` scans the locales as well.
+- Before finishing UI work: `npm run ismos:check` and `npm run test:ismos` must pass. Check light and dark (Hacker) mode, at 360 px and desktop.
+- `ismos:check` lists the live components explicitly. `Hero`, `What`, `Why`, `Goal`, `How`, `Benefits`, `Footer`, `EnrollmentForm` and `AudienceSelector` are not rendered and were not migrated.

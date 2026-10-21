@@ -1,5 +1,13 @@
 import { useState } from 'react';
-import { Mail, Twitter, MessageCircle, Globe, BookOpen } from 'lucide-react';
+import {
+  CheckCircle,
+  Discord,
+  Mail,
+  Telegram,
+  Twitter,
+  WarningCircle,
+  Youtube,
+} from 'iconoir-react';
 import { useTranslation } from 'react-i18next';
 import './UnifiedFooter.css';
 
@@ -59,7 +67,7 @@ export default function UnifiedFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="unified-footer">
+    <footer className="unified-footer ism-block">
       <div className="footer-content">
         <section className="newsletter-section">
           <div className="newsletter-container">
@@ -80,21 +88,31 @@ export default function UnifiedFooter() {
                   required
                   disabled={isSubmitting}
                   autoComplete="email"
-                  className="email-input"
+                  className="email-input ism-field__input"
                   aria-invalid={status === 'error'}
                   aria-describedby="newsletter-status"
                 />
-                <button type="submit" className="subscribe-btn" disabled={isSubmitting}>
-                  <Mail size={16} />
+                <button
+                  type="submit"
+                  className="subscribe-btn ism-btn ism-btn--on-color"
+                  disabled={isSubmitting}
+                >
+                  <Mail aria-hidden />
                   {isSubmitting ? t('unifiedFooter.subscribing') : t('unifiedFooter.subscribe')}
                 </button>
               </div>
               <div id="newsletter-status" aria-live="polite" role="status">
                 {status === 'success' && (
-                  <p className="success-message">{t('unifiedFooter.subscribeSuccess')}</p>
+                  <p className="success-message">
+                    <CheckCircle aria-hidden />
+                    {t('unifiedFooter.subscribeSuccess')}
+                  </p>
                 )}
                 {status === 'error' && (
-                  <p className="error-message">{t(`unifiedFooter.${errorKey}`)}</p>
+                  <p className="error-message">
+                    <WarningCircle aria-hidden />
+                    {t(`unifiedFooter.${errorKey}`)}
+                  </p>
                 )}
               </div>
               <p className="consent-text">
@@ -107,7 +125,9 @@ export default function UnifiedFooter() {
 
         <section className="footer-grid">
           <div className="footer-column">
-            <h4 className="footer-title">{t('unifiedFooter.columnProgram')}</h4>
+            <h4 className="footer-title ism-label ism-label--on-color">
+              {t('unifiedFooter.columnProgram')}
+            </h4>
             <ul className="footer-links">
               <li>
                 <a href="#about">{t('unifiedFooter.linkLearners')}</a>
@@ -127,7 +147,9 @@ export default function UnifiedFooter() {
           </div>
 
           <div className="footer-column">
-            <h4 className="footer-title">{t('unifiedFooter.columnLearn')}</h4>
+            <h4 className="footer-title ism-label ism-label--on-color">
+              {t('unifiedFooter.columnLearn')}
+            </h4>
             <ul className="footer-links">
               <li>
                 <a href="#">{t('unifiedFooter.linkBitcoinBasics')}</a>
@@ -142,7 +164,9 @@ export default function UnifiedFooter() {
           </div>
 
           <div className="footer-column">
-            <h4 className="footer-title">{t('unifiedFooter.columnExplore')}</h4>
+            <h4 className="footer-title ism-label ism-label--on-color">
+              {t('unifiedFooter.columnExplore')}
+            </h4>
             <ul className="footer-links">
               <li>
                 <a
@@ -168,7 +192,9 @@ export default function UnifiedFooter() {
           </div>
 
           <div className="footer-column">
-            <h4 className="footer-title">{t('unifiedFooter.columnConnect')}</h4>
+            <h4 className="footer-title ism-label ism-label--on-color">
+              {t('unifiedFooter.columnConnect')}
+            </h4>
             <div className="social-links">
               <a
                 href="https://twitter.com"
@@ -176,7 +202,7 @@ export default function UnifiedFooter() {
                 rel="noopener noreferrer"
                 aria-label={t('unifiedFooter.ariaTwitter')}
               >
-                <Twitter size={20} />
+                <Twitter aria-hidden />
               </a>
               <a
                 href="https://telegram.org"
@@ -184,7 +210,7 @@ export default function UnifiedFooter() {
                 rel="noopener noreferrer"
                 aria-label={t('unifiedFooter.ariaTelegram')}
               >
-                <MessageCircle size={20} />
+                <Telegram aria-hidden />
               </a>
               <a
                 href="https://youtube.com"
@@ -192,7 +218,7 @@ export default function UnifiedFooter() {
                 rel="noopener noreferrer"
                 aria-label={t('unifiedFooter.ariaYoutube')}
               >
-                <Globe size={20} />
+                <Youtube aria-hidden />
               </a>
               <a
                 href="https://discord.com"
@@ -200,7 +226,7 @@ export default function UnifiedFooter() {
                 rel="noopener noreferrer"
                 aria-label={t('unifiedFooter.ariaDiscord')}
               >
-                <BookOpen size={20} />
+                <Discord aria-hidden />
               </a>
             </div>
             <div className="social-text">
@@ -212,7 +238,7 @@ export default function UnifiedFooter() {
         <section className="footer-bottom">
           <div className="footer-bottom-left">
             <p>
-              <strong>{t('unifiedFooter.bottomLead')}</strong> — {t('unifiedFooter.bottomTagline')}
+              <strong>{t('unifiedFooter.bottomLead')}</strong> · {t('unifiedFooter.bottomTagline')}
             </p>
             <p className="copyright">{t('unifiedFooter.copyright', { year })}</p>
           </div>

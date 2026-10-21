@@ -4,7 +4,7 @@
     "no": "Non"
   },
   "nav": {
-    "forLearners": "Pour les Apprenants",
+    "forLearners": "Pour les étudiants",
     "forEducators": "Pour les Éducateurs",
     "forPartners": "Pour les Partenaires"
   },
@@ -23,7 +23,7 @@
       "partners": "Partenez avec nous pour étendre l'éducation Bitcoin à travers l'Afrique"
     },
     "badge": {
-      "learners": "Candidatures ouvertes - Programme Ambassadeur Afrique 2026",
+      "learners": "Candidatures ouvertes : Programme Ambassadeur Afrique 2026",
       "educators": "Ressources pour Éducateurs Disponibles",
       "partners": "Opportunités de Partenariat"
     },
@@ -35,10 +35,10 @@
         "suffix": "Façonnez l'avenir de l'Afrique."
       },
       "educators": {
-        "prefix": "Autonomisez les Éducateurs.",
+        "prefix": "Formez les éducateurs.",
         "highlight": "Facilitez",
         "middle": "les Ateliers Bitcoin.",
-        "suffix": "Transformez les Communautés."
+        "suffix": "Renforcez les communautés."
       },
       "partners": {
         "prefix": "Partenez Avec Nous.",
@@ -58,7 +58,7 @@
     },
     "cta": {
       "learners": {
-        "apply": "Postuler maintenant - Gratuit",
+        "apply": "Postuler maintenant. C'est gratuit",
         "learnMore": "En savoir plus"
       },
       "educators": {
@@ -76,8 +76,8 @@
   "what": {
     "label": "Ce que nous construisons",
     "title": "Le reseau africain d'education Bitcoin, langue d'abord",
-    "description": "Libreria de Satoshi construit le plus grand programme d'education technologique et d'ambassadeurs de l'Afrique. Un reseau auto-suffisant de jeunes leaders africains qui maitrisent les competences numeriques de pointe et multiplient ce savoir dans leurs communautes.",
-    "quote": "\"Par cohortes, pratique et mentorat, nous transformons des apprenants ambitieux en educateurs confiants et leaders communautaires.\"",
+    "description": "Libreria de Satoshi construit le plus grand programme d'education technologique et d'ambassadeurs de l'Afrique. Un reseau auto-suffisant de jeunes leaders africains qui maitrisent les competences numeriques actuelles et multiplient ce savoir dans leurs communautes.",
+    "quote": "\"Par cohortes, pratique et mentorat, des étudiants ambitieux deviennent des éducateurs confiants et des leaders communautaires.\"",
     "cards": {
       "reach": {
         "title": "Portee continentale",
@@ -89,7 +89,7 @@
       },
       "community": {
         "title": "Croissance communautaire",
-        "description": "Passez d'apprenant a educateur. Construisez un impact durable en devenant un referent Bitcoin local."
+        "description": "Passez d'étudiant à éducateur. Construisez un impact durable en devenant un referent Bitcoin local."
       }
     }
   },
@@ -111,7 +111,7 @@
       "ai": "Intelligence artificielle"
     },
     "tiers": {
-      "learner": "Apprenant",
+      "learner": "Étudiant",
       "ambassador": "Ambassadeur",
       "educator": "Educateur",
       "leader": "Leader"
@@ -143,7 +143,7 @@
   "how": {
     "label": "Comment ca marche",
     "titlePrefix": "Votre chemin de",
-    "titleHighlight": "l'apprenant au leader",
+    "titleHighlight": "l'étudiant au leader",
     "description": "Un programme structure, etape par etape, pour vous amener de debutant Bitcoin a educateur communautaire.",
     "stepLabel": "Etape",
     "steps": {
@@ -187,8 +187,8 @@
     },
     "cards": {
       "certified": {
-        "title": "Éducateur certifié",
-        "description": "Obtenez une certification officielle qui vous reconnaît comme un éducateur qualifié du Bitcoin et de l'open source à travers l'Afrique."
+        "title": "Éducateur reconnu",
+        "description": "Recevez une attestation officielle de fin de programme qui vous reconnaît comme un éducateur qualifié du Bitcoin et de l'open source à travers l'Afrique."
       },
       "earnAsYouLearn": {
         "title": "Gagnez en apprenant",
@@ -200,10 +200,10 @@
       },
       "globalOpportunities": {
         "title": "Communauté mondiale et opportunités",
-        "description": "Connectez-vous avec des éducateurs Bitcoin et des leaders de l'écosystème mondial, et débloquez des bourses, des invitations à des conférences et des résidences internationales."
+        "description": "Connectez-vous avec des éducateurs Bitcoin et des leaders de l'écosystème mondial, et accédez à des bourses, des invitations à des conférences et des résidences internationales."
       },
       "techTraining": {
-        "title": "Formation technologique de pointe",
+        "title": "Formation technologique actuelle",
         "description": "Formation pratique en Bitcoin, cryptographie, Blockchain, codage, IA et outils open source et compétences qui comptent maintenant et à l'avenir."
       },
       "portfolio": {
@@ -223,11 +223,15 @@
     "questionsSuffix": "avec \"Ambassador Question\" dans l'objet."
   },
   "footer": {
-    "description": "Construire le reseau Bitcoin africain, de l'apprenant a l'educateur.",
+    "description": "Construire le reseau Bitcoin africain, de l'étudiant a l'educateur.",
     "navigation": "Navigation",
     "connect": "Connexion",
     "poweredBy": "Propulse par",
-    "social": { "twitter": "Twitter", "telegram": "Telegram", "github": "GitHub" },
+    "social": {
+      "twitter": "Twitter",
+      "telegram": "Telegram",
+      "github": "GitHub"
+    },
     "links": {
       "home": "Accueil",
       "about": "A propos",
@@ -240,7 +244,7 @@
       "terms": "Conditions d'utilisation",
       "contact": "Contact"
     },
-    "copyright": "© {{year}} Africa Bitcoin Education. Tous droits reserves."
+    "copyright": "Copyright {{year}} Africa Bitcoin Education. Tous droits reserves."
   },
   "application": {
     "backHome": "Retour a l'accueil",
@@ -320,16 +324,16 @@
       "logoSuffix": ".",
       "program": "Programme",
       "whyAfrica": "Pourquoi l'Afrique",
-      "howItWorks": "Fonctionnement",
+      "howItWorks": "Comment ça marche",
       "faq": "FAQ",
       "applyNow": "Postuler"
     },
     "hero": {
-      "eyebrow": "🌍 À l'échelle du continent · Multilingue · Gratuit",
+      "eyebrow": "À l'échelle du continent · Multilingue · Gratuit",
       "titleLine1": "Apprenez Bitcoin.",
       "titleLine2": "Enseignez l'Afrique.",
       "titleEmphasis": "Dans votre langue.",
-      "description": "Rejoignez un réseau structuré d'éducation Bitcoin qui construit une maîtrise technique partout en Afrique dans les langues dans lesquelles les gens pensent vraiment. Les apprenants deviennent formateurs. Les savoirs se multiplient.",
+      "description": "Rejoignez un réseau structuré d'éducation Bitcoin qui construit une maîtrise technique partout en Afrique dans les langues dans lesquelles les gens pensent vraiment. Les étudiants deviennent formateurs. Les savoirs se multiplient.",
       "applyAmbassador": "Postuler comme ambassadeur",
       "exploreProgram": "Découvrir le programme",
       "cardTitle": "Le programme en bref",
@@ -346,11 +350,11 @@
       "label": "À qui s'adresse ce programme ?",
       "title": "Il y a une place pour vous",
       "description": "Que vous souhaitiez apprendre, enseigner ou faire grandir l'éducation Bitcoin, le réseau est fait pour vous.",
-      "tabLearners": "🎒 Apprenants",
-      "tabEducators": "🎓 Éducateurs",
-      "tabPartners": "🤝 Partenaires",
-      "learners": {
-        "title": "Commencez votre parcours Bitcoin dans votre langue",
+      "tabLearners": "Étudiants",
+      "tabEducators": "Éducateurs",
+      "tabPartners": "Partenaires",
+      "students": {
+        "title": "Commencez à apprendre Bitcoin dans votre langue",
         "body": "Formation Bitcoin gratuite et structurée pour les Africains. Blockchain, cryptographie, économie et code. Aucune expérience préalable requise, seulement la motivation de comprendre et l'engagement à partager.",
         "applyCta": "Postuler comme ambassadeur",
         "tileCommitment": "Engagement",
@@ -368,8 +372,8 @@
           "Internet fiable et ordinateur ou smartphone"
         ],
         "colLangTitle": "Langues prises en charge",
-        "pillEnglish": "🇳🇬 Anglais",
-        "pillFrench": "🇫🇷 Français",
+        "pillEnglish": "Anglais",
+        "pillFrench": "Français",
         "pillMore": "+ Autres",
         "colCountriesTitle": "Pays où nous sommes actifs",
         "countryNigeria": "Nigeria",
@@ -379,13 +383,13 @@
         "countryTanzania": "Tanzanie"
       },
       "teachers": {
-        "title": "Devenez éducateur Bitcoin certifié",
-        "body": "Rejoignez notre réseau de tuteurs. Formez une cohorte de 8 à 12 apprenants, adaptez le programme aux langues régionales et formez la prochaine génération d'éducateurs Bitcoin techniques en Afrique. Une rémunération pour votre expertise.",
+        "title": "Devenez éducateur Bitcoin reconnu",
+        "body": "Rejoignez notre réseau de tuteurs. Formez une cohorte de 8 à 12 étudiants, adaptez le programme aux langues régionales et formez la prochaine génération d'éducateurs Bitcoin techniques en Afrique. Une rémunération pour votre expertise.",
         "applyCta": "Postuler comme tuteur",
         "tilePersonas": "Profils tuteurs",
         "tilePersonasValue": "SME · SME technique · Professeur · Organisateur d'événements",
         "tileCohort": "Taille de cohorte",
-        "tileCohortValue": "8–12 apprenants par éducateur",
+        "tileCohortValue": "8–12 étudiants par éducateur",
         "tileSupport": "Accompagnement et rémunération",
         "tileSupportValue": "Appels hebdomadaires · Programme · 5–10 $/h",
         "colWhoTitle": "Qui devrait postuler",
@@ -396,7 +400,7 @@
           "Experts du Bitcoin ou des technologies",
           "Développeurs souhaitant partager leurs connaissances"
         ],
-        "colJourneyTitle": "Parcours tuteur",
+        "colJourneyTitle": "Étapes du tuteur",
         "journeyPhase1": "Phase 1 - Orientation :",
         "journeyPhase1Body": "Accueil, formation plateforme, session d'enseignement fictive",
         "journeyPhase2": "Phase 2 - Cohortes :",
@@ -433,7 +437,7 @@
     "howSection": {
       "label": "Le modèle",
       "title": "Comment fonctionne le programme",
-      "description": "Un parcours structuré sur trois mois, de l'apprenant à l'ambassadeur puis à l'éducateur.",
+      "description": "Un programme structuré sur trois mois, de l'étudiant à l'ambassadeur puis à l'éducateur.",
       "cards": [
         {
           "title": "Apprentissage par cohortes",
@@ -445,30 +449,30 @@
         },
         {
           "title": "Filtrage par la preuve de travail",
-          "body": "Les apprenants avancent en réussissant des évaluations. Les progrès se méritent, ce qui donne du poids au diplôme."
+          "body": "Les étudiants avancent en réussissant des évaluations. Les progrès se méritent, ce qui donne du poids à l'attestation de fin de programme."
         },
         {
           "title": "Localisation et langues d'abord",
           "body": "Les ambassadeurs bilingues traduisent et contextualisent chaque module. La cohorte apprend dans la langue dans laquelle vous pensez."
         },
         {
-          "title": "De l'apprenant à l'éducateur",
+          "title": "De l'étudiant à l'éducateur",
           "body": "Les meilleurs reçoivent outils, programme et soutien pour animer leur propre cohorte. Les savoirs se multiplient, région par région."
         },
         {
-          "title": "Certification et reconnaissance",
-          "body": "Les diplômés obtiennent un certificat officiel (LinkedIn), l'accès au réseau d'éducateurs et une priorité pour les subventions en Afrique."
+          "title": "Reconnaissance",
+          "body": "À la fin, vous recevez une attestation officielle de fin de programme (LinkedIn), l'accès au réseau d'éducateurs et une priorité pour les subventions en Afrique."
         }
       ]
     },
     "benefitsSection": {
       "label": "Ce que vous gagnez",
       "title": "Avantages de rejoindre",
-      "description": "Ce n'est pas un cours passif. Vous quittez le programme comme éducateur technique crédible, avec un réseau et une reconnaissance réels.",
+      "description": "Ce n'est pas un cours passif. Vous quittez le programme comme éducateur technique crédible, avec un réseau et une attestation réels.",
       "cards": [
         {
-          "title": "Éducateur certifié",
-          "body": "Une certification officielle qui vous reconnaît comme éducateur Bitcoin et open source qualifié en Afrique."
+          "title": "Éducateur reconnu",
+          "body": "Une attestation officielle de fin de programme qui vous reconnaît comme éducateur Bitcoin et open source qualifié en Afrique."
         },
         {
           "title": "Gagner en apprenant",
@@ -483,7 +487,7 @@
           "body": "Échangez avec des éducateurs et leaders Bitcoin dans le monde ; bourses, conférences et résidences internationales."
         },
         {
-          "title": "Formation tech de pointe",
+          "title": "Formation tech actuelle",
           "body": "Pratique : Bitcoin, cryptographie, blockchain, code, IA et outils open source utiles aujourd'hui et demain."
         },
         {
@@ -502,11 +506,11 @@
         },
         {
           "question": "Ai-je besoin d'expérience préalable en Bitcoin ou en tech ?",
-          "answer": "Non. Le programme part de zéro pour les apprenants motivés. Il compte votre régularité, 10 à 20 heures d'étude par semaine en autonomie, et votre volonté de partager ensuite avec votre communauté."
+          "answer": "Non. Le programme part de zéro pour les personnes motivées. Il compte votre régularité, 10 à 20 heures d'étude par semaine en autonomie, et votre volonté de partager ensuite avec votre communauté."
         },
         {
           "question": "Le programme est-il vraiment gratuit ?",
-          "answer": "Oui, entièrement gratuit pour tous les apprenants. Notre mission est de lever tout obstacle à une éducation de qualité, y compris le coût. Le programme est financé par des subventions et le soutien de l'écosystème Bitcoin à l'éducation ouverte."
+          "answer": "Oui, entièrement gratuit pour tous les étudiants. Notre mission est de lever tout obstacle à une éducation de qualité, y compris le coût. Le programme est financé par des subventions et le soutien de l'écosystème Bitcoin à l'éducation ouverte."
         },
         {
           "question": "Pourquoi dois-je parler deux langues ?",
@@ -514,7 +518,7 @@
         },
         {
           "question": "Que se passe-t-il après la fin du programme ?",
-          "answer": "Les meilleurs diplômes sont identifiés via les évaluations et les pairs. Ceux qui montrent une aptitude à former sont invités à animer une cohorte de 8 à 12 apprenants dans leur langue et leur communauté. Vous recevez du matériel pédagogique, du soutien de tuteurs et une rémunération (5–10 $/h). Les savoirs se propagent."
+          "answer": "Les étudiants les plus solides sont identifiés via les évaluations et les pairs. Ceux qui montrent une aptitude à former sont invités à animer une cohorte de 8 à 12 étudiants dans leur langue et leur communauté. Vous recevez du matériel pédagogique, du soutien de tuteurs et une rémunération (5–10 $/h). Les savoirs se propagent."
         },
         {
           "question": "Bitcoin est-il légal dans mon pays ?",
@@ -527,7 +531,7 @@
       "titleLine2": "l'avenir Bitcoin",
       "titleEmphasis": "de l'Afrique ?",
       "description": "Que vous veniez pour apprendre, enseigner ou soutenir cette mission, il y a une place pour vous. Rejoignez le réseau qui construit l'éducation Bitcoin depuis le terrain, dans chaque langue africaine.",
-      "applyLearner": "Postuler comme apprenant",
+      "applyLearner": "Postuler comme étudiant",
       "becomeTutor": "Devenir tuteur",
       "partnerWithUs": "Devenir partenaire"
     }
@@ -538,7 +542,7 @@
     "emailPlaceholder": "Votre e-mail",
     "subscribe": "S'inscrire",
     "subscribing": "Inscription…",
-    "subscribeSuccess": "Merci pour votre inscription ! Vérifiez vos e-mails.",
+    "subscribeSuccess": "Vous êtes inscrit. Vérifiez votre boîte de réception pour confirmer.",
     "subscribeError": "Une erreur s'est produite. Veuillez réessayer.",
     "invalidEmail": "Veuillez saisir une adresse e-mail valide.",
     "consent": "Nous respectons votre vie privée. Désinscription à tout moment.",
@@ -547,7 +551,7 @@
     "columnLearn": "Apprendre",
     "columnExplore": "Explorer",
     "columnConnect": "Connexion",
-    "linkLearners": "Apprenants",
+    "linkLearners": "Étudiants",
     "linkEducators": "Éducateurs",
     "linkPartners": "Partenaires",
     "linkApplyNow": "Postuler",
@@ -561,7 +565,7 @@
     "connectBlurb": "Rejoignez notre communauté à travers l'Afrique.",
     "bottomLead": "Africa Bitcoin Education",
     "bottomTagline": "Construire une maîtrise technique partout en Afrique, dans chaque langue.",
-    "copyright": "© {{year}} Africa Bitcoin Education. Tous droits réservés.",
+    "copyright": "Copyright {{year}} Africa Bitcoin Education. Tous droits réservés.",
     "legalPrivacy": "Confidentialité",
     "legalTerms": "Conditions d'utilisation",
     "legalConduct": "Code de conduite",
