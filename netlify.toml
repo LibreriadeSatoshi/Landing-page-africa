@@ -12,14 +12,11 @@
 [context.branch-deploy]
   command = "npm run build"
 
-# Pretty URL for the newsletter-subscribe Netlify function.
-# /api/newsletter-subscribe → /.netlify/functions/newsletter-subscribe
+# The Ambassador Africa program and its application form moved to ismos.xyz (2026-10-27):
+# every address of this site, its API routes included, now sends visitors there. To bring the
+# landing back, revert this rule and restore the two /api/ routes below it in git history.
 [[redirects]]
-  from = "/api/newsletter-subscribe"
-  to = "/.netlify/functions/newsletter-subscribe"
-  status = 200
-
-[[redirects]]
-  from = "/api/application-submit"
-  to = "/.netlify/functions/application-submit"
-  status = 200
+  from = "/*"
+  to = "https://ismos.xyz/en/programs/ambassador-africa/"
+  status = 301
+  force = true
